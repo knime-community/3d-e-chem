@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Tests
+Bundle-SymbolicName: nl.esciencecenter.e3dchem.modifiedtanimoto.tests
+Bundle-Version: 0.0.1.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.junit4;bundle-version="4.8.1",
+ nl.esciencecenter.e3dchem.modifiedtanimoto;bundle-version="1.0.1",
+ org.knime.core;bundle-version="2.12.1",
+ org.knime.distmatrix;bundle-version="2.12.1"
+Bundle-Vendor: Netherlands eScience Center
