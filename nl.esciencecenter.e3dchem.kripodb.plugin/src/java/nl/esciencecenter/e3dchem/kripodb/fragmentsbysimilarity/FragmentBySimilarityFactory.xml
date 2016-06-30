@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<knimeNode icon="./default.png" type="Manipulator" xmlns="http://knime.org/node/v2.8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://knime.org/node/v2.10 http://knime.org/node/v2.10.xsd">
+    <name>Similar fragments</name>
+    
+    <shortDescription>
+        Find similar fragments to queries based on distance matrix.
+    </shortDescription>
+    
+    <fullDescription>
+        <intro>Find similar fragments to queries based on distance matrix.</intro>
+        
+        
+        <option name="Fragment identifiers">The column containing the fragment identifiers</option>
+        <option name="Matrix (Selected File)">Location of distance matrix, can be the 
+base url of kripodb webservice or local file.
+Webservice can be started with `kripodb serve /data/kripo/tiny/distances.h5`. 
+Or use the public Kripo webservice at 'http://3d-e-chem.vu-compmedchem.nl/kripodb'.
+When combining the public webservice with the fragment kripo sqlite database make sure to use the full PDB version of the database.</option>
+        <option name="Cutoff">Cutoff, scores below cutoff are discarded.</option>
+        <option name="Limit">Maximum number of hits for each query.</option>
+    </fullDescription>
+    
+    <ports>
+        <inPort index="0" name="Query fragments">Table with Kripo fragment identifiers</inPort>
+        <!-- possibly more input ports here-->
+        <outPort index="0" name="Similar fragments">Table with similar Kripo fragment identifiers and scores vs the input table.</outPort>
+        <!-- possibly more output ports here-->
+    </ports>    
+    <views>
+    </views>
+</knimeNode>

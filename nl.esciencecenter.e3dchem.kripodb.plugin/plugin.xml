@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.0"?>
 <plugin>
-  <extension point="org.knime.python.sourcecodetemplates">
-    <directory path="templates"/>
+  <extension point="org.knime.workbench.repository.categories">
+    <category
+          description="Category containing Kripo nodes"
+          icon="nl/esciencecenter/e3dchem/kripodb/kripo.png"
+          level-id="kripodb"
+          locked="false"
+          name="KripoDB"
+          path="/community"/>
   </extension>
+
+    <extension point="org.knime.workbench.repository.nodes">
+        <node
+               category-path="/community/kripodb"
+               deprecated="false"
+               factory-class="nl.esciencecenter.e3dchem.kripodb.fragmentsbysimilarity.FragmentBySimilarityFactory"
+               id="nl.esciencecenter.e3dchem.kripodb.fragmentsbysimilarity.FragmentBySimilarityFactory">
+        </node>
+        <node
+               category-path="/community/kripodb"
+               deprecated="false"
+               factory-class="nl.esciencecenter.e3dchem.kripodb.fragments.FragmentByIdFactory"
+               id="nl.esciencecenter.e3dchem.kripodb.fragments.FragmentByIdFactory">
+        </node>
+    </extension>
 </plugin>
