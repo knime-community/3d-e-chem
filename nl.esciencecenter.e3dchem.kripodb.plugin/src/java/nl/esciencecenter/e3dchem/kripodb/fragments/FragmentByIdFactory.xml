@@ -12,7 +12,6 @@
         <option name="Identifiers">The column containing the Kripo identifiers</option>
         <option name="Fragments database (Selected File)">Location of fragments SQLite database file.</option>
         <option name="Type of identifier">Can be fragment or PDB code.</option>
-        <option name="Prefix">Prefix, string to prepend to fragment information column names.</option>
     </fullDescription>
     
     <ports>
