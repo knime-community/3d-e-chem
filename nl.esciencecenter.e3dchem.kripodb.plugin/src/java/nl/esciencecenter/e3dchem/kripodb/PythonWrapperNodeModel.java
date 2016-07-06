@@ -27,10 +27,11 @@ import org.knime.python.kernel.PythonKernel;
 /**
  * Implements a {@link NodeModel} for nodes that launch external Python script.
  * 
- * @param <Config>
+ * @param <C>
+ *            Configuration
  */
-public abstract class PythonWrapperNodeModel<Config extends PythonWrapperNodeConfig> extends ExtToolOutputNodeModel {
-    Config m_config = createConfig();
+public abstract class PythonWrapperNodeModel<C extends PythonWrapperNodeConfig> extends ExtToolOutputNodeModel {
+    protected C m_config = createConfig();
     /**
      * Python script filename, relative to {@link NodeModel}
      */
@@ -44,9 +45,9 @@ public abstract class PythonWrapperNodeModel<Config extends PythonWrapperNodeCon
         super(inPortTypes, outPortTypes);
     }
 
-    protected abstract Config createConfig();
+    protected abstract C createConfig();
 
-    protected final Config getConfig() {
+    protected final C getConfig() {
         return m_config;
     }
 
@@ -56,15 +57,15 @@ public abstract class PythonWrapperNodeModel<Config extends PythonWrapperNodeCon
         PythonKernel kernel = new PythonKernel();
         BufferedDataTable table = null;
         try {
-            kernel.putFlowVariables(Config.getVariableNames().getFlowVariables(), getAvailableFlowVariables().values());
-            kernel.putDataTable(Config.getVariableNames().getInputTables()[0], inData[0], exec.createSubProgress(0.3));
-            kernel.putFlowVariables(Config.getOptionsName(), m_config.getOptionsValues());
+            kernel.putFlowVariables(C.getVariableNames().getFlowVariables(), getAvailableFlowVariables().values());
+            kernel.putDataTable(C.getVariableNames().getInputTables()[0], inData[0], exec.createSubProgress(0.3));
+            kernel.putFlowVariables(C.getOptionsName(), m_config.getOptionsValues());
             String[] output = kernel.execute(getPythonCode(), exec);
             setExternalOutput(new LinkedList<String>(Arrays.asList(output[0].split("\n"))));
             setExternalErrorOutput(new LinkedList<String>(Arrays.asList(output[1].split("\n"))));
             exec.createSubProgress(0.4).setProgress(1);
-            Collection<FlowVariable> variables = kernel.getFlowVariables(Config.getVariableNames().getFlowVariables());
-            table = kernel.getDataTable(Config.getVariableNames().getOutputTables()[0], exec, exec.createSubProgress(0.3));
+            Collection<FlowVariable> variables = kernel.getFlowVariables(C.getVariableNames().getFlowVariables());
+            table = kernel.getDataTable(C.getVariableNames().getOutputTables()[0], exec, exec.createSubProgress(0.3));
             addNewVariables(variables);
         } finally {
             kernel.close();
@@ -93,23 +94,20 @@ public abstract class PythonWrapperNodeModel<Config extends PythonWrapperNodeCon
                 FlowVariable oldVariable = flowVariables.get(variable.getName());
                 if (oldVariable.getType().equals(variable.getType())) {
                     // Old variable has the same type
-                    if (variable.getType().equals(Type.INTEGER)) {
-                        if (oldVariable.getIntValue() == variable.getIntValue()) {
-                            // Old variable has the same value
-                            push = false;
-                        }
-                    } else if (variable.getType().equals(Type.DOUBLE)) {
-                        if (new Double(oldVariable.getDoubleValue()).equals(new Double(variable.getDoubleValue()))) {
-                            // Old variable has the same value
-                            push = false;
-                        }
-                    } else if (variable.getType().equals(Type.STRING)) {
-                        if (oldVariable.getStringValue().equals(variable.getStringValue())) {
-                            // Old variable has the same value
-                            push = false;
-                        }
+                    if (variable.getType().equals(Type.INTEGER) && oldVariable.getIntValue() == variable.getIntValue()) {
+                        // Old variable has the same value
+                        push = false;
+                    } else if (variable.getType().equals(Type.DOUBLE)
+                            && new Double(oldVariable.getDoubleValue()).equals(new Double(variable.getDoubleValue()))) {
+                        // Old variable has the same value
+                        push = false;
+                    } else if (variable.getType().equals(Type.STRING)
+                            && oldVariable.getStringValue().equals(variable.getStringValue())) {
+                        // Old variable has the same value
+                        push = false;
                     }
                 }
+
             }
             if (push) {
                 if (variable.getType().equals(Type.INTEGER)) {
@@ -142,7 +140,7 @@ public abstract class PythonWrapperNodeModel<Config extends PythonWrapperNodeCon
      */
     @Override
     protected void validateSettings(final NodeSettingsRO settings) throws InvalidSettingsException {
-        Config config = createConfig();
+        C config = createConfig();
         config.loadFrom(settings);
     }
 
@@ -151,7 +149,7 @@ public abstract class PythonWrapperNodeModel<Config extends PythonWrapperNodeCon
      */
     @Override
     protected void loadValidatedSettingsFrom(final NodeSettingsRO settings) throws InvalidSettingsException {
-        Config config = createConfig();
+        C config = createConfig();
         config.loadFrom(settings);
         m_config = config;
     }

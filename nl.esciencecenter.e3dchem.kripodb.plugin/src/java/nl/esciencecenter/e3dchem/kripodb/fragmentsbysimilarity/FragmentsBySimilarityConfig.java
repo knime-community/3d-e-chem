@@ -13,13 +13,13 @@ import org.knime.core.node.workflow.FlowVariable;
 import nl.esciencecenter.e3dchem.kripodb.PythonWrapperNodeConfig;
 
 public class FragmentsBySimilarityConfig extends PythonWrapperNodeConfig {
-    public static final String CFG_LIMIT = "limit";
-    public static final int DEFAULT_LIMIT = 1000;
+    private static final String CFG_LIMIT = "limit";
+    private static final int DEFAULT_LIMIT = 1000;
     private static final String CFG_FRAGIDCOLNAME = "fragment_id_column";
     private static final double DEFAULT_CUTOFF = 0.55;
     private static final String CFG_CUTOFF = "cutoff";
     private static final String CFG_MATRIX = "matrix";
-    static final String DEFAULT_MATRIX = "http://3d-e-chem.vu-compmedchem.nl/kripodb";
+    public static final String DEFAULT_MATRIX = "http://3d-e-chem.vu-compmedchem.nl/kripodb";
     private SettingsModelIntegerBounded m_limit = new SettingsModelIntegerBounded(CFG_LIMIT, DEFAULT_LIMIT, 0, Integer.MAX_VALUE);
     private SettingsModelString m_fragmentIdColumn = new SettingsModelString(CFG_FRAGIDCOLNAME, null);
     private SettingsModelDoubleBounded m_cutoff = new SettingsModelDoubleBounded(CFG_CUTOFF, DEFAULT_CUTOFF, 0.45, 1.0);

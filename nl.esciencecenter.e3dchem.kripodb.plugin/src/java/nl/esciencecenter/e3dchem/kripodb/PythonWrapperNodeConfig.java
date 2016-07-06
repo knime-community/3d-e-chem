@@ -21,7 +21,7 @@ public abstract class PythonWrapperNodeConfig {
     private static final VariableNames VARIABLE_NAMES = new VariableNames("flow_variables", new String[] { "input_table" },
             new String[] { "output_table" }, null, null, null);
 
-    static VariableNames getVariableNames() {
+    public static VariableNames getVariableNames() {
         return VARIABLE_NAMES;
     }
 
@@ -30,7 +30,7 @@ public abstract class PythonWrapperNodeConfig {
      * 
      * @return options name
      */
-    static String getOptionsName() {
+    public static String getOptionsName() {
         return PYTHON_OPTIONS;
     }
 

@@ -1,4 +1,3 @@
-import pandas as pd
 from kripodb.canned import fragments_by_pdb_codes, fragments_by_id
 
 # Map options to kripo arguments

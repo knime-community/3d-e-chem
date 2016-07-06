@@ -46,7 +46,7 @@ public class FragmentBySimilarityModel extends PythonWrapperNodeModel<FragmentsB
         }
 
         String matrix = config.getMatrix().getStringValue();
-        if (matrix == "" || matrix == null) {
+        if ("".equals(matrix) || matrix == null) {
             config.getMatrix().setStringValue(FragmentsBySimilarityConfig.DEFAULT_MATRIX);
         } else {
             if (matrix.startsWith("http")) {

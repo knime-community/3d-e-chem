@@ -94,7 +94,7 @@ public class FragmentByIdModel extends PythonWrapperNodeModel<FragmentsByIdConfi
         }
 
         String fragmentsdb_fn = config.getFragmentsDB().getStringValue();
-        if (fragmentsdb_fn == "" || fragmentsdb_fn == null) {
+        if ("".equals(fragmentsdb_fn) || fragmentsdb_fn == null) {
             throw new InvalidSettingsException("Require a fragments database file");
         } else {
             File fragmentsdb_file = new File(fragmentsdb_fn);

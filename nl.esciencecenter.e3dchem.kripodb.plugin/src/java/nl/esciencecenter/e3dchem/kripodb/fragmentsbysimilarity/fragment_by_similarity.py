@@ -10,7 +10,7 @@ limit = options['limit']
 queries = input_table[query_column]
 
 # Fetch similarities
-output_table = similarities(queries, 
-                            distance_matrix, 
+output_table = similarities(queries,
+                            distance_matrix,
                             cutoff,
                             limit)
