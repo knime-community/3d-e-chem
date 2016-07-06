@@ -10,9 +10,9 @@ import org.knime.core.node.NodeSettingsWO;
 import org.knime.core.node.defaultnodesettings.SettingsModelString;
 import org.knime.core.node.workflow.FlowVariable;
 
-import nl.esciencecenter.e3dchem.kripodb.PythonNodeConfig;
+import nl.esciencecenter.e3dchem.kripodb.PythonWrapperNodeConfig;
 
-public class FragmentsByIdConfig extends PythonNodeConfig {
+public class FragmentsByIdConfig extends PythonWrapperNodeConfig {
     private static final String DEFAULT_IDTYPE = "fragment";
     private static final String CFG_IDCOLNAME = "id_column";
     public static final Set<String> LIST_IDENTIFIERTYPES = Stream.of(DEFAULT_IDTYPE, "pdb").collect(Collectors.toSet());
@@ -38,8 +38,8 @@ public class FragmentsByIdConfig extends PythonNodeConfig {
     }
 
     @Override
-    public Set<FlowVariable> toFlowVariables() {
-        Set<FlowVariable> variables = super.toFlowVariables();
+    public Set<FlowVariable> getOptionsValues() {
+        Set<FlowVariable> variables = super.getOptionsValues();
         variables.add(new FlowVariable(CFG_IDCOLNAME, m_idColumn.getStringValue()));
         variables.add(new FlowVariable(CFG_FRAGMENTSDB, m_fragmentsDB.getStringValue()));
         variables.add(new FlowVariable(CFG_IDTYPE, m_idType.getStringValue()));

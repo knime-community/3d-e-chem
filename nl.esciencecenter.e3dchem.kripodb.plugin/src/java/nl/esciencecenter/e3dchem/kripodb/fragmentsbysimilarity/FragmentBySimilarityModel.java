@@ -11,13 +11,13 @@ import org.knime.core.node.BufferedDataTable;
 import org.knime.core.node.InvalidSettingsException;
 import org.knime.core.node.port.PortType;
 
-import nl.esciencecenter.e3dchem.kripodb.PythonNodeModel;
+import nl.esciencecenter.e3dchem.kripodb.PythonWrapperNodeModel;
 
 /**
  * This is the model implementation of FragmentBySimilarity.
  *
  */
-public class FragmentBySimilarityModel extends PythonNodeModel<FragmentsBySimilarityConfig> {
+public class FragmentBySimilarityModel extends PythonWrapperNodeModel<FragmentsBySimilarityConfig> {
     public FragmentBySimilarityModel() {
         super(new PortType[] { BufferedDataTable.TYPE }, new PortType[] { BufferedDataTable.TYPE });
         python_code_filename = "fragment_by_similarity.py";

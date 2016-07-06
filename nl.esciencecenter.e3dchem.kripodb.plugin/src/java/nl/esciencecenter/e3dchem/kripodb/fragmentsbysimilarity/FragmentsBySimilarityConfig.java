@@ -10,9 +10,9 @@ import org.knime.core.node.defaultnodesettings.SettingsModelIntegerBounded;
 import org.knime.core.node.defaultnodesettings.SettingsModelString;
 import org.knime.core.node.workflow.FlowVariable;
 
-import nl.esciencecenter.e3dchem.kripodb.PythonNodeConfig;
+import nl.esciencecenter.e3dchem.kripodb.PythonWrapperNodeConfig;
 
-public class FragmentsBySimilarityConfig extends PythonNodeConfig {
+public class FragmentsBySimilarityConfig extends PythonWrapperNodeConfig {
     public static final String CFG_LIMIT = "limit";
     public static final int DEFAULT_LIMIT = 1000;
     private static final String CFG_FRAGIDCOLNAME = "fragment_id_column";
@@ -42,8 +42,8 @@ public class FragmentsBySimilarityConfig extends PythonNodeConfig {
     }
 
     @Override
-    public Set<FlowVariable> toFlowVariables() {
-        Set<FlowVariable> variables = super.toFlowVariables();
+    public Set<FlowVariable> getOptionsValues() {
+        Set<FlowVariable> variables = super.getOptionsValues();
         variables.add(new FlowVariable(CFG_FRAGIDCOLNAME, m_fragmentIdColumn.getStringValue()));
         variables.add(new FlowVariable(CFG_MATRIX, m_matrix.getStringValue()));
         variables.add(new FlowVariable(CFG_CUTOFF, m_cutoff.getDoubleValue()));

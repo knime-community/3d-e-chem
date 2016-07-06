@@ -16,6 +16,7 @@ import org.knime.core.data.DataTableSpec;
 import org.knime.core.node.BufferedDataTable;
 import org.knime.core.node.ExecutionContext;
 import org.knime.core.node.InvalidSettingsException;
+import org.knime.core.node.NodeModel;
 import org.knime.core.node.NodeSettingsRO;
 import org.knime.core.node.NodeSettingsWO;
 import org.knime.core.node.port.PortType;
@@ -23,12 +24,23 @@ import org.knime.core.node.workflow.FlowVariable;
 import org.knime.core.node.workflow.FlowVariable.Type;
 import org.knime.python.kernel.PythonKernel;
 
-public abstract class PythonNodeModel<Config extends PythonNodeConfig> extends ExtToolOutputNodeModel {
+/**
+ * Implements a {@link NodeModel} for nodes that launch external Python script.
+ * 
+ * @param <Config>
+ */
+public abstract class PythonWrapperNodeModel<Config extends PythonWrapperNodeConfig> extends ExtToolOutputNodeModel {
     Config m_config = createConfig();
+    /**
+     * Python script filename, relative to {@link NodeModel}
+     */
     protected String python_code_filename;
+    /**
+     * Packages that the Python script depends on can be checked in the {@link #configure()} method.
+     */
     protected List<String> required_python_packages = Arrays.asList();
 
-    public PythonNodeModel(final PortType[] inPortTypes, final PortType[] outPortTypes) {
+    public PythonWrapperNodeModel(final PortType[] inPortTypes, final PortType[] outPortTypes) {
         super(inPortTypes, outPortTypes);
     }
 
@@ -46,7 +58,7 @@ public abstract class PythonNodeModel<Config extends PythonNodeConfig> extends E
         try {
             kernel.putFlowVariables(Config.getVariableNames().getFlowVariables(), getAvailableFlowVariables().values());
             kernel.putDataTable(Config.getVariableNames().getInputTables()[0], inData[0], exec.createSubProgress(0.3));
-            kernel.putFlowVariables(Config.getOptionsName(), m_config.toFlowVariables());
+            kernel.putFlowVariables(Config.getOptionsName(), m_config.getOptionsValues());
             String[] output = kernel.execute(getPythonCode(), exec);
             setExternalOutput(new LinkedList<String>(Arrays.asList(output[0].split("\n"))));
             setExternalErrorOutput(new LinkedList<String>(Arrays.asList(output[1].split("\n"))));
