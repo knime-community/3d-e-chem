@@ -38,6 +38,7 @@ public class FragmentBySimilarityModel extends PythonNodeModel<FragmentsBySimila
     @Override
     protected DataTableSpec[] configure(DataTableSpec[] inSpecs) throws InvalidSettingsException {
         // TODO test if kripodb Python package is installed
+
         FragmentsBySimilarityConfig config = getConfig();
         int idColumnIndex = inSpecs[0].findColumnIndex(config.getFragmentIdColumn().getStringValue());
         if (idColumnIndex < 0) {
@@ -46,7 +47,7 @@ public class FragmentBySimilarityModel extends PythonNodeModel<FragmentsBySimila
 
         String matrix = config.getMatrix().getStringValue();
         if (matrix == "" || matrix == null) {
-            throw new InvalidSettingsException("Require a matrix file or ws url");
+            config.getMatrix().setStringValue(FragmentsBySimilarityConfig.DEFAULT_MATRIX);
         } else {
             if (matrix.startsWith("http")) {
                 // TODO test if webservice is online, using a HEAD request.
