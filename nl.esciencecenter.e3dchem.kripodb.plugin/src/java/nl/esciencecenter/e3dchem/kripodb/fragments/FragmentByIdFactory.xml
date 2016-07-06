@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<knimeNode icon="./default.png" type="Manipulator" xmlns="http://knime.org/node/v2.8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://knime.org/node/v2.10 http://knime.org/node/v2.10.xsd">
+    <name>Fragment information</name>
+    
+    <shortDescription>
+        Find fragment information by their identifier.
+    </shortDescription>
+    
+    <fullDescription>
+        <intro>Find fragment information by their identifier.</intro>
+        
+        <option name="Identifiers">The column containing the Kripo identifiers</option>
+        <option name="Fragments database (Selected File)">Location of fragments SQLite database file.</option>
+        <option name="Type of identifier">Can be fragment or PDB code.</option>
+    </fullDescription>
+    
+    <ports>
+        <inPort index="0" name="Fragment identifier">Table with Kripo fragment identifiers.</inPort>
+        <!-- possibly more input ports here-->
+        <outPort index="0" name="Fragment information">Table with Kripo fragment information.</outPort>
+        <!-- possibly more output ports here-->
+    </ports>    
+    <views>
+    </views>
+</knimeNode>

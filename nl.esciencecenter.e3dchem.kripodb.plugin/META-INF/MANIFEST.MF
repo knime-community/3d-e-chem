@@ -1,13 +1,17 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: KripoDB Python templates
+Bundle-Name: 3D-e-Chem KNIME KripoDB nodes
 Bundle-SymbolicName: nl.esciencecenter.e3dchem.kripodb.plugin;singleton:=true
-Bundle-Version: 1.0.3
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-Version: 2.0.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Activator: nl.esciencecenter.e3dchem.kripodb.Activator
 Require-Bundle: org.knime.core;bundle-version="[3.1.0,4.0.0)",
  org.knime.base;bundle-version="[3.1.0,4.0.0)",
  org.knime.python;bundle-version="[3.1.0,4.0.0)",
- org.knime.python.nodes;bundle-version="3.1.0"
+ org.rdkit.knime.types;bundle-version="[3.0.0,4.0.0)"
 Bundle-Vendor: Netherlands eScience Center
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .
+Export-Package: nl.esciencecenter.e3dchem.kripodb,
+ nl.esciencecenter.e3dchem.kripodb.fragments,
+ nl.esciencecenter.e3dchem.kripodb.fragmentsbysimilarity
