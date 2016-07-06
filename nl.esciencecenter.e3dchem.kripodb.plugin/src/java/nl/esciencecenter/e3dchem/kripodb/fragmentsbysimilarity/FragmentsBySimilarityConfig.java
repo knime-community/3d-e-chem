@@ -1,5 +1,6 @@
 package nl.esciencecenter.e3dchem.kripodb.fragmentsbysimilarity;
 
+import java.io.File;
 import java.util.Set;
 
 import org.knime.core.node.InvalidSettingsException;
@@ -37,6 +38,19 @@ public class FragmentsBySimilarityConfig extends PythonWrapperNodeConfig {
     public void loadFrom(final NodeSettingsRO settings) throws InvalidSettingsException {
         m_fragmentIdColumn.loadSettingsFrom(settings);
         m_matrix.loadSettingsFrom(settings);
+        String matrix = m_matrix.getStringValue();
+        if ("".equals(matrix) || matrix == null) {
+            throw new InvalidSettingsException("Matrix file or ws url can not be empty");
+        } else {
+            if (matrix.startsWith("http")) {
+                // TODO test if webservice is online, using a HEAD request.
+            } else {
+                File fragmentsdb = new File(matrix);
+                if (!fragmentsdb.canRead()) {
+                    throw new InvalidSettingsException("Unable to read matrix file");
+                }
+            }
+        }
         m_cutoff.loadSettingsFrom(settings);
         m_limit.loadSettingsFrom(settings);
     }

@@ -31,18 +31,18 @@
 <entry key="state" type="xstring" value="IDLE"/>
 <config key="nodecontainer_message">
 <entry key="type" type="xstring" value="WARNING"/>
-<entry key="message" type="xstring" value="No valid identifier column selected, require a String column"/>
+<entry key="message" type="xstring" value="No valid fragment identifier column available, require a String column"/>
 </config>
 <entry key="factory" type="xstring" value="nl.esciencecenter.e3dchem.kripodb.fragments.FragmentByIdFactory"/>
 <entry key="node-name" type="xstring" value="Fragment information"/>
 <entry key="node-bundle-name" type="xstring" value="3D-e-Chem KNIME KripoDB nodes"/>
 <entry key="node-bundle-symbolic-name" type="xstring" value="nl.esciencecenter.e3dchem.kripodb.plugin"/>
 <entry key="node-bundle-vendor" type="xstring" value="Netherlands eScience Center"/>
-<entry key="node-bundle-version" type="xstring" value="1.9.9.2"/>
-<entry key="node-feature-name" type="xstring" value="KripoDB nodes for Knime"/>
-<entry key="node-feature-symbolic-name" type="xstring" value="nl.esciencecenter.e3dchem.kripodb.feature.feature.group"/>
-<entry key="node-feature-vendor" type="xstring" value="Netherlands eScience Center"/>
-<entry key="node-feature-version" type="xstring" value="1.9.9.2"/>
+<entry key="node-bundle-version" type="xstring" value="1.9.9.6"/>
+<entry key="node-feature-name" type="xstring" isnull="true" value=""/>
+<entry key="node-feature-symbolic-name" type="xstring" isnull="true" value=""/>
+<entry key="node-feature-vendor" type="xstring" isnull="true" value=""/>
+<entry key="node-feature-version" type="xstring" value="0.0.0"/>
 <config key="factory_settings"/>
 <entry key="name" type="xstring" value="Fragment information"/>
 <entry key="hasContent" type="xboolean" value="false"/>

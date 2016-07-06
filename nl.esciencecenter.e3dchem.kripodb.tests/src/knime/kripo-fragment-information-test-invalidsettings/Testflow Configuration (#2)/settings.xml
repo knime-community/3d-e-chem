@@ -24,12 +24,8 @@
 </config>
 <config key="requiredNodeWarnings">
 <entry key="nodeID_0" type="xstring" value="6"/>
-<entry key="message_0" type="xstring" value="No valid identifier column selected, require a String column"/>
-<entry key="nodeID_1" type="xstring" value="7"/>
-<entry key="message_1" type="xstring" value="Require a fragments database file"/>
-<entry key="nodeID_2" type="xstring" value="9"/>
-<entry key="message_2" type="xstring" value="Unable to read fragments database file"/>
-<entry key="count" type="xint" value="3"/>
+<entry key="message_0" type="xstring" value="No valid fragment identifier column available, require a String column"/>
+<entry key="count" type="xint" value="1"/>
 </config>
 <config key="requiredNodeErrors">
 <entry key="count" type="xint" value="0"/>

@@ -3,7 +3,9 @@ package nl.esciencecenter.e3dchem.kripodb.fragments;
 import java.io.File;
 import java.util.Arrays;
 
+import org.knime.core.data.DataColumnSpec;
 import org.knime.core.data.DataTableSpec;
+import org.knime.core.data.StringValue;
 import org.knime.core.node.BufferedDataTable;
 import org.knime.core.node.InvalidSettingsException;
 import org.knime.core.node.port.PortType;
@@ -89,8 +91,23 @@ public class FragmentByIdModel extends PythonWrapperNodeModel<FragmentsByIdConfi
 
         String idColumn = config.getIdColumn().getStringValue();
         int idColumnIndex = inSpecs[0].findColumnIndex(idColumn);
-        if (idColumnIndex < 0) {
-            throw new InvalidSettingsException("No valid identifier column selected, require a String column");
+        if (idColumnIndex == -1) {
+            int i = 0;
+            for (DataColumnSpec spec : inSpecs[0]) {
+                if (spec.getType().isCompatible(StringValue.class)) {
+                    setWarningMessage("Column '" + spec.getName() + "' automatically chosen as identifier column");
+                    config.getIdColumn().setStringValue(spec.getName());
+                    idColumnIndex = i;
+                    break;
+                }
+                i++;
+            }
+            if (idColumnIndex == -1) {
+                throw new InvalidSettingsException("No valid fragment identifier column available, require a String column");
+            }
+        }
+        if (!inSpecs[0].getColumnSpec(idColumnIndex).getType().isCompatible(StringValue.class)) {
+            throw new InvalidSettingsException("Column '" + idColumn + "' does not contain String cells");
         }
 
         String fragmentsdb_fn = config.getFragmentsDB().getStringValue();

@@ -3,8 +3,10 @@ package nl.esciencecenter.e3dchem.kripodb.fragmentsbysimilarity;
 import java.io.File;
 import java.util.Arrays;
 
+import org.knime.core.data.DataColumnSpec;
 import org.knime.core.data.DataColumnSpecCreator;
 import org.knime.core.data.DataTableSpec;
+import org.knime.core.data.StringValue;
 import org.knime.core.data.def.DoubleCell;
 import org.knime.core.data.def.StringCell;
 import org.knime.core.node.BufferedDataTable;
@@ -40,14 +42,32 @@ public class FragmentBySimilarityModel extends PythonWrapperNodeModel<FragmentsB
     @Override
     protected DataTableSpec[] configure(DataTableSpec[] inSpecs) throws InvalidSettingsException {
         FragmentsBySimilarityConfig config = getConfig();
-        int idColumnIndex = inSpecs[0].findColumnIndex(config.getFragmentIdColumn().getStringValue());
-        if (idColumnIndex < 0) {
-            throw new InvalidSettingsException("No valid fragment identifier column selected, require a String column");
+
+        String fragmentIdColumn = config.getFragmentIdColumn().getStringValue();
+        int fragmentIdColumnIndex = inSpecs[0].findColumnIndex(fragmentIdColumn);
+        if (fragmentIdColumnIndex == -1) {
+            // if no column has been selected then use first string like column
+            int i = 0;
+            for (DataColumnSpec spec : inSpecs[0]) {
+                if (spec.getType().isCompatible(StringValue.class)) {
+                    setWarningMessage("Column '" + spec.getName() + "' automatically chosen as fragment identifier column");
+                    config.getFragmentIdColumn().setStringValue(spec.getName());
+                    fragmentIdColumnIndex = i;
+                    break;
+                }
+                i++;
+            }
+            if (fragmentIdColumnIndex == -1) {
+                throw new InvalidSettingsException("No valid identifier column available, require a String column");
+            }
+        }
+        if (!inSpecs[0].getColumnSpec(fragmentIdColumnIndex).getType().isCompatible(StringValue.class)) {
+            throw new InvalidSettingsException("Column '" + fragmentIdColumn + "' does not contain String cells");
         }
 
         String matrix = config.getMatrix().getStringValue();
         if ("".equals(matrix) || matrix == null) {
-            config.getMatrix().setStringValue(FragmentsBySimilarityConfig.DEFAULT_MATRIX);
+            throw new InvalidSettingsException("Matrix file or ws url can not be empty");
         } else {
             if (matrix.startsWith("http")) {
                 // TODO test if webservice is online, using a HEAD request.

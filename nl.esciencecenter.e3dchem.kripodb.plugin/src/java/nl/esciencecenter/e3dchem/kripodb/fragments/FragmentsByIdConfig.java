@@ -1,5 +1,6 @@
 package nl.esciencecenter.e3dchem.kripodb.fragments;
 
+import java.io.File;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -34,6 +35,14 @@ public class FragmentsByIdConfig extends PythonWrapperNodeConfig {
     public void loadFrom(final NodeSettingsRO settings) throws InvalidSettingsException {
         m_idColumn.loadSettingsFrom(settings);
         m_fragmentsDB.loadSettingsFrom(settings);
+        if (m_fragmentsDB.getStringValue() == null || m_fragmentsDB.getStringValue().isEmpty()) {
+            throw new InvalidSettingsException("Fragments database file cannot be empty");
+        } else {
+            File fragmentsdb_file = new File(m_fragmentsDB.getStringValue());
+            if (!fragmentsdb_file.canRead()) {
+                throw new InvalidSettingsException("Unable to read fragments database file");
+            }
+        }
         m_idType.loadSettingsFrom(settings);
     }
 
