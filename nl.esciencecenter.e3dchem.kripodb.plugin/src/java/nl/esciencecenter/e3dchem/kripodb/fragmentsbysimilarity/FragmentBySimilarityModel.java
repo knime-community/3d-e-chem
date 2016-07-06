@@ -1,6 +1,7 @@
 package nl.esciencecenter.e3dchem.kripodb.fragmentsbysimilarity;
 
 import java.io.File;
+import java.util.Arrays;
 
 import org.knime.core.data.DataColumnSpecCreator;
 import org.knime.core.data.DataTableSpec;
@@ -20,6 +21,7 @@ public class FragmentBySimilarityModel extends PythonNodeModel<FragmentsBySimila
     public FragmentBySimilarityModel() {
         super(new PortType[] { BufferedDataTable.TYPE }, new PortType[] { BufferedDataTable.TYPE });
         python_code_filename = "fragment_by_similarity.py";
+        required_python_packages = Arrays.asList("kripodb.canned");
     }
 
     @Override
@@ -37,8 +39,6 @@ public class FragmentBySimilarityModel extends PythonNodeModel<FragmentsBySimila
 
     @Override
     protected DataTableSpec[] configure(DataTableSpec[] inSpecs) throws InvalidSettingsException {
-        // TODO test if kripodb Python package is installed
-
         FragmentsBySimilarityConfig config = getConfig();
         int idColumnIndex = inSpecs[0].findColumnIndex(config.getFragmentIdColumn().getStringValue());
         if (idColumnIndex < 0) {

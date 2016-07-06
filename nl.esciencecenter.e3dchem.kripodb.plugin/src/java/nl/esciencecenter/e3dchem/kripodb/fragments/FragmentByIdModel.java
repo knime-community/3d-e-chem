@@ -1,6 +1,7 @@
 package nl.esciencecenter.e3dchem.kripodb.fragments;
 
 import java.io.File;
+import java.util.Arrays;
 
 import org.knime.core.data.DataTableSpec;
 import org.knime.core.node.BufferedDataTable;
@@ -17,6 +18,7 @@ public class FragmentByIdModel extends PythonNodeModel<FragmentsByIdConfig> {
     public FragmentByIdModel() {
         super(new PortType[] { BufferedDataTable.TYPE }, new PortType[] { BufferedDataTable.TYPE });
         python_code_filename = "fragment_by_id.py";
+        required_python_packages = Arrays.asList("kripodb.canned");
     }
 
     @Override
@@ -83,7 +85,6 @@ public class FragmentByIdModel extends PythonNodeModel<FragmentsByIdConfig> {
 
     @Override
     protected DataTableSpec[] configure(final DataTableSpec[] inSpecs) throws InvalidSettingsException {
-        // TODO test if kripodb Python package is installed
         FragmentsByIdConfig config = getConfig();
 
         String idColumn = config.getIdColumn().getStringValue();
