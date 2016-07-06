@@ -16,7 +16,6 @@ import org.knime.core.node.CanceledExecutionException;
 import org.knime.core.node.InvalidSettingsException;
 import org.knime.core.node.workflow.UnsupportedWorkflowVersionException;
 import org.knime.core.util.LockFailedException;
-import org.knime.python.Activator;
 import org.knime.testing.core.TestrunConfiguration;
 
 import nl.esciencecenter.e3dchem.knime.testing.TestFlowRunner;
@@ -36,10 +35,7 @@ public class FragmentsByIdWorkflowTest {
 
     @BeforeClass
     public static void setUpDatafiles() throws MalformedURLException, IOException {
-        // The Python utilities in the py/ directory of org.knime.python plugin, are not available as files, they inside the jar of the plugin.
-        // During tests these files are required.
-        // Force Knime to copy the files to a temporary location by fetching the root directory.
-        Activator.getFile("org.knime.python", "py");
+        PythonWrapperTestUtils.materializeKNIMEPythonUtils();
         FileUtils.copyURLToFile(new URL("https://github.com/3D-e-Chem/kripodb/raw/master/data/fragments.sqlite"), fragments);
     }
 
