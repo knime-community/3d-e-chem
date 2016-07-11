@@ -11,7 +11,7 @@ import org.knime.core.node.NodeSettingsWO;
 import org.knime.core.node.defaultnodesettings.SettingsModelString;
 import org.knime.core.node.workflow.FlowVariable;
 
-import nl.esciencecenter.e3dchem.kripodb.PythonWrapperNodeConfig;
+import nl.esciencecenter.e3dchem.python.PythonWrapperNodeConfig;
 
 public class FragmentsByIdConfig extends PythonWrapperNodeConfig {
     private static final String DEFAULT_IDTYPE = "fragment";

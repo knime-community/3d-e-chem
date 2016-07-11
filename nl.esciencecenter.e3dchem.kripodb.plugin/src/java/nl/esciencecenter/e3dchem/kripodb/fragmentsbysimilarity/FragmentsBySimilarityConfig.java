@@ -11,7 +11,7 @@ import org.knime.core.node.defaultnodesettings.SettingsModelIntegerBounded;
 import org.knime.core.node.defaultnodesettings.SettingsModelString;
 import org.knime.core.node.workflow.FlowVariable;
 
-import nl.esciencecenter.e3dchem.kripodb.PythonWrapperNodeConfig;
+import nl.esciencecenter.e3dchem.python.PythonWrapperNodeConfig;
 
 public class FragmentsBySimilarityConfig extends PythonWrapperNodeConfig {
     private static final String CFG_LIMIT = "limit";

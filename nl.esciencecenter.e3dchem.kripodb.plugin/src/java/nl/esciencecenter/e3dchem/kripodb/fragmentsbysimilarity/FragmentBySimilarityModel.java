@@ -13,7 +13,7 @@ import org.knime.core.node.BufferedDataTable;
 import org.knime.core.node.InvalidSettingsException;
 import org.knime.core.node.port.PortType;
 
-import nl.esciencecenter.e3dchem.kripodb.PythonWrapperNodeModel;
+import nl.esciencecenter.e3dchem.python.PythonWrapperNodeModel;
 
 /**
  * This is the model implementation of FragmentBySimilarity.
