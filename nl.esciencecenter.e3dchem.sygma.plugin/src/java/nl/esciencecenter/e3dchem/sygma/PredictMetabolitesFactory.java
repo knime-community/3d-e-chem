@@ -8,8 +8,7 @@ import org.knime.core.node.NodeView;
  * <code>NodeFactory</code> for the "PredictMetabolites" Node.
  *
  */
-public class PredictMetabolitesFactory
-        extends NodeFactory<PredictMetabolitesModel> {
+public class PredictMetabolitesFactory extends NodeFactory<PredictMetabolitesModel> {
 
     /**
      * {@inheritDoc}
@@ -24,16 +23,15 @@ public class PredictMetabolitesFactory
      */
     @Override
     public int getNrNodeViews() {
-        return 1;
+        return 0;
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public NodeView<PredictMetabolitesModel> createNodeView(final int viewIndex,
-            final PredictMetabolitesModel nodeModel) {
-        return new PredictMetabolitesView(nodeModel);
+    public NodeView<PredictMetabolitesModel> createNodeView(final int viewIndex, final PredictMetabolitesModel nodeModel) {
+        return null;
     }
 
     /**
