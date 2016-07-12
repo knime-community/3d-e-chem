@@ -11,5 +11,5 @@ Require-Bundle: org.junit;bundle-version="4.12.0",
  nl.esciencecenter.e3dchem.knime.testing.plugin;bundle-version="[1.0.0,2.0.0)",
  nl.esciencecenter.e3dchem.python.plugin;bundle-version="[1.0.0,2.0.0)",
  nl.esciencecenter.e3dchem.sygma.plugin
-Bundle-Vendor: [Enter Your Company here.]
+Bundle-Vendor: Netherlands eScience Center
 Bundle-ClassPath: .
