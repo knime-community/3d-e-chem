@@ -1,29 +1,30 @@
 package nl.esciencecenter.e3dchem.sygma;
 
 import org.knime.core.node.defaultnodesettings.DefaultNodeSettingsPane;
+import org.knime.core.node.defaultnodesettings.DialogComponentColumnNameSelection;
 import org.knime.core.node.defaultnodesettings.DialogComponentNumber;
-import org.knime.core.node.defaultnodesettings.SettingsModelIntegerBounded;
+import org.rdkit.knime.types.RDKitMolValue;
 
 /**
  * <code>NodeDialog</code> for the "PredictMetabolites" Node.
  *
- * This node dialog derives from {@link DefaultNodeSettingsPane} which allows
- * creation of a simple dialog with standard components. If you need a more
- * complex dialog please derive directly from
- * {@link org.knime.core.node.NodeDialogPane}.
+ * This node dialog derives from {@link DefaultNodeSettingsPane} which allows creation of a simple dialog with standard
+ * components. If you need a more complex dialog please derive directly from {@link org.knime.core.node.NodeDialogPane}.
  */
 public class PredictMetabolitesDialog extends DefaultNodeSettingsPane {
 
     /**
-     * New pane for configuring PredictMetabolites node dialog.
-     * This is just a suggestion to demonstrate possible default dialog
+     * New pane for configuring PredictMetabolites node dialog. This is just a suggestion to demonstrate possible default dialog
      * components.
      */
     protected PredictMetabolitesDialog() {
         super();
         PredictMetabolitesConfig config = new PredictMetabolitesConfig();
 
-        SettingsModelIntegerBounded count = config.getCount();
-        addDialogComponent(new DialogComponentNumber(count, "Counter:", 1, 5));
+        addDialogComponent(new DialogComponentColumnNameSelection(config.getParentsColumnName(), "Parents molecule column", 0,
+                RDKitMolValue.class));
+
+        addDialogComponent(new DialogComponentNumber(config.getPhase1cycles(), "Phase 1 cycles:", 1, 5));
+        addDialogComponent(new DialogComponentNumber(config.getPhase2cycles(), "Phase 2 cycles:", 1, 5));
     }
 }
