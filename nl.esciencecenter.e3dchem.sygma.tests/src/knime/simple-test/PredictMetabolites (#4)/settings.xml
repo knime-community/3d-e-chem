@@ -28,18 +28,18 @@
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
 <entry key="state" type="xstring" value="CONFIGURED"/>
-<entry key="factory" type="xstring" value="foo.bar.knime.somenode.SomeNodeFactory"/>
-<entry key="node-name" type="xstring" value="SomeNode"/>
+<entry key="factory" type="xstring" value="nl.esciencecenter.e3dchem.sygma.PredictMetabolitesFactory"/>
+<entry key="node-name" type="xstring" value="PredictMetabolites"/>
 <entry key="node-bundle-name" type="xstring" value="[Enter Your Node name here here.]"/>
-<entry key="node-bundle-symbolic-name" type="xstring" value="foo.bar.knime.plugin"/>
+<entry key="node-bundle-symbolic-name" type="xstring" value="nl.esciencecenter.e3dchem.sygma.plugin"/>
 <entry key="node-bundle-vendor" type="xstring" value="[Enter Your Company here.]"/>
 <entry key="node-bundle-version" type="xstring" value="1.0.0"/>
 <entry key="node-feature-name" type="xstring" value="foo.bar.knime Feature"/>
-<entry key="node-feature-symbolic-name" type="xstring" value="foo.bar.knime.feature.feature.group"/>
+<entry key="node-feature-symbolic-name" type="xstring" value="nl.esciencecenter.e3dchem.sygma.feature.feature.group"/>
 <entry key="node-feature-vendor" type="xstring" value="[Enter provider name here.]"/>
 <entry key="node-feature-version" type="xstring" value="1.0.0"/>
 <config key="factory_settings"/>
-<entry key="name" type="xstring" value="SomeNode"/>
+<entry key="name" type="xstring" value="PredictMetabolites"/>
 <entry key="hasContent" type="xboolean" value="false"/>
 <entry key="isInactive" type="xboolean" value="false"/>
 <config key="ports">
