@@ -33,7 +33,7 @@ public class PredictMetabolitesModel extends PythonWrapperNodeModel<PredictMetab
      * {@inheritDoc}
      */
     @Override
-    protected DataTableSpec[] configure(final DataTableSpec[] inSpecs) throws InvalidSettingsException {
+    protected DataTableSpec[] configure(DataTableSpec[] inSpecs) throws InvalidSettingsException {
 
         // TODO: check if user settings are available, fit to the incoming
         // table structure, and the incoming types are feasible for the node
@@ -41,6 +41,6 @@ public class PredictMetabolitesModel extends PythonWrapperNodeModel<PredictMetab
         // the spec of its output data table(s) (if you can, otherwise an array
         // with null elements), or throw an exception with a useful user message
 
-        return new DataTableSpec[] { null };
+        return super.configure(inSpecs);
     }
 }
