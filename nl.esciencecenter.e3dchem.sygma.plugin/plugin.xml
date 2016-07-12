@@ -2,20 +2,19 @@
 <?eclipse version="3.0"?>
 <plugin>
 
-    <!-- This is an example for providing an own category
       <extension
          point="org.knime.workbench.repository.categories">
       <category
-            description="Category containing my nodes"
-            icon="icons/default.png"
-            level-id="myNodes"
-            name="My nodes"
-            path="/"/>
+            description="Category containing Sygma nodes"
+            icon="nl/esciencecenter/e3dchem/sygma/default.png"
+            level-id="sygma"
+            name="Sygma"
+            path="/community"/>
    </extension>
-   -->
+   
 
     <extension point="org.knime.workbench.repository.nodes">
-        <node category-path="/" factory-class="nl.esciencecenter.e3dchem.sygma.PredictMetabolitesFactory" id="nl.esciencecenter.e3dchem.sygma.PredictMetabolitesFactory"/>
+        <node category-path="/community/sygma" factory-class="nl.esciencecenter.e3dchem.sygma.PredictMetabolitesFactory" id="nl.esciencecenter.e3dchem.sygma.PredictMetabolitesFactory"/>
     </extension>
 
 </plugin>
