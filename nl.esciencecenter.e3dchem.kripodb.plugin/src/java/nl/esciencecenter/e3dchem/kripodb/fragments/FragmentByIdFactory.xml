@@ -1,25 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<knimeNode icon="./default.png" type="Manipulator" xmlns="http://knime.org/node/v2.8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://knime.org/node/v2.10 http://knime.org/node/v2.10.xsd">
-    <name>Fragment information</name>
-    
-    <shortDescription>
-        Find fragment information by their identifier.
-    </shortDescription>
-    
-    <fullDescription>
-        <intro>Find fragment information by their identifier.</intro>
-        
-        <option name="Identifiers">The column containing the Kripo identifiers</option>
-        <option name="Fragments database (Selected File)">Location of fragments SQLite database file.</option>
-        <option name="Type of identifier">Can be fragment or PDB code.</option>
-    </fullDescription>
-    
-    <ports>
-        <inPort index="0" name="Fragment identifier">Table with Kripo fragment identifiers.</inPort>
-        <!-- possibly more input ports here-->
-        <outPort index="0" name="Fragment information">Table with Kripo fragment information.</outPort>
-        <!-- possibly more output ports here-->
-    </ports>    
-    <views>
-    </views>
+<knimeNode icon="./default.png" type="Manipulator"
+	xmlns="http://knime.org/node/v2.8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://knime.org/node/v2.10 http://knime.org/node/v2.10.xsd">
+	<name>Fragment information</name>
+
+	<shortDescription>
+		Find Kripo fragment information by their identifier.
+	</shortDescription>
+
+	<fullDescription>
+		<intro>Find Kripo fragment information by their identifier.
+		<p>
+		Information includes the fragment molecule and it's associated protein identifiers.
+		</p>
+		</intro>
+
+		<option name="Identifiers">The column containing the Kripo identifiers
+		</option>
+		<option name="Fragments database (Selected File)">
+			Location of Kripo fragments SQLite database file.
+			<p>
+				Available datasets:
+				<ul>
+					<ol>
+						Protein Data Bank, download from
+						<a href="http://dx.doi.org/10.5281/zenodo.55254">here</a>
+						, in 3D-e-Chem VM available at '/data/kripo/pdb/kripo.sqlite'
+					</ol>
+					<ol>
+						Tiny example dataset, download from
+						<a href="https://github.com/3D-e-Chem/kripodb/blob/master/data">here</a>
+						, in 3D-e-Chem VM available at '/data/kripo/tiny/fragments.sqlite'
+					</ol>
+					<ol>
+						GPCR, All fragments based on GPCR proteins compared with all
+						proteins in PDB, download from
+						<a href="http://dx.doi.org/10.5281/zenodo.50835">here</a>
+						, in 3D-e-Chem VM available at
+						'/data/kripo/gpcr/kripo.gpcrandhits.sqlite'
+					</ol>
+				</ul>
+			</p>
+			<p>When combining this node with other Kripo nodes make sure the
+				files are from the same dataset.</p>
+		</option>
+		<option name="Type of identifier">Can be fragment or PDB code.</option>
+	</fullDescription>
+
+	<ports>
+		<inPort index="0" name="Fragment identifier">Table with Kripo fragment identifiers.
+		</inPort>
+		<outPort index="0" name="Fragment information">Table with Kripo fragment information.
+		</outPort>
+	</ports>
+	<views>
+	</views>
 </knimeNode>

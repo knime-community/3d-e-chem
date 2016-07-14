@@ -25,7 +25,7 @@ public class FragmentsBySimilarityWorkflowTest {
     @Rule
     public ErrorCollector collector = new ErrorCollector();
     private TestFlowRunner runner;
-    private static File distances = new File(System.getProperty("java.io.tmpdir"), "distances.h5");
+    private static File similarity_matrix = new File(System.getProperty("java.io.tmpdir"), "similarities.h5");
 
     @Before
     public void setUp() {
@@ -37,12 +37,12 @@ public class FragmentsBySimilarityWorkflowTest {
     @BeforeClass
     public static void setUpDatafiles() throws MalformedURLException, IOException {
         PythonWrapperTestUtils.materializeKNIMEPythonUtils();
-        FileUtils.copyURLToFile(new URL("https://github.com/3D-e-Chem/kripodb/raw/master/data/distances.h5"), distances);
+        FileUtils.copyURLToFile(new URL("https://github.com/3D-e-Chem/kripodb/raw/master/data/distances.h5"), similarity_matrix);
     }
 
     @AfterClass
     public static void cleanupDatafiles() {
-        distances.delete();
+        similarity_matrix.delete();
     }
 
     @Test

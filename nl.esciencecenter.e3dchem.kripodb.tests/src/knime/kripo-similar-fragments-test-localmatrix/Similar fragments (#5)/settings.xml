@@ -15,7 +15,7 @@
 <entry key="SettingsModelID" type="xstring" value="SMID_string"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
-<entry key="matrix" type="xstring" value="/tmp/distances.h5"/>
+<entry key="matrix" type="xstring" value="/tmp/similarities.h5"/>
 <config key="cutoff_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_double"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
