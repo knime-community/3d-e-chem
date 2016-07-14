@@ -8,18 +8,18 @@
           level-id="kripodb"
           locked="false"
           name="KripoDB"
-          path="/community"/>
+          path="/community/3d-e-chem"/>
   </extension>
 
     <extension point="org.knime.workbench.repository.nodes">
         <node
-               category-path="/community/kripodb"
+               category-path="/community/3d-e-chem/kripodb"
                deprecated="false"
                factory-class="nl.esciencecenter.e3dchem.kripodb.fragmentsbysimilarity.FragmentBySimilarityFactory"
                id="nl.esciencecenter.e3dchem.kripodb.fragmentsbysimilarity.FragmentBySimilarityFactory">
         </node>
         <node
-               category-path="/community/kripodb"
+               category-path="/community/3d-e-chem/kripodb"
                deprecated="false"
                factory-class="nl.esciencecenter.e3dchem.kripodb.fragments.FragmentByIdFactory"
                id="nl.esciencecenter.e3dchem.kripodb.fragments.FragmentByIdFactory">
