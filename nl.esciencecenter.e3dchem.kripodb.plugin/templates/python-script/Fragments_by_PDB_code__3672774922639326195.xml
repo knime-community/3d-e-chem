@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<config xmlns="http://www.knime.org/2008/09/XMLConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.knime.org/2008/09/XMLConfig http://www.knime.org/XMLConfig_2008_09.xsd" key="Fragments_by_PDB_code__3672774922639326195.xml">
-<entry key="category" type="xstring" value="kripodb"/>
-<entry key="title" type="xstring" value="Fragments_by_PDB_code"/>
-<entry key="description" type="xstring" value="Retrieve Kripo fragment information for all fragments with specified PDB code.%%00010%%00010Based on KripoDB package (https://github.com/3D-e-Chem/kripodb)"/>
-<entry key="sourcecode" type="xstring" value="from kripodb.canned import fragments_by_pdb_codes%%00010%%00010# The name of the column containing the fragment identifiers%%00010pdb_codes = input_table['pdb_code']%%00010%%00010# Location of fragment database%%00010fragments_db_filename = '/data/kripo/tiny/fragments.sqlite'%%00010%%00010# Prefix returned columns%%00010prefix = 'query_'%%00010%%00010output_table = fragments_by_pdb_codes(pdb_codes, %%00010                                      fragments_db_filename,%%00010                                      prefix)%%00010%%00010"/>
-</config>
