@@ -37,7 +37,7 @@ public class FragmentsBySimilarityWorkflowTest {
     @BeforeClass
     public static void setUpDatafiles() throws MalformedURLException, IOException {
         PythonWrapperTestUtils.materializeKNIMEPythonUtils();
-        FileUtils.copyURLToFile(new URL("https://github.com/3D-e-Chem/kripodb/raw/master/data/distances.h5"), similarity_matrix);
+        FileUtils.copyURLToFile(new URL("https://github.com/3D-e-Chem/kripodb/raw/master/data/similarities.h5"), similarity_matrix);
     }
 
     @AfterClass
