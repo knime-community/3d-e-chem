@@ -21,22 +21,22 @@
 			<p>
 				Available datasets:
 				<ul>
-					<ol>
+					<li>
 						Protein Data Bank, similarity matrix is too big to ship, use the
 						public webservice at
 						<a href="http://3d-e-chem.vu-compmedchem.nl/kripodb">http://3d-e-chem.vu-compmedchem.nl/kripodb</a>
-					</ol>
-					<ol>
+					</li>
+					<li>
 						Tiny example dataset, download from
 						<a href="https://github.com/3D-e-Chem/kripodb/blob/master/data">here</a>
 						, in 3D-e-Chem VM available at '/data/kripo/tiny/distances.h5'
-					</ol>
-					<ol>
+					</li>
+					<li>
 						GPCR, All fragments based on GPCR proteins compared with all
 						proteins in PDB, download from
 						<a href="http://dx.doi.org/10.5281/zenodo.50835">here</a>
 						, in 3D-e-Chem VM available at '/data/kripo/gpcr/kripo.gpcr.h5'
-					</ol>
+					</li>
 				</ul>
 			</p>
 			<p>When combining this node with other Kripo nodes make sure the

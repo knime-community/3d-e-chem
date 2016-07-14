@@ -22,23 +22,23 @@
 			<p>
 				Available datasets:
 				<ul>
-					<ol>
+					<li>
 						Protein Data Bank, download from
 						<a href="http://dx.doi.org/10.5281/zenodo.55254">here</a>
 						, in 3D-e-Chem VM available at '/data/kripo/pdb/kripo.sqlite'
-					</ol>
-					<ol>
+					</li>
+					<li>
 						Tiny example dataset, download from
 						<a href="https://github.com/3D-e-Chem/kripodb/blob/master/data">here</a>
 						, in 3D-e-Chem VM available at '/data/kripo/tiny/fragments.sqlite'
-					</ol>
-					<ol>
+					</li>
+					<li>
 						GPCR, All fragments based on GPCR proteins compared with all
 						proteins in PDB, download from
 						<a href="http://dx.doi.org/10.5281/zenodo.50835">here</a>
 						, in 3D-e-Chem VM available at
 						'/data/kripo/gpcr/kripo.gpcrandhits.sqlite'
-					</ol>
+					</li>
 				</ul>
 			</p>
 			<p>When combining this node with other Kripo nodes make sure the

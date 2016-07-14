@@ -31,6 +31,7 @@ public class FragmentsByIdWorkflowTest {
     public void setUp() {
         TestrunConfiguration runConfiguration = new TestrunConfiguration();
         runConfiguration.setTestDialogs(true);
+        runConfiguration.setAllowedMemoryIncrease(4096000);
         runner = new TestFlowRunner(collector, runConfiguration);
     }
 
