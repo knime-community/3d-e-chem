@@ -9,12 +9,12 @@
             icon="nl/esciencecenter/e3dchem/sygma/default.png"
             level-id="sygma"
             name="Sygma"
-            path="/community"/>
+            path="/community/3d-e-chem"/>
    </extension>
    
 
     <extension point="org.knime.workbench.repository.nodes">
-        <node category-path="/community/sygma" factory-class="nl.esciencecenter.e3dchem.sygma.PredictMetabolitesFactory" id="nl.esciencecenter.e3dchem.sygma.PredictMetabolitesFactory"/>
+        <node category-path="/community/3d-e-chem/sygma" factory-class="nl.esciencecenter.e3dchem.sygma.PredictMetabolitesFactory" id="nl.esciencecenter.e3dchem.sygma.PredictMetabolitesFactory"/>
     </extension>
 
 </plugin>

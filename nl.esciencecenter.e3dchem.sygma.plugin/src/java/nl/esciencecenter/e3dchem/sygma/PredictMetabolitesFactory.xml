@@ -3,12 +3,11 @@
     <name>Predict metabolites</name>
     
     <shortDescription>
-        Predict metabolites from parent molecules using Sygma (https://github.com/ridderl/sygma).
+        Predict metabolites from parent molecules using Sygma (<a href="https://github.com/ridderl/sygma">https://github.com/ridderl/sygma</a>).
     </shortDescription>
     
     <fullDescription>
-        <intro>Predict metabolites from parent molecules using Sygma (https://github.com/ridderl/sygma).</intro>
-        
+        <intro>Predict metabolites from parent molecules using Sygma (<a href="https://github.com/ridderl/sygma">https://github.com/ridderl/sygma</a>).</intro>
         
         <option name="Parents molecule column">Column containing molecules which will be metabolized.</option>
         <option name="Phase 1 cycles">Number of times phase 1 rules should be applied</option>
