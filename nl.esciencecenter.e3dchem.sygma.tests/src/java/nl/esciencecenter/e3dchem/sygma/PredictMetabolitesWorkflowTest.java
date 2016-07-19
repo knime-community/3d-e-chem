@@ -1,5 +1,6 @@
 package nl.esciencecenter.e3dchem.sygma;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 
@@ -28,6 +29,8 @@ public class PredictMetabolitesWorkflowTest {
         runConfiguration.setTestDialogs(true);
         runConfiguration.setReportDeprecatedNodes(true);
         runConfiguration.setCheckMemoryLeaks(true);
+        // Python RDKit is printing warnings with timestamps, ignore those
+        runConfiguration.setCheckLogMessages(false);
         runner = new TestFlowRunner(collector, runConfiguration);
     }
 
@@ -39,8 +42,7 @@ public class PredictMetabolitesWorkflowTest {
     @Test
     public void test_simple() throws IOException, InvalidSettingsException, CanceledExecutionException,
             UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
-        // TODO add test workflow
-        //        File workflowDir = new File("src/knime/simple-test");
-        //        runner.runTestWorkflow(workflowDir);
+        File workflowDir = new File("src/knime/SyGMA-test");
+        runner.runTestWorkflow(workflowDir);
     }
 }
