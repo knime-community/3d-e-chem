@@ -16,11 +16,9 @@ metabolites = []
 for parent in parents:
     metabolic_tree = scenario.run(parent)
     metabolic_tree.calc_scores()
-    metabolites += metabolic_tree.to_list()
+    metabolites += metabolic_tree.to_list(parent_column=parents_column_name)
 
 metabolites_df = pd.DataFrame(metabolites)
 output_table = pd.merge(input_table,
                         metabolites_df,
-                        left_on=parents_column_name,
-                        right_on='parent')
-del output_table['parent']
+                        on=parents_column_name)
