@@ -42,7 +42,14 @@ public class PredictMetabolitesWorkflowTest {
     @Test
     public void test_simple() throws IOException, InvalidSettingsException, CanceledExecutionException,
             UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
-        File workflowDir = new File("src/knime/SyGMA-test");
+        File workflowDir = new File("src/knime/SyGMa-test");
+        runner.runTestWorkflow(workflowDir);
+    }
+
+    @Test
+    public void test_duplicate() throws IOException, InvalidSettingsException, CanceledExecutionException,
+            UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
+        File workflowDir = new File("src/knime/SyGMa-duplicate-test");
         runner.runTestWorkflow(workflowDir);
     }
 }
