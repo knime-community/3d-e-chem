@@ -28,7 +28,7 @@ public class PredictMetabolitesWorkflowTest {
         TestrunConfiguration runConfiguration = new TestrunConfiguration();
         runConfiguration.setTestDialogs(true);
         runConfiguration.setReportDeprecatedNodes(true);
-        runConfiguration.setCheckMemoryLeaks(true);
+        runConfiguration.setCheckMemoryLeaks(false);
         // Python RDKit is printing warnings with timestamps, ignore those
         runConfiguration.setCheckLogMessages(false);
         runner = new TestFlowRunner(collector, runConfiguration);
