@@ -24,8 +24,8 @@
 				<ul>
 					<li>
 						Protein Data Bank, download from
-						<a href="http://dx.doi.org/10.5281/zenodo.55254">here</a>
-						, in 3D-e-Chem VM available at '/data/kripo/pdb/kripo.sqlite'
+						<a href="http://3d-e-chem.vu-compmedchem.nl/kripodb/fragments.sqlite">here</a>
+						, in 3D-e-Chem VM available at '/data/kripo/pdb/fragments.sqlite'
 					</li>
 					<li>
 						Tiny example dataset, download from
@@ -42,7 +42,9 @@
 				</ul>
 			</p>
 			<p>When combining this node with other Kripo nodes make sure the
-				files are from the same dataset.</p>
+				files are from the same dataset.
+			</p>
+			<p>For example getting a <b>KeyError: '&lt;fragment id&gt;' not found</b> error most likely means the '/data/kripo/pdb/fragments.sqlite' file is out of sync and must be re-downloaded from <a href="http://3d-e-chem.vu-compmedchem.nl/kripodb/fragments.sqlite">here</a></p>
 		</option>
 		<option name="Type of identifier">Can be fragment or PDB code.</option>
 	</fullDescription>
