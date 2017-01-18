@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>nl.esciencecenter.e3dchem</groupId>
 		<artifactId>nl.esciencecenter.e3dchem</artifactId>
-		<version>1.0.4</version>
+		<version>1.0.5</version>
 	</parent>
 
 	<artifactId>nl.esciencecenter.e3dchem.modifiedtanimoto.tests</artifactId>
@@ -25,7 +25,21 @@
 		</plugins>
 	</build>
 	<properties>
-		<!-- kill test JVM if tests take more than 1 minute (60 seconds) to finish -->
-		<surefire.timeout>60</surefire.timeout>
+		<!-- kill test JVM if tests take more than 5 minutes (300 seconds) to finish -->
+		<surefire.timeout>300</surefire.timeout>
 	</properties>
+	<profiles>
+                <profile>
+    			<id>macosx</id>
+			<activation>
+			<os>
+				<name>mac os x</name>
+				<family>mac</family>
+	 		</os>
+	   		</activation>
+	 		<properties>
+	    			<tycho.test.jvmArgs>-XstartOnFirstThread</tycho.test.jvmArgs>
+	   		</properties>
+		</profile>
+	</profiles>
 </project>
