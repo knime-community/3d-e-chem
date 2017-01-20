@@ -12,7 +12,18 @@
 	<fullDescription>
 		<intro>Find similar fragments bound to similar subpockets as the
 			subpocket associated with the query fragment based on the fingerprint
-			similarity matrix.</intro>
+			similarity matrix.
+			<h2>Resolving "'kripodb' Python package not found" error</h2>
+			<p>This node requires the <a href="https://github.com/3D-e-Chem/kripodb">kripodb</a> Python package.</p>
+			<p>
+			If the kripodb Python package was not installed then go to <a href="https://github.com/3D-e-Chem/kripodb#install">https://github.com/3D-e-Chem/kripodb#install</a> and follow the installation instructions.
+			To test if the package is installed run <i>kripodb --version</i> on the command line, it should print a version number if installed.
+			</p>
+			<p>
+			If the kripodb Python package was already installed then make sure that KNIME is using the same Python executable.
+			In the File menu > Preferences > KNIME > Python make sure the path to the Python executable is the same Python which has the kripodb package installed.
+			</p>
+		</intro>
 		<option name="Fragment identifiers">The column containing the Kripo fragment identifiers
 		</option>
 		<option name="Similarity matrix (Selected File)">
@@ -45,17 +56,6 @@
 		<option name="Cutoff">Cutoff, scores below cutoff are discarded.
 		</option>
 		<option name="Limit">Maximum number of hits for each query.</option>
-
-		<h2>Resolving "'kripodb' Python package not found" error</h2>
-		<p>This node requires the <a href="https://github.com/3D-e-Chem/kripodb">kripodb</a> Python package.</p>
-		<p>
-		If the kripodb Python package was not installed then go to <a href="https://github.com/3D-e-Chem/kripodb#install">https://github.com/3D-e-Chem/kripodb#install</a> and follow the installation instructions.
-		To test if the package is installed run <i>kripodb --version</i> on the command line, it should print a version number if installed.
-		</p>
-		<p>
-		If the kripodb Python package was already installed then make sure that KNIME is using the same Python executable.
-		In the File menu > Preferences > KNIME > Python make sure the path to the Python executable is the same Python which has the kripodb package installed.
-		</p>
 	</fullDescription>
 
 	<ports>
