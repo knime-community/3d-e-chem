@@ -46,13 +46,6 @@ public class FragmentsBySimilarityWorkflowTest {
     }
 
     @Test
-    public void test_usingwebservice() throws IOException, InvalidSettingsException, CanceledExecutionException,
-            UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
-        File workflowDir = new File("src/knime/kripo-similar-fragments-test-ws");
-        runner.runTestWorkflow(workflowDir);
-    }
-
-    @Test
     public void test_usinlocalfile() throws IOException, InvalidSettingsException, CanceledExecutionException,
             UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
         File workflowDir = new File("src/knime/kripo-similar-fragments-test-localmatrix");
