@@ -1,4 +1,4 @@
-package nl.esciencecenter.e3dchem.kripodb.fragments;
+package nl.esciencecenter.e3dchem.kripodb.py.fragments;
 
 import org.knime.core.node.NodeDialogPane;
 import org.knime.core.node.NodeFactory;
