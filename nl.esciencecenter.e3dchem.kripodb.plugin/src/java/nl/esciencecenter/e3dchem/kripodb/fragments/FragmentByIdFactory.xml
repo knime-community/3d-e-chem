@@ -18,12 +18,13 @@
 		<option name="Identifiers">The column containing the Kripo identifiers
 		</option>
 		<option name="Fragments database (Selected File)">
-			Location of Kripo fragments SQLite database file.
+			Location of Kripo fragments database, can be the base url of kripodb webservice or a local SQLite file.
 			<p>
 				Available datasets:
 				<ul>
 					<li>
-						Protein Data Bank, download from
+						Protein Data Bank, use web service at <a href="http://3d-e-chem.vu-compmedchem.nl/kripodb">http://3d-e-chem.vu-compmedchem.nl/kripodb</a>
+						or download from
 						<a href="http://3d-e-chem.vu-compmedchem.nl/kripodb/fragments.sqlite">here</a>
 						, in 3D-e-Chem VM available at '/data/kripo/pdb/fragments.sqlite'
 					</li>
