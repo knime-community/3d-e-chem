@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <knimeNode icon="./default.png" type="Predictor" xmlns="http://knime.org/node/v2.8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://knime.org/node/v2.10 http://knime.org/node/v2.10.xsd">
-    <name>Metabolite Predictor</name>
+    <name>SyGMa Metabolites</name>
     
     <shortDescription>
-        Predict metabolites from parent molecules using Sygma (<a href="https://github.com/ridderl/sygma">https://github.com/ridderl/sygma</a>).
+        Predict metabolites from parent molecules using Sygma (<a href="https://github.com/3D-e-Chem/sygma">https://github.com/3D-e-Chem/sygma</a>).
     </shortDescription>
     
     <fullDescription>
-        <intro>Predict metabolites from parent molecules using Sygma (<a href="https://github.com/ridderl/sygma">https://github.com/ridderl/sygma</a>).</intro>
+        <intro>Predict metabolites from parent molecules using Sygma (<a href="https://github.com/3D-e-Chem/sygma">https://github.com/3D-e-Chem/sygma</a>).</intro>
         
         <option name="Parents molecule column">Column containing molecules which will be metabolized.</option>
         <option name="Phase 1 cycles">Number of times phase 1 rules should be applied</option>
