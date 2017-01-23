@@ -7,7 +7,19 @@
     </shortDescription>
     
     <fullDescription>
-        <intro>Predict metabolites from parent molecules using Sygma (<a href="https://github.com/3D-e-Chem/sygma">https://github.com/3D-e-Chem/sygma</a>).</intro>
+        <intro>Predict metabolites from parent molecules using Sygma (<a href="https://github.com/3D-e-Chem/sygma">https://github.com/3D-e-Chem/sygma</a>).
+
+        <h2>Resolving "'sygma' Python package not found" error</h2>
+		<p>This node requires the <a href="sygma">sygma</a> Python package.</p>
+		<p>
+		If the sygma Python package was not installed then go to <a href="https://github.com/3D-e-Chem/sygma#installation">https://github.com/3D-e-Chem/sygma#installation</a> and follow the installation instructions.
+		To test if the package is installed run <i>sygma --version</i> on the command line, it should print a version number if installed.
+		</p>
+		<p>
+		If the sygma Python package was already installed then make sure that KNIME is using the same Python executable.
+		In the File menu > Preferences > KNIME > Python make sure the path to the Python executable is the same Python which has the sygma package installed.
+		</p>
+        </intro>
         
         <option name="Parents molecule column">Column containing molecules which will be metabolized.</option>
         <option name="Phase 1 cycles">Number of times phase 1 rules should be applied</option>
