@@ -6,8 +6,10 @@ import java.util.List;
 
 import org.knime.chem.types.SmilesCell;
 import org.knime.chem.types.SmilesCellFactory;
+import org.knime.chem.types.SmilesValue;
 import org.knime.core.data.DataCell;
 import org.knime.core.data.DataColumnSpec;
+import org.knime.core.data.DataColumnSpecCreator;
 import org.knime.core.data.DataRow;
 import org.knime.core.data.DataTableSpec;
 import org.knime.core.data.container.ColumnRearranger;
@@ -82,7 +84,7 @@ public class PredictMetabolitesModel extends PythonWrapperNodeModel<PredictMetab
 		List<String> smileColNames = new ArrayList<>();
 		DataTableSpec colSspec = inData[0].getSpec();
 		for (DataColumnSpec colSpec : colSspec) {
-			if (colSpec.getType().isCompatible(SmilesCell.class)) {
+			if (colSpec.getType().equals(SmilesCell.TYPE)) {
 				smileColNames.add(colSpec.getName());
 			}
 		}
