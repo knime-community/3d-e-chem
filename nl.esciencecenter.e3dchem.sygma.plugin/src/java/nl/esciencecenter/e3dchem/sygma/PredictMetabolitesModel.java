@@ -1,9 +1,20 @@
 package nl.esciencecenter.e3dchem.sygma;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
+import org.knime.chem.types.SmilesCell;
+import org.knime.chem.types.SmilesCellFactory;
+import org.knime.core.data.DataCell;
+import org.knime.core.data.DataColumnSpec;
+import org.knime.core.data.DataRow;
 import org.knime.core.data.DataTableSpec;
+import org.knime.core.data.container.ColumnRearranger;
+import org.knime.core.data.container.SingleCellFactory;
+import org.knime.core.data.def.StringCell;
 import org.knime.core.node.BufferedDataTable;
+import org.knime.core.node.ExecutionContext;
 import org.knime.core.node.InvalidSettingsException;
 import org.knime.core.node.port.PortType;
 
@@ -57,5 +68,49 @@ public class PredictMetabolitesModel extends PythonWrapperNodeModel<PredictMetab
 			throw e;
 		}
 
+	}
+
+	@Override
+	protected BufferedDataTable[] execute(BufferedDataTable[] inData, ExecutionContext exec) throws Exception {
+		// When copying inData to output table using a Python pandas dataframe
+		// copy(),
+		// the smiles input column has changed to string type
+		// Fix by finding column in smile type in inData input and applying cast
+		// on output table
+
+		// Find columns of smile type in input
+		List<String> smileColNames = new ArrayList<>();
+		DataTableSpec colSspec = inData[0].getSpec();
+		for (DataColumnSpec colSpec : colSspec) {
+			if (colSpec.getType().isCompatible(SmilesCell.class)) {
+				smileColNames.add(colSpec.getName());
+			}
+		}
+		
+		// Run actual Python code
+		BufferedDataTable[] pytables = super.execute(inData, exec);
+		
+		// Create a rearranger which will perform replace
+		DataTableSpec pyOutSpec = pytables[0].getSpec();
+		ColumnRearranger rearranger = new ColumnRearranger(pyOutSpec);
+		for (String smileColName : smileColNames) {
+			int index = pyOutSpec.findColumnIndex(smileColName);
+			rearranger.replace(new SingleCellFactory(colSspec.getColumnSpec(smileColName)) {
+
+				@Override
+				public DataCell getCell(DataRow row) {
+					DataCell cell = row.getCell(index);
+					if (cell.getType().isCompatible(SmilesCell.class)) {
+						return cell;
+					} else {
+						return SmilesCellFactory.create(((StringCell) cell).getStringValue());
+					}
+				}
+			}, smileColName);
+		}
+		
+		// Run string>smiles rearranger on Python output
+		BufferedDataTable outTable = exec.createColumnRearrangeTable(pytables[0], rearranger, exec);
+		return new BufferedDataTable[] { outTable };
 	}
 }
