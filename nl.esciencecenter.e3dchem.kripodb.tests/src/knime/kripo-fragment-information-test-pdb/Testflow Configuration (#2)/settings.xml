@@ -8,7 +8,8 @@
 <config key="model">
 <entry key="owner" type="xstring" value="s.verhoeven@esciencecenter.nl"/>
 <config key="requiredLogErrors">
-<entry key="array-size" type="xint" value="0"/>
+<entry key="array-size" type="xint" value="1"/>
+<entry key="0" type="xstring" value="WARNING:root:Following fragment identifier(s) could not be found: wrongid"/>
 </config>
 <config key="requiredLogWarnings">
 <entry key="array-size" type="xint" value="0"/>
