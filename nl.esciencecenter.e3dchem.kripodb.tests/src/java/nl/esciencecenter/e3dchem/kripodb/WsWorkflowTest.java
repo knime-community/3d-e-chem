@@ -21,7 +21,7 @@ import nl.esciencecenter.e3dchem.knime.testing.TestFlowRunner;
 import nl.esciencecenter.e3dchem.python.PythonWrapperTestUtils;
 
 /**
- * KNIME test workflows which call a web service which is mocked using WireMock. 
+ * KNIME test workflows which call a web service which is mocked using WireMock.
  */
 public class WsWorkflowTest {
 	private TestFlowRunner runner;
@@ -31,11 +31,12 @@ public class WsWorkflowTest {
 
 	@Rule
 	public WireMockRule wireMockRule = new WireMockRule(8089);
-	
+
 	@Before
 	public void setUp() {
 		TestrunConfiguration runConfiguration = new TestrunConfiguration();
 		runConfiguration.setTestDialogs(true);
+		runConfiguration.setLoadSaveLoad(false);
 		runner = new TestFlowRunner(collector, runConfiguration);
 	}
 
@@ -55,6 +56,20 @@ public class WsWorkflowTest {
 	public void test_fragmentInformation() throws IOException, InvalidSettingsException, CanceledExecutionException,
 			UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
 		File workflowDir = new File("src/knime/kripo-fragment-information-test-ws");
+		runner.runTestWorkflow(workflowDir);
+	}
+
+	@Test
+	public void test_similarFragments_notfound() throws IOException, InvalidSettingsException,
+			CanceledExecutionException, UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
+		File workflowDir = new File("src/knime/kripo-similar-fragments-test-notfound");
+		runner.runTestWorkflow(workflowDir);
+	}
+
+	@Test
+	public void test_notfound() throws IOException, InvalidSettingsException, CanceledExecutionException,
+			UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
+		File workflowDir = new File("src/knime/kripo-fragment-information-test-notfound");
 		runner.runTestWorkflow(workflowDir);
 	}
 }

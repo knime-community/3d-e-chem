@@ -38,6 +38,7 @@ public class FragmentsBySimilarityWorkflowTest {
 	public void setUp() {
 		TestrunConfiguration runConfiguration = new TestrunConfiguration();
 		runConfiguration.setTestDialogs(true);
+		runConfiguration.setLoadSaveLoad(false);
 		runner = new TestFlowRunner(collector, runConfiguration);
 	}
 
@@ -66,5 +67,4 @@ public class FragmentsBySimilarityWorkflowTest {
 		String wfDir = "src/knime/kripo-similar-fragments-test-invalidsettings";
 		runTestWorkflow(wfDir);
 	}
-
 }

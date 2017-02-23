@@ -34,8 +34,8 @@ public class FragmentBySimilarityModel extends KripoNodeModel<FragmentsBySimilar
 	@Override
 	protected DataTableSpec[] getOutputSpecs(DataTableSpec[] inSpecs) {
 		DataTableSpec outputSpec = new DataTableSpec(
-				new DataColumnSpecCreator("hit_frag_id", StringCell.TYPE).createSpec(),
 				new DataColumnSpecCreator("query_frag_id", StringCell.TYPE).createSpec(),
+				new DataColumnSpecCreator("hit_frag_id", StringCell.TYPE).createSpec(),
 				new DataColumnSpecCreator("score", DoubleCell.TYPE).createSpec());
 		return new DataTableSpec[] { outputSpec };
 	}

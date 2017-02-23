@@ -33,6 +33,7 @@ public class FragmentsByIdWorkflowTest {
 		TestrunConfiguration runConfiguration = new TestrunConfiguration();
 		runConfiguration.setTestDialogs(true);
 		runConfiguration.setAllowedMemoryIncrease(4096000);
+		runConfiguration.setLoadSaveLoad(false);
 		runner = new TestFlowRunner(collector, runConfiguration);
 	}
 

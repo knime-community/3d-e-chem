@@ -3,6 +3,27 @@
 <entry key="spec_name" type="xstring" value="default"/>
 <entry key="number_columns" type="xint" value="3"/>
 <config key="column_spec_0">
+<entry key="column_name" type="xstring" value="query_frag_id"/>
+<config key="element_names">
+<entry key="array-size" type="xint" value="0"/>
+</config>
+<config key="column_type">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.StringCell"/>
+</config>
+<config key="column_domain">
+<config key="possible_values">
+<entry key="array-size" type="xint" value="1"/>
+<config key="0">
+<entry key="datacell" type="xstring" value="org.knime.core.data.def.StringCell"/>
+<config key="org.knime.core.data.def.StringCell">
+<entry key="StringCell" type="xstring" value="3j7u_NDP_frag24"/>
+</config>
+</config>
+</config>
+</config>
+<config key="column_properties"/>
+</config>
+<config key="column_spec_1">
 <entry key="column_name" type="xstring" value="hit_frag_id"/>
 <config key="element_names">
 <entry key="array-size" type="xint" value="0"/>
@@ -77,27 +98,6 @@
 <entry key="datacell" type="xstring" value="org.knime.core.data.def.StringCell"/>
 <config key="org.knime.core.data.def.StringCell">
 <entry key="StringCell" type="xstring" value="3j7u_NDP_frag4"/>
-</config>
-</config>
-</config>
-</config>
-<config key="column_properties"/>
-</config>
-<config key="column_spec_1">
-<entry key="column_name" type="xstring" value="query_frag_id"/>
-<config key="element_names">
-<entry key="array-size" type="xint" value="0"/>
-</config>
-<config key="column_type">
-<entry key="cell_class" type="xstring" value="org.knime.core.data.def.StringCell"/>
-</config>
-<config key="column_domain">
-<config key="possible_values">
-<entry key="array-size" type="xint" value="1"/>
-<config key="0">
-<entry key="datacell" type="xstring" value="org.knime.core.data.def.StringCell"/>
-<config key="org.knime.core.data.def.StringCell">
-<entry key="StringCell" type="xstring" value="3j7u_NDP_frag24"/>
 </config>
 </config>
 </config>
