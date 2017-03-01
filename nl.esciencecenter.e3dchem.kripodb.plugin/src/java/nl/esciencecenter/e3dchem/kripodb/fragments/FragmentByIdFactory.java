@@ -42,9 +42,6 @@ public class FragmentByIdFactory extends NodeFactory<FragmentByIdModel> {
 		return new FragmentByIdDialog();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public NodeView<FragmentByIdModel> createNodeView(int viewIndex, FragmentByIdModel nodeModel) {
 		return null;
