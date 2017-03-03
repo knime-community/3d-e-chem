@@ -1,4 +1,4 @@
-package nl.esciencecenter.e3dchem.kripodb.py.fragments;
+package nl.esciencecenter.e3dchem.kripodb.fragments;
 
 import java.io.File;
 import java.util.Set;

@@ -1,4 +1,4 @@
-package nl.esciencecenter.e3dchem.kripodb.py.fragmentsbysimilarity;
+package nl.esciencecenter.e3dchem.kripodb.fragmentsbysimilarity;
 
 import java.io.File;
 import java.util.Arrays;

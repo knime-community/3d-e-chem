@@ -1,4 +1,4 @@
-package nl.esciencecenter.e3dchem.kripodb.py.fragmentsbysimilarity;
+package nl.esciencecenter.e3dchem.kripodb.fragmentsbysimilarity;
 
 import org.knime.core.data.StringValue;
 import org.knime.core.node.defaultnodesettings.DefaultNodeSettingsPane;

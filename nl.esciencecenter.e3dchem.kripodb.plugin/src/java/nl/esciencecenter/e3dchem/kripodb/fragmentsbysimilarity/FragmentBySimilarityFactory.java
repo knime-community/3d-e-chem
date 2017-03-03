@@ -1,4 +1,4 @@
-package nl.esciencecenter.e3dchem.kripodb.py.fragments;
+package nl.esciencecenter.e3dchem.kripodb.fragmentsbysimilarity;
 
 import org.knime.core.node.NodeDialogPane;
 import org.knime.core.node.NodeFactory;
@@ -8,14 +8,14 @@ import org.knime.core.node.NodeView;
  * <code>NodeFactory</code> for the "FragmentBySimilarity" Node.
  *
  */
-public class FragmentByIdFactory extends NodeFactory<FragmentByIdModel> {
+public class FragmentBySimilarityFactory extends NodeFactory<FragmentBySimilarityModel> {
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public FragmentByIdModel createNodeModel() {
-		return new FragmentByIdModel();
+	public FragmentBySimilarityModel createNodeModel() {
+		return new FragmentBySimilarityModel();
 	}
 
 	/**
@@ -39,11 +39,14 @@ public class FragmentByIdFactory extends NodeFactory<FragmentByIdModel> {
 	 */
 	@Override
 	public NodeDialogPane createNodeDialogPane() {
-		return new FragmentByIdDialog();
+		return new FragmentBySimilarityDialog();
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
-	public NodeView<FragmentByIdModel> createNodeView(int viewIndex, FragmentByIdModel nodeModel) {
+	public NodeView<FragmentBySimilarityModel> createNodeView(int viewIndex, FragmentBySimilarityModel nodeModel) {
 		return null;
 	}
 

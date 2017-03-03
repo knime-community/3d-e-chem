@@ -32,12 +32,12 @@
         <node
                category-path="/community/3d-e-chem/kripodb/local"
                deprecated="false"
-               factory-class="nl.esciencecenter.e3dchem.kripodb.py.fragmentsbysimilarity.FragmentBySimilarityFactory">
+               factory-class="nl.esciencecenter.e3dchem.kripodb.fragmentsbysimilarity.FragmentBySimilarityFactory">
         </node>
         <node
                category-path="/community/3d-e-chem/kripodb/local"
                deprecated="false"
-               factory-class="nl.esciencecenter.e3dchem.kripodb.py.fragments.FragmentByIdFactory">
+               factory-class="nl.esciencecenter.e3dchem.kripodb.fragments.FragmentByIdFactory">
         </node>
     </extension>
 </plugin>

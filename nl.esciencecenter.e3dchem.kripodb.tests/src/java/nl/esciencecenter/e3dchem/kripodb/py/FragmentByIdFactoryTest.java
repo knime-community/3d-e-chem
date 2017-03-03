@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import nl.esciencecenter.e3dchem.kripodb.py.fragments.FragmentByIdFactory;
+import nl.esciencecenter.e3dchem.kripodb.fragments.FragmentByIdFactory;
 
 public class FragmentByIdFactoryTest {
 	
