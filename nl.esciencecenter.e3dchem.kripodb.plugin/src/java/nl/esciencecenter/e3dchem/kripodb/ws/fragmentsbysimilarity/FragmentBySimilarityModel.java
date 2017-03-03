@@ -87,9 +87,13 @@ public class FragmentBySimilarityModel extends WsNodeModel<FragmentsBySimilarity
 			currentRow++;
 		}
 		if (!absentIdentifiers.isEmpty()) {
-			this.getLogger().warn("Following fragment identifier(s) could not be found: "
-					+ StringUtil.join(absentIdentifiers.toArray(new String[] {}), ","));
-			setWarningMessage("Some query fragment identifiers could not be found");
+			if (absentIdentifiers.size() == table.size()) {
+				throw new ApiException("Could not find any fragment identifiers, check input and base path option");
+			} else {
+				this.getLogger().warn("Following fragment identifier(s) could not be found: "
+						+ StringUtil.join(absentIdentifiers.toArray(new String[] {}), ","));
+				setWarningMessage("Some query fragment identifiers could not be found");
+			}
 		}
 
 		// once we are done, we close the container and return its table
