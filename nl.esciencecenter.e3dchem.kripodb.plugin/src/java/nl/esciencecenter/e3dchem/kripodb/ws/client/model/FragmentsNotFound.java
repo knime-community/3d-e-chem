@@ -17,14 +17,17 @@ import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
+import nl.esciencecenter.e3dchem.kripodb.ws.client.model.Error;
+import nl.esciencecenter.e3dchem.kripodb.ws.client.model.Fragment;
 import java.io.Serializable;
 
 /**
- * Problem Details for HTTP APIs, see https://tools.ietf.org/html/draft-ietf-appsawg-http-problem-00
+ * FragmentsNotFound
  */
-@ApiModel(description = "Problem Details for HTTP APIs, see https://tools.ietf.org/html/draft-ietf-appsawg-http-problem-00")
 
-public class Error implements Serializable {
+public class FragmentsNotFound implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("status")
@@ -39,7 +42,13 @@ public class Error implements Serializable {
   @SerializedName("title")
   private String title = null;
 
-  public Error status(Integer status) {
+  @SerializedName("fragments")
+  private List<Fragment> fragments = new ArrayList<Fragment>();
+
+  @SerializedName("absent_identifiers")
+  private List<String> absentIdentifiers = new ArrayList<String>();
+
+  public FragmentsNotFound status(Integer status) {
     this.status = status;
     return this;
   }
@@ -57,7 +66,7 @@ public class Error implements Serializable {
     this.status = status;
   }
 
-  public Error type(String type) {
+  public FragmentsNotFound type(String type) {
     this.type = type;
     return this;
   }
@@ -75,7 +84,7 @@ public class Error implements Serializable {
     this.type = type;
   }
 
-  public Error detail(String detail) {
+  public FragmentsNotFound detail(String detail) {
     this.detail = detail;
     return this;
   }
@@ -93,7 +102,7 @@ public class Error implements Serializable {
     this.detail = detail;
   }
 
-  public Error title(String title) {
+  public FragmentsNotFound title(String title) {
     this.title = title;
     return this;
   }
@@ -111,6 +120,52 @@ public class Error implements Serializable {
     this.title = title;
   }
 
+  public FragmentsNotFound fragments(List<Fragment> fragments) {
+    this.fragments = fragments;
+    return this;
+  }
+
+  public FragmentsNotFound addFragmentsItem(Fragment fragmentsItem) {
+    this.fragments.add(fragmentsItem);
+    return this;
+  }
+
+   /**
+   * Fragments that where found
+   * @return fragments
+  **/
+  @ApiModelProperty(example = "null", required = true, value = "Fragments that where found")
+  public List<Fragment> getFragments() {
+    return fragments;
+  }
+
+  public void setFragments(List<Fragment> fragments) {
+    this.fragments = fragments;
+  }
+
+  public FragmentsNotFound absentIdentifiers(List<String> absentIdentifiers) {
+    this.absentIdentifiers = absentIdentifiers;
+    return this;
+  }
+
+  public FragmentsNotFound addAbsentIdentifiersItem(String absentIdentifiersItem) {
+    this.absentIdentifiers.add(absentIdentifiersItem);
+    return this;
+  }
+
+   /**
+   * List of identifiers that could not be found
+   * @return absentIdentifiers
+  **/
+  @ApiModelProperty(example = "null", required = true, value = "List of identifiers that could not be found")
+  public List<String> getAbsentIdentifiers() {
+    return absentIdentifiers;
+  }
+
+  public void setAbsentIdentifiers(List<String> absentIdentifiers) {
+    this.absentIdentifiers = absentIdentifiers;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -120,28 +175,32 @@ public class Error implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Error error = (Error) o;
-    return Objects.equals(this.status, error.status) &&
-        Objects.equals(this.type, error.type) &&
-        Objects.equals(this.detail, error.detail) &&
-        Objects.equals(this.title, error.title);
+    FragmentsNotFound fragmentsNotFound = (FragmentsNotFound) o;
+    return Objects.equals(this.status, fragmentsNotFound.status) &&
+        Objects.equals(this.type, fragmentsNotFound.type) &&
+        Objects.equals(this.detail, fragmentsNotFound.detail) &&
+        Objects.equals(this.title, fragmentsNotFound.title) &&
+        Objects.equals(this.fragments, fragmentsNotFound.fragments) &&
+        Objects.equals(this.absentIdentifiers, fragmentsNotFound.absentIdentifiers);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, type, detail, title);
+    return Objects.hash(status, type, detail, title, fragments, absentIdentifiers);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Error {\n");
+    sb.append("class FragmentsNotFound {\n");
     
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    fragments: ").append(toIndentedString(fragments)).append("\n");
+    sb.append("    absentIdentifiers: ").append(toIndentedString(absentIdentifiers)).append("\n");
     sb.append("}");
     return sb.toString();
   }

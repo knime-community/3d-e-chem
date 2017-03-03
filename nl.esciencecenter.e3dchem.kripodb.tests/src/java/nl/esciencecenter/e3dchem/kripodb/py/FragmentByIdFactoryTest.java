@@ -1,10 +1,10 @@
-package nl.esciencecenter.e3dchem.kripodb;
+package nl.esciencecenter.e3dchem.kripodb.py;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import nl.esciencecenter.e3dchem.kripodb.fragments.FragmentByIdFactory;
+import nl.esciencecenter.e3dchem.kripodb.py.fragments.FragmentByIdFactory;
 
 public class FragmentByIdFactoryTest {
 	

@@ -17,14 +17,14 @@ import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import nl.esciencecenter.e3dchem.kripodb.ws.client.model.Error;
 import java.io.Serializable;
 
 /**
- * Problem Details for HTTP APIs, see https://tools.ietf.org/html/draft-ietf-appsawg-http-problem-00
+ * FragmentNotFound
  */
-@ApiModel(description = "Problem Details for HTTP APIs, see https://tools.ietf.org/html/draft-ietf-appsawg-http-problem-00")
 
-public class Error implements Serializable {
+public class FragmentNotFound implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("status")
@@ -39,7 +39,10 @@ public class Error implements Serializable {
   @SerializedName("title")
   private String title = null;
 
-  public Error status(Integer status) {
+  @SerializedName("identifier")
+  private String identifier = null;
+
+  public FragmentNotFound status(Integer status) {
     this.status = status;
     return this;
   }
@@ -57,7 +60,7 @@ public class Error implements Serializable {
     this.status = status;
   }
 
-  public Error type(String type) {
+  public FragmentNotFound type(String type) {
     this.type = type;
     return this;
   }
@@ -75,7 +78,7 @@ public class Error implements Serializable {
     this.type = type;
   }
 
-  public Error detail(String detail) {
+  public FragmentNotFound detail(String detail) {
     this.detail = detail;
     return this;
   }
@@ -93,7 +96,7 @@ public class Error implements Serializable {
     this.detail = detail;
   }
 
-  public Error title(String title) {
+  public FragmentNotFound title(String title) {
     this.title = title;
     return this;
   }
@@ -111,6 +114,24 @@ public class Error implements Serializable {
     this.title = title;
   }
 
+  public FragmentNotFound identifier(String identifier) {
+    this.identifier = identifier;
+    return this;
+  }
+
+   /**
+   * Identifier that could not be found
+   * @return identifier
+  **/
+  @ApiModelProperty(example = "null", required = true, value = "Identifier that could not be found")
+  public String getIdentifier() {
+    return identifier;
+  }
+
+  public void setIdentifier(String identifier) {
+    this.identifier = identifier;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -120,28 +141,30 @@ public class Error implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Error error = (Error) o;
-    return Objects.equals(this.status, error.status) &&
-        Objects.equals(this.type, error.type) &&
-        Objects.equals(this.detail, error.detail) &&
-        Objects.equals(this.title, error.title);
+    FragmentNotFound fragmentNotFound = (FragmentNotFound) o;
+    return Objects.equals(this.status, fragmentNotFound.status) &&
+        Objects.equals(this.type, fragmentNotFound.type) &&
+        Objects.equals(this.detail, fragmentNotFound.detail) &&
+        Objects.equals(this.title, fragmentNotFound.title) &&
+        Objects.equals(this.identifier, fragmentNotFound.identifier);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, type, detail, title);
+    return Objects.hash(status, type, detail, title, identifier);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Error {\n");
+    sb.append("class FragmentNotFound {\n");
     
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
     sb.append("}");
     return sb.toString();
   }

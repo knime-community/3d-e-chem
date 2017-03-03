@@ -1,4 +1,4 @@
-package nl.esciencecenter.e3dchem.kripodb;
+package nl.esciencecenter.e3dchem.kripodb.py;
 
 import java.io.File;
 import java.io.IOException;
