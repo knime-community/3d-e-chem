@@ -51,9 +51,9 @@ public class FragmentByIdModel extends WsNodeModel<FragmentsByIdConfig> {
 		BufferedDataContainer container = exec.createDataContainer(outputSpec);
 		BufferedDataTable table = inData[0];
 		int columnIndex = table.getSpec().findColumnIndex(getConfig().getIdColumn().getStringValue());
-		
+
 		List<String> absentIdentifiers = new ArrayList<>();
-		int chunkSize = getConfig().getChunkSize().getIntValue(); 
+		int chunkSize = getConfig().getChunkSize().getIntValue();
 		long chunkCount = table.size() / chunkSize;
 		if (table.size() < chunkSize) {
 			chunkCount = 1;
@@ -62,14 +62,15 @@ public class FragmentByIdModel extends WsNodeModel<FragmentsByIdConfig> {
 		List<String> chunk = new ArrayList<String>(chunkSize);
 		for (DataRow row : table) {
 			String id = ((StringCell) row.getCell(columnIndex)).getStringValue();
-			
+
 			chunk.add(id);
 			// chunk full or last chunk
 			if (chunk.size() == chunkSize || currentChunk == chunkCount) {
 				fetchFragments(chunk, container, absentIdentifiers);
 				chunk.clear();
 
-				exec.setProgress((double) currentChunk / chunkCount, " processing chunk " + currentChunk + " of " + chunkCount);
+				exec.setProgress((double) currentChunk / chunkCount,
+						" processing chunk " + currentChunk + " of " + chunkCount);
 				currentChunk++;
 			}
 
@@ -86,19 +87,20 @@ public class FragmentByIdModel extends WsNodeModel<FragmentsByIdConfig> {
 		BufferedDataTable out = container.getTable();
 		return new BufferedDataTable[] { out };
 	}
-	
-	
-	private void fetchFragments(List<String> ids, BufferedDataContainer container, List<String> absentIdentifiers) throws ApiException {
+
+	private void fetchFragments(List<String> ids, BufferedDataContainer container, List<String> absentIdentifiers)
+			throws ApiException {
 		String idType = getConfig().getIdType().getStringValue();
 		try {
 			if (idType == "pdb") {
 				fetchFragmentsByPdbCode(ids, container);
 			} else {
 				fetchFragmentsById(ids, container);
-			} 
+			}
 		} catch (ApiException e) {
-			if (e.getCode() == HTTP_NOT_FOUND
-					&& e.getResponseHeaders().get("content-type").get(0) == "application/problem+json") {
+			if (e.getCode() == HTTP_NOT_FOUND && e.getResponseHeaders().containsKey("Content-Type")
+					&& !e.getResponseHeaders().get("Content-Type").isEmpty()
+					&& e.getResponseHeaders().get("Content-Type").get(0) == "application/problem+json") {
 				JSON json = new JSON(getConfig().getApiClient());
 				try {
 					FragmentsNotFound notFound = json.deserialize(e.getResponseBody(), FragmentsNotFound.class);
@@ -111,7 +113,7 @@ public class FragmentByIdModel extends WsNodeModel<FragmentsByIdConfig> {
 			}
 		}
 	}
-	
+
 	private void fetchFragmentsByPdbCode(List<String> pdbCodes, BufferedDataContainer container) throws ApiException {
 		FragmentsApi api = getConfig().getFragmentsApi();
 		List<Fragment> fragments = api.getFragments(new ArrayList<String>(), pdbCodes);
@@ -184,9 +186,8 @@ public class FragmentByIdModel extends WsNodeModel<FragmentsByIdConfig> {
 				"nr_r_groups", "pdb_code", "atom_codes", "prot_chain", "uniprot_acc", "ec_number", "prot_name",
 				"frag_nr", "het_chain", "hash_code" };
 		DataType[] types = { SmilesCell.TYPE, StringCell.TYPE, IntCell.TYPE, StringCell.TYPE, Mol2Cell.TYPE,
-				StringCell.TYPE, StringCell.TYPE, IntCell.TYPE, StringCell.TYPE, StringCell.TYPE,
-				StringCell.TYPE, StringCell.TYPE, StringCell.TYPE, StringCell.TYPE, IntCell.TYPE, StringCell.TYPE,
-				StringCell.TYPE, };
+				StringCell.TYPE, StringCell.TYPE, IntCell.TYPE, StringCell.TYPE, StringCell.TYPE, StringCell.TYPE,
+				StringCell.TYPE, StringCell.TYPE, StringCell.TYPE, IntCell.TYPE, StringCell.TYPE, StringCell.TYPE, };
 		return new DataTableSpec(names, types);
 	}
 

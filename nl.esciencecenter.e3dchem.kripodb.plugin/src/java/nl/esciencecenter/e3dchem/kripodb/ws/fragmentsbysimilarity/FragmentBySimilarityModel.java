@@ -59,8 +59,10 @@ public class FragmentBySimilarityModel extends WsNodeModel<FragmentsBySimilarity
 			try {
 				fetchSimilarFragments(queryFragmentId, container);
 			} catch (ApiException e) {
-				if (e.getCode() == HTTP_NOT_FOUND
-						&& e.getResponseHeaders().get("content-type").get(0) == "application/problem+json") {
+
+				if (e.getCode() == HTTP_NOT_FOUND && e.getResponseHeaders().containsKey("Content-Type")
+						&& !e.getResponseHeaders().get("Content-Type").isEmpty()
+						&& e.getResponseHeaders().get("Content-Type").get(0) == "application/problem+json") {
 					JSON json = new JSON(getConfig().getApiClient());
 					try {
 						FragmentNotFound notFound = json.deserialize(e.getResponseBody(), FragmentNotFound.class);
