@@ -1,4 +1,4 @@
-package nl.esciencecenter.e3dchem.kripodb.py;
+package nl.esciencecenter.e3dchem.kripodb;
 
 import static org.junit.Assert.*;
 
