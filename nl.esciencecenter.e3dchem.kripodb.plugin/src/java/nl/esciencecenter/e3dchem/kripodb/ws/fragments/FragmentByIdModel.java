@@ -61,6 +61,10 @@ public class FragmentByIdModel extends WsNodeModel<FragmentsByIdConfig> {
 		long currentChunk = 1;
 		List<String> chunk = new ArrayList<String>(chunkSize);
 		for (DataRow row : table) {
+			if (row.getCell(columnIndex).isMissing()) {
+				setWarningMessage("Skipped missing value");
+				continue;
+			}
 			String id = ((StringCell) row.getCell(columnIndex)).getStringValue();
 
 			chunk.add(id);
@@ -100,7 +104,7 @@ public class FragmentByIdModel extends WsNodeModel<FragmentsByIdConfig> {
 		} catch (ApiException e) {
 			if (e.getCode() == HTTP_NOT_FOUND && e.getResponseHeaders().containsKey("Content-Type")
 					&& !e.getResponseHeaders().get("Content-Type").isEmpty()
-					&& e.getResponseHeaders().get("Content-Type").get(0) == "application/problem+json") {
+					&& "application/problem+json".equals(e.getResponseHeaders().get("Content-Type").get(0))) {
 				JSON json = new JSON(getConfig().getApiClient());
 				try {
 					FragmentsNotFound notFound = json.deserialize(e.getResponseBody(), FragmentsNotFound.class);
@@ -126,28 +130,29 @@ public class FragmentByIdModel extends WsNodeModel<FragmentsByIdConfig> {
 		fillContainer(fragments, container);
 	}
 
+	private DataTableSpec createOutputColumnSpec() {
+		// TODO reorder columns
+		String[] names = { "smiles", "pdb_title", "het_seq_nr", "het_code", "frag_id", "mol", "uniprot_name",
+				"nr_r_groups", "pdb_code", "atom_codes", "prot_chain", "uniprot_acc", "ec_number", "prot_name",
+				"frag_nr", "het_chain", "hash_code" };
+		DataType[] types = { SmilesCell.TYPE, StringCell.TYPE, IntCell.TYPE, StringCell.TYPE, StringCell.TYPE,
+				Mol2Cell.TYPE, StringCell.TYPE, IntCell.TYPE, StringCell.TYPE, StringCell.TYPE, StringCell.TYPE,
+				StringCell.TYPE, StringCell.TYPE, StringCell.TYPE, IntCell.TYPE, StringCell.TYPE, StringCell.TYPE, };
+		return new DataTableSpec(names, types);
+	}
+
 	private void fillContainer(List<Fragment> fragments, BufferedDataContainer container) {
 		for (Fragment fragment : fragments) {
-			RowKey rowKey = RowKey.createRowKey(container.size());
-			DataCell[] cells = new DataCell[17];
-			cells[0] = SmilesCellFactory.create(fragment.getSmiles());
-			cells[1] = new StringCell(fragment.getPdbTitle());
-			cells[2] = new IntCell(fragment.getHetSeqNr());
-			cells[3] = new StringCell(fragment.getHetCode());
-			cells[4] = new StringCell(fragment.getFragId());
-			cells[5] = Mol2CellFactory.create(fragment.getMol());
-			cells[6] = new StringCell(fragment.getUniprotName());
-			cells[7] = new IntCell(fragment.getNrRGroups());
-			cells[8] = new StringCell(fragment.getPdbCode());
-			cells[9] = new StringCell(fragment.getAtomCodes());
-			cells[10] = new StringCell(fragment.getProtChain());
-			cells[11] = new StringCell(fragment.getUniprotAcc());
-			cells[12] = new StringCell(fragment.getEcNumber());
-			cells[13] = new StringCell(fragment.getProtName());
-			cells[14] = new IntCell(fragment.getFragNr());
-			cells[15] = new StringCell(fragment.getHetChain());
-			cells[16] = new StringCell(fragment.getHashCode());
-			DataRow row = new DefaultRow(rowKey, cells);
+			DataRow row = new DefaultRow(RowKey.createRowKey(container.size()),
+					SmilesCellFactory.create(fragment.getSmiles()), new StringCell(fragment.getPdbTitle()),
+					new IntCell(fragment.getHetSeqNr()), new StringCell(fragment.getHetCode()),
+					new StringCell(fragment.getFragId()), Mol2CellFactory.create(fragment.getMol()),
+					new StringCell(fragment.getUniprotName()), new IntCell(fragment.getNrRGroups()),
+					new StringCell(fragment.getPdbCode()), new StringCell(fragment.getAtomCodes()),
+					new StringCell(fragment.getProtChain()), new StringCell(fragment.getUniprotAcc()),
+					new StringCell(fragment.getEcNumber()), new StringCell(fragment.getProtName()),
+					new IntCell(fragment.getFragNr()), new StringCell(fragment.getHetChain()),
+					new StringCell(fragment.getHashCode()));
 			container.addRowToTable(row);
 		}
 	}
@@ -178,17 +183,6 @@ public class FragmentByIdModel extends WsNodeModel<FragmentsByIdConfig> {
 			throw new InvalidSettingsException("Column '" + idColumn + "' does not contain String cells");
 		}
 		return new DataTableSpec[] { createOutputColumnSpec() };
-	}
-
-	private DataTableSpec createOutputColumnSpec() {
-		// TODO reorder columns
-		String[] names = { "smiles", "pdb_title", "het_seq_nr", "het_code", "frag_id", "mol", "uniprot_name",
-				"nr_r_groups", "pdb_code", "atom_codes", "prot_chain", "uniprot_acc", "ec_number", "prot_name",
-				"frag_nr", "het_chain", "hash_code" };
-		DataType[] types = { SmilesCell.TYPE, StringCell.TYPE, IntCell.TYPE, StringCell.TYPE, Mol2Cell.TYPE,
-				StringCell.TYPE, StringCell.TYPE, IntCell.TYPE, StringCell.TYPE, StringCell.TYPE, StringCell.TYPE,
-				StringCell.TYPE, StringCell.TYPE, StringCell.TYPE, IntCell.TYPE, StringCell.TYPE, StringCell.TYPE, };
-		return new DataTableSpec(names, types);
 	}
 
 	@Override

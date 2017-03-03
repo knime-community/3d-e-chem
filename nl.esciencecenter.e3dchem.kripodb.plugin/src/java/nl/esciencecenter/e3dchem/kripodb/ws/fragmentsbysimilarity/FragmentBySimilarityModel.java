@@ -54,15 +54,18 @@ public class FragmentBySimilarityModel extends WsNodeModel<FragmentsBySimilarity
 		long rowCount = table.size();
 		long currentRow = 0;
 		for (DataRow row : table) {
+			if (row.getCell(columnIndex).isMissing()) {
+				setWarningMessage("Skipped missing value");
+				continue;
+			}
 			String queryFragmentId = ((StringCell) row.getCell(columnIndex)).getStringValue();
 
 			try {
 				fetchSimilarFragments(queryFragmentId, container);
 			} catch (ApiException e) {
-
 				if (e.getCode() == HTTP_NOT_FOUND && e.getResponseHeaders().containsKey("Content-Type")
 						&& !e.getResponseHeaders().get("Content-Type").isEmpty()
-						&& e.getResponseHeaders().get("Content-Type").get(0) == "application/problem+json") {
+						&& "application/problem+json".equals(e.getResponseHeaders().get("Content-Type").get(0))) {
 					JSON json = new JSON(getConfig().getApiClient());
 					try {
 						FragmentNotFound notFound = json.deserialize(e.getResponseBody(), FragmentNotFound.class);
