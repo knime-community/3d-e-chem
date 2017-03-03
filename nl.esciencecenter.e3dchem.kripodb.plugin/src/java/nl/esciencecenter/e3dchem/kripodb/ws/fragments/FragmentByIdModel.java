@@ -5,11 +5,10 @@ import static java.net.HttpURLConnection.HTTP_NOT_FOUND;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.knime.chem.types.Mol2Cell;
-import org.knime.chem.types.Mol2CellFactory;
+import org.RDKit.RDKFuncs;
+import org.RDKit.RWMol;
 import org.knime.chem.types.SmilesCell;
 import org.knime.chem.types.SmilesCellFactory;
-import org.knime.core.data.DataCell;
 import org.knime.core.data.DataColumnSpec;
 import org.knime.core.data.DataRow;
 import org.knime.core.data.DataTableSpec;
@@ -25,6 +24,7 @@ import org.knime.core.node.ExecutionContext;
 import org.knime.core.node.InvalidSettingsException;
 import org.knime.core.node.NodeSettingsRO;
 import org.knime.core.node.NodeSettingsWO;
+import org.rdkit.knime.types.RDKitMolCellFactory;
 
 import com.google.gson.JsonParseException;
 
@@ -136,17 +136,18 @@ public class FragmentByIdModel extends WsNodeModel<FragmentsByIdConfig> {
 				"nr_r_groups", "pdb_code", "atom_codes", "prot_chain", "uniprot_acc", "ec_number", "prot_name",
 				"frag_nr", "het_chain", "hash_code" };
 		DataType[] types = { SmilesCell.TYPE, StringCell.TYPE, IntCell.TYPE, StringCell.TYPE, StringCell.TYPE,
-				Mol2Cell.TYPE, StringCell.TYPE, IntCell.TYPE, StringCell.TYPE, StringCell.TYPE, StringCell.TYPE,
+				RDKitMolCellFactory.TYPE, StringCell.TYPE, IntCell.TYPE, StringCell.TYPE, StringCell.TYPE, StringCell.TYPE,
 				StringCell.TYPE, StringCell.TYPE, StringCell.TYPE, IntCell.TYPE, StringCell.TYPE, StringCell.TYPE, };
 		return new DataTableSpec(names, types);
 	}
 
 	private void fillContainer(List<Fragment> fragments, BufferedDataContainer container) {
 		for (Fragment fragment : fragments) {
+			RWMol mol = RDKFuncs.MolBlockToMol(fragment.getMol());
 			DataRow row = new DefaultRow(RowKey.createRowKey(container.size()),
 					SmilesCellFactory.create(fragment.getSmiles()), new StringCell(fragment.getPdbTitle()),
 					new IntCell(fragment.getHetSeqNr()), new StringCell(fragment.getHetCode()),
-					new StringCell(fragment.getFragId()), Mol2CellFactory.create(fragment.getMol()),
+					new StringCell(fragment.getFragId()), RDKitMolCellFactory.createRDKitMolCell(mol),
 					new StringCell(fragment.getUniprotName()), new IntCell(fragment.getNrRGroups()),
 					new StringCell(fragment.getPdbCode()), new StringCell(fragment.getAtomCodes()),
 					new StringCell(fragment.getProtChain()), new StringCell(fragment.getUniprotAcc()),
