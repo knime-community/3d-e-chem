@@ -15,7 +15,7 @@
           level-id="local"
           locked="false"
           name="For local files"
-          path="/community/3d-e-chem/local"/>
+          path="/community/3d-e-chem/kripodb"/>
     </extension>
 
     <extension point="org.knime.workbench.repository.nodes">
