@@ -15,12 +15,12 @@
 <entry key="SettingsModelID" type="xstring" value="SMID_string"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
-<entry key="matrix" type="xstring" value="/tmp/similarities.h5"/>
+<entry key="matrix" type="xstring" value="./similarities.h5"/>
 <config key="cutoff_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_double"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
-<entry key="cutoff" type="xdouble" value="0.55"/>
+<entry key="cutoff" type="xdouble" value="0.65"/>
 <config key="limit_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_integer"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
@@ -33,7 +33,7 @@
 <entry key="x-coordinate" type="xint" value="253"/>
 <entry key="y-coordinate" type="xint" value="419"/>
 <entry key="width" type="xint" value="134"/>
-<entry key="height" type="xint" value="20"/>
+<entry key="height" type="xint" value="19"/>
 <entry key="alignment" type="xstring" value="CENTER"/>
 <entry key="borderSize" type="xint" value="0"/>
 <entry key="borderColor" type="xint" value="16777215"/>
@@ -48,11 +48,11 @@
 <entry key="node-bundle-name" type="xstring" value="3D-e-Chem KNIME KripoDB nodes"/>
 <entry key="node-bundle-symbolic-name" type="xstring" value="nl.esciencecenter.e3dchem.kripodb.plugin"/>
 <entry key="node-bundle-vendor" type="xstring" value="Netherlands eScience Center"/>
-<entry key="node-bundle-version" type="xstring" value="1.9.9.2"/>
+<entry key="node-bundle-version" type="xstring" value="2.1.3.4"/>
 <entry key="node-feature-name" type="xstring" value="KripoDB nodes for Knime"/>
 <entry key="node-feature-symbolic-name" type="xstring" value="nl.esciencecenter.e3dchem.kripodb.feature.feature.group"/>
 <entry key="node-feature-vendor" type="xstring" value="Netherlands eScience Center"/>
-<entry key="node-feature-version" type="xstring" value="1.9.9.2"/>
+<entry key="node-feature-version" type="xstring" value="2.1.3.4"/>
 <config key="factory_settings"/>
 <entry key="name" type="xstring" value="Similar fragments"/>
 <entry key="hasContent" type="xboolean" value="true"/>
@@ -62,12 +62,12 @@
 <entry key="index" type="xint" value="1"/>
 <entry key="port_spec_class" type="xstring" value="org.knime.core.data.DataTableSpec"/>
 <entry key="port_object_class" type="xstring" value="org.knime.core.node.BufferedDataTable"/>
-<entry key="port_object_summary" type="xstring" value="Rows: 11, Cols: 3"/>
+<entry key="port_object_summary" type="xstring" value="Rows: 6, Cols: 3"/>
 <entry key="port_dir_location" type="xstring" value="port_1"/>
 </config>
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="2ff0be5e-14f7-49fa-b922-bdf7ebbc1b03"/>
+<entry key="file_store_id" type="xstring" value="a228b3f5-5c82-426f-8c53-144249003480"/>
 </config>
 </config>

@@ -22,48 +22,49 @@ import nl.esciencecenter.e3dchem.knime.testing.TestFlowRunner;
 import nl.esciencecenter.e3dchem.python.PythonWrapperTestUtils;
 
 public class FragmentsBySimilarityWorkflowTest {
-    @Rule
-    public ErrorCollector collector = new ErrorCollector();
-    private TestFlowRunner runner;
-    private static File similarity_matrix = new File(System.getProperty("java.io.tmpdir"), "similarities.h5");
+	private static final String SIMILARITIES_H5 = "./similarities.h5";
+	@Rule
+	public ErrorCollector collector = new ErrorCollector();
+	private TestFlowRunner runner;
+	private static File similarity_matrix = new File(SIMILARITIES_H5);
 
-    @Before
-    public void setUp() {
-        TestrunConfiguration runConfiguration = new TestrunConfiguration();
-        runConfiguration.setTestDialogs(true);
-        runner = new TestFlowRunner(collector, runConfiguration);
-    }
+	private void runTestWorkflow(String wfDir) throws IOException, InvalidSettingsException, CanceledExecutionException,
+			UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
+		File workflowDir = new File(wfDir);
+		runner.runTestWorkflow(workflowDir);
+	}
 
-    @BeforeClass
-    public static void setUpDatafiles() throws MalformedURLException, IOException {
-        PythonWrapperTestUtils.materializeKNIMEPythonUtils();
-        FileUtils.copyURLToFile(new URL("https://github.com/3D-e-Chem/kripodb/raw/master/data/similarities.h5"), similarity_matrix);
-    }
+	@Before
+	public void setUp() {
+		TestrunConfiguration runConfiguration = new TestrunConfiguration();
+		runConfiguration.setTestDialogs(true);
+		runConfiguration.setLoadSaveLoad(false);
+		runner = new TestFlowRunner(collector, runConfiguration);
+	}
 
-    @AfterClass
-    public static void cleanupDatafiles() {
-        similarity_matrix.delete();
-    }
+	@BeforeClass
+	public static void setUpDatafiles() throws MalformedURLException, IOException {
+		PythonWrapperTestUtils.materializeKNIMEPythonUtils();
+		FileUtils.copyURLToFile(new URL("https://github.com/3D-e-Chem/kripodb/raw/master/data/similarities.h5"),
+				similarity_matrix);
+	}
 
-    @Test
-    public void test_usingwebservice() throws IOException, InvalidSettingsException, CanceledExecutionException,
-            UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
-        File workflowDir = new File("src/knime/kripo-similar-fragments-test-ws");
-        runner.runTestWorkflow(workflowDir);
-    }
+	@AfterClass
+	public static void cleanupDatafiles() {
+		similarity_matrix.delete();
+	}
 
-    @Test
-    public void test_usinlocalfile() throws IOException, InvalidSettingsException, CanceledExecutionException,
-            UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
-        File workflowDir = new File("src/knime/kripo-similar-fragments-test-localmatrix");
-        runner.runTestWorkflow(workflowDir);
-    }
+	@Test
+	public void test_usinlocalfile() throws IOException, InvalidSettingsException, CanceledExecutionException,
+			UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
+		String wfDir = "src/knime/kripo-similar-fragments-test-localmatrix";
+		runTestWorkflow(wfDir);
+	}
 
-    @Test
-    public void test_invalidsettings() throws IOException, InvalidSettingsException, CanceledExecutionException,
-            UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
-        File workflowDir = new File("src/knime/kripo-similar-fragments-test-invalidsettings");
-        runner.runTestWorkflow(workflowDir);
-    }
-
+	@Test
+	public void test_invalidsettings() throws IOException, InvalidSettingsException, CanceledExecutionException,
+			UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
+		String wfDir = "src/knime/kripo-similar-fragments-test-invalidsettings";
+		runTestWorkflow(wfDir);
+	}
 }

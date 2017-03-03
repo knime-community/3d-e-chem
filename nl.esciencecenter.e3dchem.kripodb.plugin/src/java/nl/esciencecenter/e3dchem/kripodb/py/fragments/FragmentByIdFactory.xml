@@ -13,17 +13,28 @@
 		<p>
 		Information includes the fragment molecule and it's associated protein identifiers.
 		</p>
+		<h2>Resolving "'kripodb' Python package not found" error</h2>
+		<p>This node requires the <a href="https://github.com/3D-e-Chem/kripodb">kripodb</a> Python package.</p>
+		<p>
+		If the kripodb Python package was not installed then go to <a href="https://github.com/3D-e-Chem/kripodb#install">https://github.com/3D-e-Chem/kripodb#install</a> and follow the installation instructions.
+		To test if the package is installed run <i>kripodb --version</i> on the command line, it should print a version number if installed.
+		</p>
+		<p>
+		If the kripodb Python package was already installed then make sure that KNIME is using the same Python executable.
+		In the File menu > Preferences > KNIME > Python make sure the path to the Python executable is the same Python which has the kripodb package installed.
+		</p>
 		</intro>
 
 		<option name="Identifiers">The column containing the Kripo identifiers
 		</option>
 		<option name="Fragments database (Selected File)">
-			Location of Kripo fragments SQLite database file.
+			Location of Kripo fragments database, can be the base url of kripodb webservice or a local SQLite file.
 			<p>
 				Available datasets:
 				<ul>
 					<li>
-						Protein Data Bank, download from
+						Protein Data Bank, use web service at <a href="http://3d-e-chem.vu-compmedchem.nl/kripodb">http://3d-e-chem.vu-compmedchem.nl/kripodb</a>
+						or download from
 						<a href="http://3d-e-chem.vu-compmedchem.nl/kripodb/fragments.sqlite">here</a>
 						, in 3D-e-Chem VM available at '/data/kripo/pdb/fragments.sqlite'
 					</li>

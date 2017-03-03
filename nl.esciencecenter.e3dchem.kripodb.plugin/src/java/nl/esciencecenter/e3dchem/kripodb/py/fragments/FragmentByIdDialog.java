@@ -34,7 +34,7 @@ public class FragmentByIdDialog extends DefaultNodeSettingsPane {
         addDialogComponent(new DialogComponentFileChooser(fragmentsdb, historyID, ".sqlite"));
 
         SettingsModelString idType = config.getIdType();
-        Set<String> idTypeChoices = config.LIST_IDENTIFIERTYPES;
+        Set<String> idTypeChoices = FragmentsByIdConfig.LIST_IDENTIFIERTYPES;
         addDialogComponent(new DialogComponentStringSelection(idType, "Type of identifier", idTypeChoices));
     }
 

@@ -1,0 +1,10 @@
+{
+  "absent_identifiers": [
+    "wrongid"
+  ],
+  "detail": "Fragments with identifiers 'wrongid' not found",
+  "fragments": [],
+  "status": 404,
+  "title": "Not found",
+  "type": "about:blank"
+}

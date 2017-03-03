@@ -1,0 +1,17 @@
+{
+  "id" : "71237c34-a61e-3c04-b75d-d755c720a161",
+  "request" : {
+    "url" : "/kripo/fragments?fragment_ids=3j7u_NDP_frag24",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "bodyFileName" : "body-kripo-fragments-Gy8zW.json",
+    "headers" : {
+      "Content-Type" : "application/json",
+      "Server" : "Werkzeug/0.11.5 Python/2.7.12",
+      "Date" : "Fri, 20 Jan 2017 14:38:39 GMT"
+    }
+  },
+  "uuid" : "71237c34-a61e-3c04-b75d-d755c720a161"
+}
