@@ -9,23 +9,36 @@
 	</shortDescription>
 
 	<fullDescription>
-		<intro>Find Kripo fragment information by their identifier.
-		<p>
-		Information includes the fragment molecule and it's associated protein identifiers.
-		</p>
-		<p>When combining this node with other Kripo nodes make sure the
-			files are from the same dataset.
-		</p>
+		<intro>
+			<p>
+				KRIPO stands for
+				<a href="http://dx.doi.org/10.1186/1758-2946-6-S1-O26">Key Representation of Interaction in POckets</a>
+				.
+			</p>
+			<p>
+				Find Kripo fragment information by their identifier.
+			</p>
+			<p>
+				Information includes the fragment molecule and it's associated protein
+				identifiers.
+			</p>
+			<p>When combining this node with other Kripo nodes make sure the
+				files are from the same dataset.
+			</p>
 		</intro>
 
 		<option name="Identifiers">The column containing the Kripo identifiers
 		</option>
 		<option name="Type of identifier">Can be fragment or PDB code.</option>
-        <tab name="Advanced Options">
-	        <option name="Base path">Url to use as base path for Kripo webservice</option>
-	        <option name="Timeout">Timeout in seconds to wait for Kripo webservice response</option>
-	        <option name="Chunk size">Number of fragments fetched within a single webservice fetch, If nr of identifiers is greater than chunk size then multiple requests will be made.</option>
-        </tab>
+		<tab name="Advanced Options">
+			<option name="Base path">Url to use as base path for Kripo webservice
+			</option>
+			<option name="Timeout">Timeout in seconds to wait for Kripo webservice
+				response</option>
+			<option name="Chunk size">Number of fragments fetched within a single
+				webservice fetch, If nr of identifiers is greater than chunk size
+				then multiple requests will be made.</option>
+		</tab>
 	</fullDescription>
 
 	<ports>

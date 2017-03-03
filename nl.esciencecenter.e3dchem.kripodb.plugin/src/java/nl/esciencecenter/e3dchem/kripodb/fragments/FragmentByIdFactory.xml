@@ -9,31 +9,53 @@
 	</shortDescription>
 
 	<fullDescription>
-		<intro>Find Kripo fragment information by their identifier.
-		<p>
-		Information includes the fragment molecule and it's associated protein identifiers.
-		</p>
-		<h2>Resolving "'kripodb' Python package not found" error</h2>
-		<p>This node requires the <a href="https://github.com/3D-e-Chem/kripodb">kripodb</a> Python package.</p>
-		<p>
-		If the kripodb Python package was not installed then go to <a href="https://github.com/3D-e-Chem/kripodb#install">https://github.com/3D-e-Chem/kripodb#install</a> and follow the installation instructions.
-		To test if the package is installed run <i>kripodb --version</i> on the command line, it should print a version number if installed.
-		</p>
-		<p>
-		If the kripodb Python package was already installed then make sure that KNIME is using the same Python executable.
-		In the File menu > Preferences > KNIME > Python make sure the path to the Python executable is the same Python which has the kripodb package installed.
-		</p>
+		<intro>
+			<p>
+				KRIPO stands for
+				<a href="http://dx.doi.org/10.1186/1758-2946-6-S1-O26">Key Representation of Interaction in POckets</a>
+				.
+			</p>
+			<p>
+				Find Kripo fragment information by their identifier.
+			</p>
+			<p>
+				Information includes the fragment molecule and it's associated protein
+				identifiers.
+			</p>
+			<h2>Resolving "'kripodb' Python package not found" error</h2>
+			<p>
+				This node requires the
+				<a href="https://github.com/3D-e-Chem/kripodb">kripodb</a>
+				Python package.
+			</p>
+			<p>
+				If the kripodb Python package was not installed then go to
+				<a href="https://github.com/3D-e-Chem/kripodb#install">https://github.com/3D-e-Chem/kripodb#install</a>
+				and follow the installation instructions.
+				To test if the package is installed run
+				<i>kripodb --version</i>
+				on the command line, it should print a version number if installed.
+			</p>
+			<p>
+				If the kripodb Python package was already installed then make sure
+				that KNIME is using the same Python executable.
+				In the File menu > Preferences > KNIME > Python make sure the path to
+				the Python executable is the same Python which has the kripodb
+				package installed.
+			</p>
 		</intro>
 
 		<option name="Identifiers">The column containing the Kripo identifiers
 		</option>
 		<option name="Fragments database (Selected File)">
-			Location of Kripo fragments database, can be the base url of kripodb webservice or a local SQLite file.
+			Location of Kripo fragments database, can be the base url of kripodb
+			webservice or a local SQLite file.
 			<p>
 				Available datasets:
 				<ul>
 					<li>
-						Protein Data Bank, use web service at <a href="http://3d-e-chem.vu-compmedchem.nl/kripodb">http://3d-e-chem.vu-compmedchem.nl/kripodb</a>
+						Protein Data Bank, use web service at
+						<a href="http://3d-e-chem.vu-compmedchem.nl/kripodb">http://3d-e-chem.vu-compmedchem.nl/kripodb</a>
 						or download from
 						<a href="http://3d-e-chem.vu-compmedchem.nl/kripodb/fragments.sqlite">here</a>
 						, in 3D-e-Chem VM available at '/data/kripo/pdb/fragments.sqlite'
@@ -55,7 +77,13 @@
 			<p>When combining this node with other Kripo nodes make sure the
 				files are from the same dataset.
 			</p>
-			<p>For example getting a <b>KeyError: '&lt;fragment id&gt;' not found</b> error most likely means the '/data/kripo/pdb/fragments.sqlite' file is out of sync and must be re-downloaded from <a href="http://3d-e-chem.vu-compmedchem.nl/kripodb/fragments.sqlite">here</a></p>
+			<p>
+				For example getting a
+				<b>KeyError: '&lt;fragment id&gt;' not found</b>
+				error most likely means the '/data/kripo/pdb/fragments.sqlite' file
+				is out of sync and must be re-downloaded from
+				<a href="http://3d-e-chem.vu-compmedchem.nl/kripodb/fragments.sqlite">here</a>
+			</p>
 		</option>
 		<option name="Type of identifier">Can be fragment or PDB code.</option>
 	</fullDescription>
