@@ -97,13 +97,15 @@ public class FragmentByIdModel extends WsNodeModel<FragmentsByIdConfig> {
 	}
 
 	private void fetchFragments(List<String> ids, BufferedDataContainer container, List<String> absentIdentifiers)
-			throws ApiException {
+			throws ApiException, InvalidSettingsException {
 		String idType = getConfig().getIdType().getStringValue();
 		try {
-			if (idType == "pdb") {
+			if ("pdb".equals(idType)) {
 				fetchFragmentsByPdbCode(ids, container);
-			} else {
+			} else if ("fragment".equals(idType)) {
 				fetchFragmentsById(ids, container);
+			} else {
+				throw new InvalidSettingsException("Invalid type of identifier");
 			}
 		} catch (ApiException e) {
 			if (e.getCode() == HTTP_NOT_FOUND && e.getResponseHeaders().containsKey("Content-Type")

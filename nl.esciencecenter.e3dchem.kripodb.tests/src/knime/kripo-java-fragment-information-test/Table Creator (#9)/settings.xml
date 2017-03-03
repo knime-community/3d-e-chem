@@ -16,7 +16,7 @@
 </config>
 <config key="values">
 <entry key="array-size" type="xint" value="1"/>
-<entry key="0" type="xstring" value="wrongid"/>
+<entry key="0" type="xstring" value="3j7u"/>
 </config>
 <entry key="rowIdPrefix" type="xstring" value="Row"/>
 <entry key="rowIdSuffix" type="xstring" value=""/>
@@ -29,7 +29,7 @@
 <entry key="FormatParameter" type="xstring" isnull="true" value=""/>
 <entry key="ReadPossValsFromFile" type="xboolean" value="false"/>
 <entry key="SkipThisColumn" type="xboolean" value="false"/>
-<entry key="ColumnName" type="xstring" value="frag_id"/>
+<entry key="ColumnName" type="xstring" value="pdb_code"/>
 <config key="ColumnClass">
 <entry key="cell_class" type="xstring" value="org.knime.core.data.def.StringCell"/>
 <entry key="is_null" type="xboolean" value="false"/>
@@ -64,6 +64,6 @@
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="3980f0be-758f-4f91-9641-bdf5c839b0e9"/>
+<entry key="file_store_id" type="xstring" value="1cf1f513-c33c-4c4f-ab57-8b098c768b8e"/>
 </config>
 </config>

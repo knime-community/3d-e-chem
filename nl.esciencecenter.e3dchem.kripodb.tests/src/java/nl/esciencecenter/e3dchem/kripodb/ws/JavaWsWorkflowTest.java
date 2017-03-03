@@ -23,7 +23,7 @@ import nl.esciencecenter.e3dchem.python.PythonWrapperTestUtils;
 /**
  * KNIME test workflows which call a web service which is mocked using WireMock.
  */
-public class WsWorkflowTest {
+public class JavaWsWorkflowTest {
 	private TestFlowRunner runner;
 
 	@Rule

@@ -1,17 +1,17 @@
 {
-  "id" : "eb2234d8-f60b-34c7-b4d5-9598b9058f2b",
+  "id" : "1255ea0a-8cb6-359a-a3d1-30ae8f9fba28",
   "request" : {
     "url" : "/kripo/fragments?pdb_codes=3j7u",
     "method" : "GET"
   },
   "response" : {
     "status" : 200,
-    "bodyFileName" : "body-kripo-fragments-w8Nm8.json",
+    "bodyFileName" : "body-kripo-fragments-HRaZG.json",
     "headers" : {
       "Content-Type" : "application/json",
       "Server" : "Werkzeug/0.11.5 Python/2.7.12",
-      "Date" : "Fri, 20 Jan 2017 14:45:38 GMT"
+      "Date" : "Fri, 03 Mar 2017 18:42:24 GMT"
     }
   },
-  "uuid" : "eb2234d8-f60b-34c7-b4d5-9598b9058f2b"
+  "uuid" : "1255ea0a-8cb6-359a-a3d1-30ae8f9fba28"
 }

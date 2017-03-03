@@ -17,13 +17,18 @@
 <entry key="array-size" type="xint" value="0"/>
 </config>
 <config key="failingNodes">
-<entry key="array-size" type="xint" value="0"/>
+<entry key="array-size" type="xint" value="1"/>
+<entry key="0" type="xstring" value="11"/>
 </config>
 <config key="requiredNodeWarnings">
-<entry key="count" type="xint" value="0"/>
+<entry key="nodeID_0" type="xstring" value="17"/>
+<entry key="message_0" type="xstring" value="Some identifiers could not be found"/>
+<entry key="count" type="xint" value="1"/>
 </config>
 <config key="requiredNodeErrors">
-<entry key="count" type="xint" value="0"/>
+<entry key="nodeID_0" type="xstring" value="11"/>
+<entry key="message_0" type="xstring" value="Execute failed: Item 'wrongid' could not be found on KripoDB server, please check if item is correct"/>
+<entry key="count" type="xint" value="1"/>
 </config>
 <entry key="timeout" type="xint" value="300"/>
 <entry key="maxHilitedRows" type="xint" value="2500"/>

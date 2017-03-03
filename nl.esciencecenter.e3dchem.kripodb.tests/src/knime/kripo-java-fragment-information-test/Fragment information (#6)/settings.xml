@@ -10,12 +10,12 @@
 <entry key="SettingsModelID" type="xstring" value="SMID_string"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
-<entry key="id_column" type="xstring" value="frag_id"/>
+<entry key="id_column" type="xstring" value="pdb_code"/>
 <config key="id_type_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_string"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
-<entry key="id_type" type="xstring" value="fragment"/>
+<entry key="id_type" type="xstring" value="pdb"/>
 <config key="Chunk Size_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_integer"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
@@ -48,20 +48,16 @@
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
 <entry key="state" type="xstring" value="EXECUTED"/>
-<config key="nodecontainer_message">
-<entry key="type" type="xstring" value="WARNING"/>
-<entry key="message" type="xstring" value="Some identifiers could not be found"/>
-</config>
 <entry key="factory" type="xstring" value="nl.esciencecenter.e3dchem.kripodb.ws.fragments.FragmentByIdFactory"/>
 <entry key="node-name" type="xstring" value="Fragment information"/>
 <entry key="node-bundle-name" type="xstring" value="3D-e-Chem KNIME KripoDB nodes"/>
 <entry key="node-bundle-symbolic-name" type="xstring" value="nl.esciencecenter.e3dchem.kripodb.plugin"/>
 <entry key="node-bundle-vendor" type="xstring" value="Netherlands eScience Center"/>
-<entry key="node-bundle-version" type="xstring" value="2.1.6.v201703031144"/>
+<entry key="node-bundle-version" type="xstring" value="2.1.6.v201703031237"/>
 <entry key="node-feature-name" type="xstring" value="KripoDB nodes for Knime"/>
 <entry key="node-feature-symbolic-name" type="xstring" value="nl.esciencecenter.e3dchem.kripodb.feature.feature.group"/>
 <entry key="node-feature-vendor" type="xstring" value="Netherlands eScience Center"/>
-<entry key="node-feature-version" type="xstring" value="2.1.6.v201703031144"/>
+<entry key="node-feature-version" type="xstring" value="2.1.6.v201703031237"/>
 <config key="factory_settings"/>
 <entry key="name" type="xstring" value="Fragment information"/>
 <entry key="hasContent" type="xboolean" value="true"/>
@@ -71,12 +67,12 @@
 <entry key="index" type="xint" value="1"/>
 <entry key="port_spec_class" type="xstring" value="org.knime.core.data.DataTableSpec"/>
 <entry key="port_object_class" type="xstring" value="org.knime.core.node.BufferedDataTable"/>
-<entry key="port_object_summary" type="xstring" value="Rows: 0, Cols: 17"/>
+<entry key="port_object_summary" type="xstring" value="Rows: 32, Cols: 17"/>
 <entry key="port_dir_location" type="xstring" value="port_1"/>
 </config>
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="48e3fd3b-37a1-4ee4-acef-1df9d6c3cb77"/>
+<entry key="file_store_id" type="xstring" value="6be063d2-d2a1-45a9-b26f-9daab331dcc9"/>
 </config>
 </config>
