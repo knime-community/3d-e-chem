@@ -67,4 +67,11 @@ public class FragmentsBySimilarityWorkflowTest {
 		String wfDir = "src/knime/kripo-similar-fragments-test-invalidsettings";
 		runTestWorkflow(wfDir);
 	}
+
+	@Test
+	public void test_similarFragments_notfound() throws IOException, InvalidSettingsException,
+			CanceledExecutionException, UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
+		File workflowDir = new File("src/knime/kripo-similar-fragments-test-notfound");
+		runner.runTestWorkflow(workflowDir);
+	}
 }

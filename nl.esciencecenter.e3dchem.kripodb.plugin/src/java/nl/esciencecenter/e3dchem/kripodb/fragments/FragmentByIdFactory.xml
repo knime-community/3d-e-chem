@@ -2,7 +2,7 @@
 <knimeNode icon="./default.png" type="Manipulator"
 	xmlns="http://knime.org/node/v2.8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://knime.org/node/v2.10 http://knime.org/node/v2.10.xsd">
-	<name>Fragment information</name>
+	<name>Fragment information (local files)</name>
 
 	<shortDescription>
 		Find Kripo fragment information by their identifier.

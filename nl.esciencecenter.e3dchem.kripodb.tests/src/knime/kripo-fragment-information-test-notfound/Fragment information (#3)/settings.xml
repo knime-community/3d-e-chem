@@ -15,7 +15,7 @@
 <entry key="SettingsModelID" type="xstring" value="SMID_string"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
-<entry key="fragmentsdb" type="xstring" value="http://localhost:8089/kripo"/>
+<entry key="fragmentsdb" type="xstring" value="./fragments.sqlite"/>
 <config key="id_type_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_string"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>

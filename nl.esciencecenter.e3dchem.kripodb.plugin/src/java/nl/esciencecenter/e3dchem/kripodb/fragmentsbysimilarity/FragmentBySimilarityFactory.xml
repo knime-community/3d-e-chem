@@ -2,7 +2,7 @@
 <knimeNode icon="./default.png" type="Manipulator"
 	xmlns="http://knime.org/node/v2.8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://knime.org/node/v2.10 http://knime.org/node/v2.10.xsd">
-	<name>Similar fragments</name>
+	<name>Similar fragments (local files)</name>
 
 	<shortDescription>
 		Find similar fragments to queries based on the Kripo

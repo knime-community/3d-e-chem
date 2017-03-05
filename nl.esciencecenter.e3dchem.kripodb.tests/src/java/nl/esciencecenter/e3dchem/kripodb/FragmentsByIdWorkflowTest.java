@@ -71,7 +71,7 @@ public class FragmentsByIdWorkflowTest {
 		// Windows CI complains about extra error message
 		// Linux CI complains about missing error message
 		// So we cant make them both happy so disable log checking
-		runConfiguration.setCheckLogMessages(false); 
+		runConfiguration.setCheckLogMessages(false);
 		runner = new TestFlowRunner(collector, runConfiguration);
 		runTestWorkflow("src/knime/kripo-fragment-information-test-pdb");
 	}
@@ -80,5 +80,12 @@ public class FragmentsByIdWorkflowTest {
 	public void test_invalidsettings() throws IOException, InvalidSettingsException, CanceledExecutionException,
 			UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
 		runTestWorkflow("src/knime/kripo-fragment-information-test-invalidsettings");
+	}
+
+	@Test
+	public void test_notfound() throws IOException, InvalidSettingsException, CanceledExecutionException,
+			UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
+		File workflowDir = new File("src/knime/kripo-fragment-information-test-notfound");
+		runner.runTestWorkflow(workflowDir);
 	}
 }

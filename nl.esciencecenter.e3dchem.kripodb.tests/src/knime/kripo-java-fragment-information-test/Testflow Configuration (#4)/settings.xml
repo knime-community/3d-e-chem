@@ -27,7 +27,7 @@
 </config>
 <config key="requiredNodeErrors">
 <entry key="nodeID_0" type="xstring" value="11"/>
-<entry key="message_0" type="xstring" value="Execute failed: Item 'wrongid' could not be found on KripoDB server, please check if item is correct"/>
+<entry key="message_0" type="xstring" value="Execute failed: Could not find any fragment identifiers, check input and base path option"/>
 <entry key="count" type="xint" value="1"/>
 </config>
 <entry key="timeout" type="xint" value="300"/>
