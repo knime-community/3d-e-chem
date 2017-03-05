@@ -57,6 +57,13 @@ public class FragmentsBySimilarityWorkflowTest {
 	@Test
 	public void test_usinlocalfile() throws IOException, InvalidSettingsException, CanceledExecutionException,
 			UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
+                TestrunConfiguration runConfiguration = new TestrunConfiguration();
+                runConfiguration.setTestDialogs(true);
+                runConfiguration.setLoadSaveLoad(false);
+                if (System.getProperty("os.name").contains("Windows")) {
+                  runConfiguration.setCheckLogMessages(false);
+                }
+                runner = new TestFlowRunner(collector, runConfiguration);
 		String wfDir = "src/knime/kripo-similar-fragments-test-localmatrix";
 		runTestWorkflow(wfDir);
 	}
