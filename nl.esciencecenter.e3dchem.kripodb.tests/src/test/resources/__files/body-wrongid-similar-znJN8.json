@@ -1,0 +1,7 @@
+{
+  "status": 404, 
+  "identifier": "wrongid", 
+  "type": "about:blank", 
+  "detail": "Fragment with identifier 'wrongid' not found", 
+  "title": "Not Found"
+}

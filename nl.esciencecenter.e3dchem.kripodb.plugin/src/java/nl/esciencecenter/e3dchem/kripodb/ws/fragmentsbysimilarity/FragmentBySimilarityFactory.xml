@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<knimeNode icon="./default.png" type="Manipulator"
+	xmlns="http://knime.org/node/v2.8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://knime.org/node/v2.10 http://knime.org/node/v2.10.xsd">
+	<name>Similar fragments</name>
+
+	<shortDescription>
+		Find similar fragments to queries based on the Kripo
+		fingerprint
+		similarity matrix.
+	</shortDescription>
+
+	<fullDescription>
+		<intro>
+			<p>
+				KRIPO stands for
+				<a href="http://dx.doi.org/10.1186/1758-2946-6-S1-O26">Key Representation of Interaction in POckets</a>
+				.
+			</p>
+			<p>
+				Find similar fragments bound to similar subpockets as the
+				subpocket associated with the query fragment based on the fingerprint
+				similarity matrix.
+			</p>
+			<p>When combining this node with other Kripo nodes make sure the
+				files are from the same dataset.
+			</p>
+		</intro>
+		<option name="Fragment identifiers">The column containing the Kripo fragment
+			identifiers
+		</option>
+		<option name="Cutoff">Cutoff, scores below cutoff are discarded.
+		</option>
+		<option name="Limit">Maximum number of hits for each query.</option>
+		<tab name="Advanced Options">
+			<option name="Base path">Url to use as base path for Kripo webservice
+			</option>
+			<option name="Timeout">Timeout in seconds to wait for Kripo webservice
+				response</option>
+		</tab>
+	</fullDescription>
+
+	<ports>
+		<inPort index="0" name="Query fragments">Table with Kripo fragment identifiers
+		</inPort>
+		<outPort index="0" name="Similar fragments">Table with similar Kripo identifiers
+			and scores vs the input table.
+		</outPort>
+	</ports>
+	<views>
+	</views>
+</knimeNode>

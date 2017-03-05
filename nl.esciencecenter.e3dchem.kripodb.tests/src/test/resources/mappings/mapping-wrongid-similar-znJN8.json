@@ -1,0 +1,17 @@
+{
+  "id" : "90e45fcc-ce40-3731-abde-2a3caecacad5",
+  "request" : {
+    "url" : "/kripo/fragments/wrongid/similar?cutoff=0.55&limit=1000",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 404,
+    "bodyFileName" : "body-wrongid-similar-znJN8.json",
+    "headers" : {
+      "Content-Type" : "application/problem+json",
+      "Server" : "Werkzeug/0.11.5 Python/2.7.12",
+      "Date" : "Fri, 03 Mar 2017 12:44:55 GMT"
+    }
+  },
+  "uuid" : "90e45fcc-ce40-3731-abde-2a3caecacad5"
+}

@@ -57,6 +57,13 @@ public class FragmentsBySimilarityWorkflowTest {
 	@Test
 	public void test_usinlocalfile() throws IOException, InvalidSettingsException, CanceledExecutionException,
 			UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
+                TestrunConfiguration runConfiguration = new TestrunConfiguration();
+                runConfiguration.setTestDialogs(true);
+                runConfiguration.setLoadSaveLoad(false);
+                if (System.getProperty("os.name").contains("Windows")) {
+                  runConfiguration.setCheckLogMessages(false);
+                }
+                runner = new TestFlowRunner(collector, runConfiguration);
 		String wfDir = "src/knime/kripo-similar-fragments-test-localmatrix";
 		runTestWorkflow(wfDir);
 	}
@@ -66,5 +73,12 @@ public class FragmentsBySimilarityWorkflowTest {
 			UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
 		String wfDir = "src/knime/kripo-similar-fragments-test-invalidsettings";
 		runTestWorkflow(wfDir);
+	}
+
+	@Test
+	public void test_similarFragments_notfound() throws IOException, InvalidSettingsException,
+			CanceledExecutionException, UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
+		File workflowDir = new File("src/knime/kripo-similar-fragments-test-notfound");
+		runner.runTestWorkflow(workflowDir);
 	}
 }
