@@ -71,7 +71,9 @@ public class FragmentsByIdWorkflowTest {
 		// Windows CI complains about extra error message
 		// Linux CI complains about missing error message
 		// So we cant make them both happy so disable log checking
-                runConfiguration.setCheckLogMessages(false);
+		if (System.getProperty("os.name").contains("Windows")) {
+			runConfiguration.setCheckLogMessages(false);
+		}
 		runner = new TestFlowRunner(collector, runConfiguration);
 		runTestWorkflow("src/knime/kripo-fragment-information-test-pdb");
 	}

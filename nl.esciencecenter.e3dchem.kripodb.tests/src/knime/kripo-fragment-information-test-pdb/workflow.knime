@@ -6,8 +6,8 @@
 <config key="authorInformation">
 <entry key="authored-by" type="xstring" value="vagrant"/>
 <entry key="authored-when" type="xstring" value="2016-07-01 13:19:25 +0200"/>
-<entry key="lastEdited-by" type="xstring" value="verhoes"/>
-<entry key="lastEdited-when" type="xstring" value="2017-03-05 19:20:27 +0100"/>
+<entry key="lastEdited-by" type="xstring" value="stefanv"/>
+<entry key="lastEdited-when" type="xstring" value="2017-03-07 13:38:06 +0100"/>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
 <entry key="state" type="xstring" value="IDLE"/>
@@ -24,8 +24,8 @@
 <entry key="array-size" type="xint" value="4"/>
 <entry key="0" type="xint" value="384"/>
 <entry key="1" type="xint" value="357"/>
-<entry key="2" type="xint" value="71"/>
-<entry key="3" type="xint" value="91"/>
+<entry key="2" type="xint" value="135"/>
+<entry key="3" type="xint" value="95"/>
 </config>
 </config>
 </config>
@@ -41,7 +41,7 @@
 <entry key="0" type="xint" value="84"/>
 <entry key="1" type="xint" value="57"/>
 <entry key="2" type="xint" value="84"/>
-<entry key="3" type="xint" value="91"/>
+<entry key="3" type="xint" value="95"/>
 </config>
 </config>
 </config>
@@ -57,7 +57,7 @@
 <entry key="0" type="xint" value="224"/>
 <entry key="1" type="xint" value="237"/>
 <entry key="2" type="xint" value="85"/>
-<entry key="3" type="xint" value="77"/>
+<entry key="3" type="xint" value="79"/>
 </config>
 </config>
 </config>
@@ -73,7 +73,7 @@
 <entry key="0" type="xint" value="584"/>
 <entry key="1" type="xint" value="257"/>
 <entry key="2" type="xint" value="103"/>
-<entry key="3" type="xint" value="91"/>
+<entry key="3" type="xint" value="95"/>
 </config>
 </config>
 </config>
@@ -88,8 +88,8 @@
 <entry key="array-size" type="xint" value="4"/>
 <entry key="0" type="xint" value="384"/>
 <entry key="1" type="xint" value="137"/>
-<entry key="2" type="xint" value="71"/>
-<entry key="3" type="xint" value="91"/>
+<entry key="2" type="xint" value="135"/>
+<entry key="3" type="xint" value="95"/>
 </config>
 </config>
 </config>

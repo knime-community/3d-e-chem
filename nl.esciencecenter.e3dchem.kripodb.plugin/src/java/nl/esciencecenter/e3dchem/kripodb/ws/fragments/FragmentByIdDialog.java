@@ -38,6 +38,6 @@ public class FragmentByIdDialog extends WsNodeDialog {
         createNewTab("Advanced");
         SettingsModelInteger chunkSize = config.getChunkSize();
         addDialogComponent(new DialogComponentNumber(chunkSize, "Chunk Size", 1));
-        addAdvancedSettings();
+        addAdvancedSettings(config);
     }
 }

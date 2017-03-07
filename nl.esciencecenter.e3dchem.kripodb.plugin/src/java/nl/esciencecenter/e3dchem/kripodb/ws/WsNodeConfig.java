@@ -101,4 +101,11 @@ public class WsNodeConfig {
 		return fragmentsApi;
 	}
 
+	public SettingsModelString getBasePathSettings() {
+		return m_basePath;
+	}
+
+	public SettingsModelInteger getTimeoutSettings() {
+		return m_timeout;
+	}
 }

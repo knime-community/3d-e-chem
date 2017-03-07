@@ -4,15 +4,18 @@ import static java.net.HttpURLConnection.HTTP_NOT_FOUND;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.RDKit.RDKFuncs;
 import org.RDKit.RWMol;
 import org.knime.chem.types.SmilesCell;
 import org.knime.chem.types.SmilesCellFactory;
+import org.knime.core.data.DataCell;
 import org.knime.core.data.DataColumnSpec;
 import org.knime.core.data.DataRow;
 import org.knime.core.data.DataTableSpec;
 import org.knime.core.data.DataType;
+import org.knime.core.data.MissingCell;
 import org.knime.core.data.RowKey;
 import org.knime.core.data.StringValue;
 import org.knime.core.data.def.DefaultRow;
@@ -54,12 +57,8 @@ public class FragmentByIdModel extends WsNodeModel<FragmentsByIdConfig> {
 
 		List<String> absentIdentifiers = new ArrayList<>();
 		int chunkSize = getConfig().getChunkSize().getIntValue();
-		long chunkCount = table.size() / chunkSize;
-		if (table.size() < chunkSize) {
-			chunkCount = 1;
-		}
-		long currentChunk = 1;
 		List<String> chunk = new ArrayList<String>(chunkSize);
+		long currentRow = 1;
 		for (DataRow row : table) {
 			if (row.getCell(columnIndex).isMissing()) {
 				setWarningMessage("Skipped missing value");
@@ -68,16 +67,15 @@ public class FragmentByIdModel extends WsNodeModel<FragmentsByIdConfig> {
 			String id = ((StringCell) row.getCell(columnIndex)).getStringValue();
 
 			chunk.add(id);
-			// chunk full or last chunk
-			if (chunk.size() == chunkSize || currentChunk == chunkCount) {
+			// chunk full or last row
+			if (chunk.size() == chunkSize || currentRow >= table.size()) {
 				fetchFragments(chunk, container, absentIdentifiers);
 				chunk.clear();
 
-				exec.setProgress((double) currentChunk / chunkCount,
-						" processing chunk " + currentChunk + " of " + chunkCount);
-				currentChunk++;
+				exec.setProgress((double) currentRow / table.size(),
+						" processing row " + currentRow + " of " + table.size());
 			}
-
+			currentRow++;
 			exec.checkCanceled();
 		}
 		if (!absentIdentifiers.isEmpty()) {
@@ -115,6 +113,7 @@ public class FragmentByIdModel extends WsNodeModel<FragmentsByIdConfig> {
 				try {
 					FragmentsNotFound notFound = json.deserialize(e.getResponseBody(), FragmentsNotFound.class);
 					absentIdentifiers.addAll(notFound.getAbsentIdentifiers());
+					fillContainer(notFound.getFragments(), container);
 				} catch (JsonParseException e2) {
 					handleApiException(e, String.join(" or ", ids));
 				}
@@ -126,7 +125,8 @@ public class FragmentByIdModel extends WsNodeModel<FragmentsByIdConfig> {
 
 	private void fetchFragmentsByPdbCode(List<String> pdbCodes, BufferedDataContainer container) throws ApiException {
 		FragmentsApi api = getConfig().getFragmentsApi();
-		List<Fragment> fragments = api.getFragments(new ArrayList<String>(), pdbCodes);
+		List<String> ids = pdbCodes.stream().map(String::toLowerCase).collect(Collectors.toList());
+		List<Fragment> fragments = api.getFragments(new ArrayList<String>(), ids);
 		fillContainer(fragments, container);
 	}
 
@@ -142,23 +142,42 @@ public class FragmentByIdModel extends WsNodeModel<FragmentsByIdConfig> {
 				"nr_r_groups", "pdb_code", "atom_codes", "prot_chain", "uniprot_acc", "ec_number", "prot_name",
 				"frag_nr", "het_chain", "hash_code" };
 		DataType[] types = { SmilesCell.TYPE, StringCell.TYPE, IntCell.TYPE, StringCell.TYPE, StringCell.TYPE,
-				RDKitMolCellFactory.TYPE, StringCell.TYPE, IntCell.TYPE, StringCell.TYPE, StringCell.TYPE, StringCell.TYPE,
-				StringCell.TYPE, StringCell.TYPE, StringCell.TYPE, IntCell.TYPE, StringCell.TYPE, StringCell.TYPE, };
+				RDKitMolCellFactory.TYPE, StringCell.TYPE, IntCell.TYPE, StringCell.TYPE, StringCell.TYPE,
+				StringCell.TYPE, StringCell.TYPE, StringCell.TYPE, StringCell.TYPE, IntCell.TYPE, StringCell.TYPE,
+				StringCell.TYPE, };
 		return new DataTableSpec(names, types);
+	}
+
+	private DataCell fragStringCell(String value, String missingMessage) {
+		if (value == null) {
+			return new MissingCell(missingMessage);
+		}
+		return new StringCell(value);
 	}
 
 	private void fillContainer(List<Fragment> fragments, BufferedDataContainer container) {
 		for (Fragment fragment : fragments) {
-			RWMol mol = RDKFuncs.MolBlockToMol(fragment.getMol());
-			DataRow row = new DefaultRow(RowKey.createRowKey(container.size()),
-					SmilesCellFactory.create(fragment.getSmiles()), new StringCell(fragment.getPdbTitle()),
-					new IntCell(fragment.getHetSeqNr()), new StringCell(fragment.getHetCode()),
-					new StringCell(fragment.getFragId()), RDKitMolCellFactory.createRDKitMolCell(mol),
-					new StringCell(fragment.getUniprotName()), new IntCell(fragment.getNrRGroups()),
-					new StringCell(fragment.getPdbCode()), new StringCell(fragment.getAtomCodes()),
-					new StringCell(fragment.getProtChain()), new StringCell(fragment.getUniprotAcc()),
-					new StringCell(fragment.getEcNumber()), new StringCell(fragment.getProtName()),
-					new IntCell(fragment.getFragNr()), new StringCell(fragment.getHetChain()),
+
+			DataCell ecNumber = fragStringCell(fragment.getEcNumber(), "Fragment has no ec number");
+			DataCell protName = fragStringCell(fragment.getProtName(), "Fragment has no protein name");
+			DataCell uniprotName = fragStringCell(fragment.getUniprotName(), "Fragment has no uniprot name");
+			DataCell uniprotAcc = fragStringCell(fragment.getUniprotAcc(), "Fragment has no uniprot accession");
+			DataCell smiles = new MissingCell("Fragment has no smiles");
+			if (fragment.getSmiles() != null) {
+				smiles = SmilesCellFactory.create(fragment.getSmiles());
+			}
+			DataCell mol = new MissingCell("Fragment has no molblock");
+			if (fragment.getMol() != null) {
+				RWMol rdkitmol = RDKFuncs.MolBlockToMol(fragment.getMol());
+				mol = RDKitMolCellFactory.createRDKitMolCell(rdkitmol);
+			}
+
+			DataRow row = new DefaultRow(RowKey.createRowKey(container.size()), smiles,
+					new StringCell(fragment.getPdbTitle()), new IntCell(fragment.getHetSeqNr()),
+					new StringCell(fragment.getHetCode()), new StringCell(fragment.getFragId()), mol, uniprotName,
+					new IntCell(fragment.getNrRGroups()), new StringCell(fragment.getPdbCode()),
+					new StringCell(fragment.getAtomCodes()), new StringCell(fragment.getProtChain()), uniprotAcc,
+					ecNumber, protName, new IntCell(fragment.getFragNr()), new StringCell(fragment.getHetChain()),
 					new StringCell(fragment.getHashCode()));
 			container.addRowToTable(row);
 		}

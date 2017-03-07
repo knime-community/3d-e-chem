@@ -5,8 +5,8 @@ import org.knime.core.node.defaultnodesettings.DialogComponentNumber;
 import org.knime.core.node.defaultnodesettings.DialogComponentString;
 
 public class WsNodeDialog extends DefaultNodeSettingsPane {
-	protected void addAdvancedSettings() {
-		addDialogComponent(new DialogComponentString(WsNodeConfig.basePathSettings(), "Base path"));
-		addDialogComponent(new DialogComponentNumber(WsNodeConfig.timeoutSettings(), "Timeout (s)", 1));
+	protected void addAdvancedSettings(WsNodeConfig config) {
+		addDialogComponent(new DialogComponentString(config.getBasePathSettings(), "Base path"));
+		addDialogComponent(new DialogComponentNumber(config.getTimeoutSettings(), "Timeout (s)", 1));
 	}
 }

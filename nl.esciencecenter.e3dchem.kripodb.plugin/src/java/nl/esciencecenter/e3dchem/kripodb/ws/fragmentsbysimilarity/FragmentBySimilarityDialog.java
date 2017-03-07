@@ -38,6 +38,6 @@ public class FragmentBySimilarityDialog extends WsNodeDialog {
 		addDialogComponent(new DialogComponentNumber(limit, "Limit", 1));
 
 		createNewTab("Advanced");
-		addAdvancedSettings();
+		addAdvancedSettings(config);
 	}
 }
