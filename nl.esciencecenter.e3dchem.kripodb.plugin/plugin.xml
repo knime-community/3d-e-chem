@@ -30,6 +30,11 @@
                factory-class="nl.esciencecenter.e3dchem.kripodb.ws.fragments.FragmentByIdFactory">
         </node>
         <node
+               category-path="/community/3d-e-chem/kripodb"
+               deprecated="false"
+               factory-class="nl.esciencecenter.e3dchem.kripodb.ws.pharmacophores.PharmacophoresFactory">
+        </node>
+        <node
                category-path="/community/3d-e-chem/kripodb/local"
                deprecated="false"
                factory-class="nl.esciencecenter.e3dchem.kripodb.fragmentsbysimilarity.FragmentBySimilarityFactory">
@@ -38,6 +43,11 @@
                category-path="/community/3d-e-chem/kripodb/local"
                deprecated="false"
                factory-class="nl.esciencecenter.e3dchem.kripodb.fragments.FragmentByIdFactory">
+        </node>
+        <node
+               category-path="/community/3d-e-chem/kripodb/local"
+               deprecated="false"
+               factory-class="nl.esciencecenter.e3dchem.kripodb.local.pharmacophores.PharmacophoresFactory">
         </node>
     </extension>
 </plugin>

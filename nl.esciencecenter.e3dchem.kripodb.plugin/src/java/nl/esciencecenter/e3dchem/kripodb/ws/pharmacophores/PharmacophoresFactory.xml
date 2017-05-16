@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<knimeNode icon="./default.png" type="Manipulator"
+	xmlns="http://knime.org/node/v2.8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://knime.org/node/v2.10 http://knime.org/node/v2.10.xsd">
+	<name>Pharmacophore</name>
+
+	<shortDescription>
+		Retrieve Kripo pharmacophores.
+	</shortDescription>
+
+	<fullDescription>
+		<intro>
+			<p>
+				KRIPO stands for
+				<a href="http://dx.doi.org/10.1186/1758-2946-6-S1-O26">Key Representation of Interaction in POckets</a>
+				.
+			</p>
+			<p>
+				Retrieve Kripo pharmacophores.
+			</p>
+		</intro>
+
+		<option name="Kripo Fragment Identifiers">The column containing the Kripo identifiers
+		</option>
+		<tab name="Advanced Options">
+			<option name="Base path">Url to use as base path for Kripo webservice
+			</option>
+			<option name="Timeout">Timeout in seconds to wait for Kripo webservice
+				response</option>
+		</tab>
+	</fullDescription>
+
+	<ports>
+		<inPort index="0" name="Fragment identifier">Table with Kripo fragment identifiers.
+		</inPort>
+		<outPort index="0" name="Fragment pharmacophore">Table with Kripo fragment pharmacophore.
+		</outPort>
+	</ports>
+	<views>
+	</views>
+</knimeNode>

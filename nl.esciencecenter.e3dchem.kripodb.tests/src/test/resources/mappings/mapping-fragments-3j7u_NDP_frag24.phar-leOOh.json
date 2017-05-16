@@ -1,0 +1,17 @@
+{
+  "id" : "a4feedab-ed45-3210-821d-18ec1dd00fa9",
+  "request" : {
+    "url" : "/kripo/fragments/3j7u_NDP_frag24.phar",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "bodyFileName" : "body-fragments-3j7u_NDP_frag24.phar-leOOh.txt",
+    "headers" : {
+      "Content-Type" : "text/plain; charset=utf-8",
+      "Server" : "Werkzeug/0.12.2 Python/3.5.3",
+      "Date" : "Tue, 16 May 2017 14:24:29 GMT"
+    }
+  },
+  "uuid" : "a4feedab-ed45-3210-821d-18ec1dd00fa9"
+}

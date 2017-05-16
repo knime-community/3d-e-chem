@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://www.knime.org/2008/09/XMLConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.knime.org/2008/09/XMLConfig http://www.knime.org/XMLConfig_2008_09.xsd" key="spec.xml">
+<entry key="spec_name" type="xstring" value="default"/>
+<entry key="number_columns" type="xint" value="2"/>
+<config key="column_spec_0">
+<entry key="column_name" type="xstring" value="frag_id"/>
+<config key="element_names">
+<entry key="array-size" type="xint" value="0"/>
+</config>
+<config key="column_type">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.StringCell"/>
+</config>
+<config key="column_domain">
+<config key="possible_values">
+<entry key="array-size" type="xint" value="2"/>
+<config key="0">
+<entry key="datacell" type="xstring" value="org.knime.core.data.def.StringCell"/>
+<config key="org.knime.core.data.def.StringCell">
+<entry key="StringCell" type="xstring" value="wrongid"/>
+</config>
+</config>
+<config key="1">
+<entry key="datacell" type="xstring" value="org.knime.core.data.def.StringCell"/>
+<config key="org.knime.core.data.def.StringCell">
+<entry key="StringCell" type="xstring" value="3j7u_NDP_frag24"/>
+</config>
+</config>
+</config>
+</config>
+<config key="column_properties"/>
+</config>
+<config key="column_spec_1">
+<entry key="column_name" type="xstring" value="Pharmacophore"/>
+<config key="element_names">
+<entry key="array-size" type="xint" value="0"/>
+</config>
+<config key="column_type">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.StringCell"/>
+</config>
+<config key="column_domain">
+<config key="possible_values">
+<entry key="array-size" type="xint" value="1"/>
+<config key="0">
+<entry key="datacell" type="xstring" value="org.knime.core.data.def.StringCell"/>
+<config key="org.knime.core.data.def.StringCell">
+<entry key="StringCell" type="xstring" value="3j7u_NDP_frag24%%00010HACC -12.3137 -2.9070 -79.0147 0 0 0 0 0%%00010HDON -7.1816 -12.2903 -73.6785 0 0 0 0 0%%00010AROM -15.7387 -6.3084 -73.5406 0 0 0 0 0%%00010AROM -15.1547 -10.9967 -78.2781 0 0 0 0 0%%00010HDON -7.3007 -14.4755 -76.3663 0 0 0 0 0%%00010POSC -19.2425 -4.7298 -77.6851 0 0 0 0 0%%00010HACC -18.7212 -4.1613 -78.4591 0 0 0 0 0%%00010POSC -18.6823 -4.1284 -78.5452 0 0 0 0 0%%00010HACC -18.7490 -5.5994 -77.2445 0 0 0 0 0%%00010POSC -18.7126 -5.6906 -77.2257 0 0 0 0 0%%00010LIPO -10.0140 -7.0397 -73.6983 0 0 0 0 0%%00010LIPO -9.0663 -10.0148 -74.3085 0 0 0 0 0%%00010LIPO -9.0980 -10.3524 -78.5888 0 0 0 0 0%%00010LIPO -12.1191 -7.7689 -72.7110 0 0 0 0 0%%00010LIPO -16.0062 -15.9939 -76.8371 0 0 0 0 0%%00010LIPO -13.8935 -15.8198 -74.8087 0 0 0 0 0%%00010HDON -17.4436 -11.7823 -72.9860 0 0 0 0 0%%00010AROM -13.1582 -6.4132 -72.5362 0 0 0 0 0%%00010LIPO -12.3277 -12.9983 -72.9454 0 0 0 0 0%%00010LIPO -12.2018 -11.5774 -73.8470 0 0 0 0 0%%00010LIPO -14.3043 -10.6643 -71.5984 0 0 0 0 0%%00010$$$$%%00010"/>
+</config>
+</config>
+</config>
+</config>
+<config key="column_properties"/>
+</config>
+</config>

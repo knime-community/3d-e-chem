@@ -1,9 +1,12 @@
-package nl.esciencecenter.e3dchem.kripodb.ws;
+package nl.esciencecenter.e3dchem.kripodb.local;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URL;
 
+import org.apache.commons.io.FileUtils;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Rule;
@@ -15,54 +18,47 @@ import org.knime.core.node.workflow.UnsupportedWorkflowVersionException;
 import org.knime.core.util.LockFailedException;
 import org.knime.testing.core.TestrunConfiguration;
 
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
-
 import nl.esciencecenter.e3dchem.knime.testing.TestFlowRunner;
 import nl.esciencecenter.e3dchem.python.PythonWrapperTestUtils;
 
-/**
- * KNIME test workflows which call a web service which is mocked using WireMock.
- */
-public class JavaWsWorkflowTest {
-	private TestFlowRunner runner;
-
+public class PharmacophoresWorkflowTest {
+	private static final String PHARMACOPHORES_H5 = "./pharmacophores.h5";
 	@Rule
 	public ErrorCollector collector = new ErrorCollector();
-
-	@Rule
-	public WireMockRule wireMockRule = new WireMockRule(8089);
+	private TestFlowRunner runner;
+	private static File pharmacophoresdb = new File(PHARMACOPHORES_H5);
 
 	@Before
 	public void setUp() {
 		TestrunConfiguration runConfiguration = new TestrunConfiguration();
 		runConfiguration.setTestDialogs(true);
+		runConfiguration.setAllowedMemoryIncrease(4096000);
 		runConfiguration.setLoadSaveLoad(false);
 		runner = new TestFlowRunner(collector, runConfiguration);
+	}
+
+	private void runTestWorkflow(String wfDir) throws IOException, InvalidSettingsException, CanceledExecutionException,
+			UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
+		File workflowDir = new File(wfDir);
+		runner.runTestWorkflow(workflowDir);
 	}
 
 	@BeforeClass
 	public static void setUpDatafiles() throws MalformedURLException, IOException {
 		PythonWrapperTestUtils.materializeKNIMEPythonUtils();
+		FileUtils.copyURLToFile(new URL("https://github.com/3D-e-Chem/kripodb/raw/master/data/pharmacophores.h5"),
+				pharmacophoresdb);
+	}
+
+	@AfterClass
+	public static void cleanupDatafiles() {
+		pharmacophoresdb.delete();
 	}
 
 	@Test
-	public void test_similarFragments() throws IOException, InvalidSettingsException, CanceledExecutionException,
+	public void test_default() throws IOException, InvalidSettingsException, CanceledExecutionException,
 			UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
-		File workflowDir = new File("src/knime/kripo-java-similar-fragments-test");
-		runner.runTestWorkflow(workflowDir);
-	}
-
-	@Test
-	public void test_fragmentInformation() throws IOException, InvalidSettingsException, CanceledExecutionException,
-			UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
-		File workflowDir = new File("src/knime/kripo-java-fragment-information-test");
-		runner.runTestWorkflow(workflowDir);
-	}
-	
-	@Test
-	public void test_pharmacophores() throws IOException, InvalidSettingsException, CanceledExecutionException,
-			UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
-		File workflowDir = new File("src/knime/kripo-java-pharmacophore-test");
-		runner.runTestWorkflow(workflowDir);
+		// TODO implement workflow
+		runTestWorkflow("src/knime/kripo-python-pharmacophores-test-default");
 	}
 }
