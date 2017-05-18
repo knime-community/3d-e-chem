@@ -55,10 +55,10 @@ public class PharmacophoresWorkflowTest {
 		pharmacophoresdb.delete();
 	}
 
-	@Test
-	public void test_default() throws IOException, InvalidSettingsException, CanceledExecutionException,
-			UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
-		// TODO implement workflow
-		runTestWorkflow("src/knime/kripo-python-pharmacophores-test-default");
-	}
+// TODO implement workflow
+//	@Test
+//	public void test_default() throws IOException, InvalidSettingsException, CanceledExecutionException,
+//			UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
+//		runTestWorkflow("src/knime/kripo-python-pharmacophores-test-default");
+//	}
 }
