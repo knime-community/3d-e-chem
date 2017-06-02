@@ -68,12 +68,7 @@ public class FragmentsByIdWorkflowTest {
 		runConfiguration.setTestDialogs(true);
 		runConfiguration.setAllowedMemoryIncrease(4096000);
 		runConfiguration.setLoadSaveLoad(false);
-		// Windows CI complains about extra error message
-		// Linux CI complains about missing error message
-		// So we cant make them both happy so disable log checking
-		if (System.getProperty("os.name").contains("Windows")) {
-			runConfiguration.setCheckLogMessages(false);
-		}
+		runConfiguration.setCheckLogMessages(false);
 		runner = new TestFlowRunner(collector, runConfiguration);
 		runTestWorkflow("src/knime/kripo-fragment-information-test-pdb");
 	}
