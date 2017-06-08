@@ -64,12 +64,6 @@ public class FragmentsByIdWorkflowTest {
 	@Test
 	public void test_pdb() throws IOException, InvalidSettingsException, CanceledExecutionException,
 			UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
-		TestrunConfiguration runConfiguration = new TestrunConfiguration();
-		runConfiguration.setTestDialogs(true);
-		runConfiguration.setAllowedMemoryIncrease(4096000);
-		runConfiguration.setLoadSaveLoad(false);
-		runConfiguration.setCheckLogMessages(false);
-		runner = new TestFlowRunner(collector, runConfiguration);
 		runTestWorkflow("src/knime/kripo-fragment-information-test-pdb");
 	}
 
