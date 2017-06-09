@@ -22,9 +22,9 @@ if __version_info__[0] >= '2' and __version_info__[1] >= '2':
         else:
             raise NotImplementedError('Type of identifier unknown')
     except IncompleteFragments as e:
-        output_table = e.fragments
         flow_variables['warning_message'] = e.message
         logging.warning("Following identifier(s) could not be found: " + ",".join(e.absent_identifiers))
+        output_table = e.fragments
 else:
     if id_type == 'pdb':
         output_table = fragments_by_pdb_codes(queries, fragments_db_filename)

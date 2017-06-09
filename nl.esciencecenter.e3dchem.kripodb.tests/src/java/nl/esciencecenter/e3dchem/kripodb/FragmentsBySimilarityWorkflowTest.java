@@ -9,6 +9,7 @@ import org.apache.commons.io.FileUtils;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ErrorCollector;
@@ -75,6 +76,7 @@ public class FragmentsBySimilarityWorkflowTest {
 		runTestWorkflow(wfDir);
 	}
 
+	@Ignore("Leaks log messages from Python to other tests sometimes")
 	@Test
 	public void test_similarFragments_notfound() throws IOException, InvalidSettingsException,
 			CanceledExecutionException, UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {

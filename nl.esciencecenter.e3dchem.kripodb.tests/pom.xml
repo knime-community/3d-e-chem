@@ -107,12 +107,14 @@
 				<version>${tycho.version}</version>
 				<configuration>
 					<argLine>${tycho.testArgLine} ${tycho.test.jvmArgs}</argLine>
+					<threadCount>1</threadCount>
+					<runOrder>alphabetical</runOrder>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
 	<properties>
 		<!-- kill test JVM if tests take more than 1 minute (60 seconds) to finish -->
-		<surefire.timeout>60</surefire.timeout>
+		<surefire.timeout>65</surefire.timeout>
 	</properties>
 </project>

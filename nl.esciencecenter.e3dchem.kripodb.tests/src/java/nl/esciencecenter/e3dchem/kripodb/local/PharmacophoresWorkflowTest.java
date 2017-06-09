@@ -9,6 +9,7 @@ import org.apache.commons.io.FileUtils;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ErrorCollector;
@@ -55,10 +56,10 @@ public class PharmacophoresWorkflowTest {
 		pharmacophoresdb.delete();
 	}
 
-// TODO implement workflow
-//	@Test
-//	public void test_default() throws IOException, InvalidSettingsException, CanceledExecutionException,
-//			UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
-//		runTestWorkflow("src/knime/kripo-python-pharmacophores-test-default");
-//	}
+	@Ignore("implement node and workflow")
+	@Test
+	public void test_default() throws IOException, InvalidSettingsException, CanceledExecutionException,
+			UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
+		runTestWorkflow("src/knime/kripo-python-pharmacophores-test-default");
+	}
 }
