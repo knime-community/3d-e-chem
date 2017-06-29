@@ -13,15 +13,15 @@ import org.knime.core.data.container.SingleCellFactory;
 import org.knime.core.data.def.StringCell;
 
 import nl.esciencecenter.e3dchem.kripodb.ws.client.ApiException;
-import nl.esciencecenter.e3dchem.kripodb.ws.client.FragmentsApi;
+import nl.esciencecenter.e3dchem.kripodb.ws.client.PharmacophoresApi;
 
 public class PharmacophoreCellFactory extends SingleCellFactory  {
-	private final FragmentsApi fragmentsApi;
+	private final PharmacophoresApi api;
 	private final int colIndex;
 
-	public PharmacophoreCellFactory(final DataColumnSpec createOutputColumnSpec, final FragmentsApi fragmentsApi, final int colIndex) {
+	public PharmacophoreCellFactory(final DataColumnSpec createOutputColumnSpec, final PharmacophoresApi pharmacophoresApi, final int colIndex) {
 		super(createOutputColumnSpec);
-		this.fragmentsApi = fragmentsApi;
+		this.api = pharmacophoresApi;
 		this.colIndex = colIndex;
 	}
 
@@ -34,7 +34,7 @@ public class PharmacophoreCellFactory extends SingleCellFactory  {
         }
         String fragmentId = ((StringCell) currCell).getStringValue();
         try {
-			File pharfile = fragmentsApi.getFragmentPhar(fragmentId);
+			File pharfile = api.getFragmentPhar(fragmentId);
 			Charset encoding = Charset.forName("UTF-8");
 			String phar = FileUtils.readFileToString(pharfile, encoding);
 			return new StringCell(phar);
