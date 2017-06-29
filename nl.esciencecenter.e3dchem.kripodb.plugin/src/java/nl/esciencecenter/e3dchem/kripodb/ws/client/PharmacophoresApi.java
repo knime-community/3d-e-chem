@@ -28,7 +28,6 @@ import java.io.IOException;
 
 
 import nl.esciencecenter.e3dchem.kripodb.ws.client.model.AlignedPharmacophore;
-import java.math.BigDecimal;
 import nl.esciencecenter.e3dchem.kripodb.ws.client.model.Error;
 import java.io.File;
 import nl.esciencecenter.e3dchem.kripodb.ws.client.model.FragmentNotFound;
@@ -59,7 +58,7 @@ public class PharmacophoresApi {
     }
 
     /* Build call for alignPharmacophore */
-    private com.squareup.okhttp.Call alignPharmacophoreCall(String referenceFragmentId, String probeFragmentId, Double cutoff, BigDecimal breakNumCliques, Boolean phar, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call alignPharmacophoreCall(String referenceFragmentId, String probeFragmentId, Double cutoff, Integer breakNumCliques, Boolean phar, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -108,7 +107,7 @@ public class PharmacophoresApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call alignPharmacophoreValidateBeforeCall(String referenceFragmentId, String probeFragmentId, Double cutoff, BigDecimal breakNumCliques, Boolean phar, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call alignPharmacophoreValidateBeforeCall(String referenceFragmentId, String probeFragmentId, Double cutoff, Integer breakNumCliques, Boolean phar, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'referenceFragmentId' is set
         if (referenceFragmentId == null) {
@@ -141,7 +140,7 @@ public class PharmacophoresApi {
      * @return AlignedPharmacophore
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AlignedPharmacophore alignPharmacophore(String referenceFragmentId, String probeFragmentId, Double cutoff, BigDecimal breakNumCliques, Boolean phar) throws ApiException {
+    public AlignedPharmacophore alignPharmacophore(String referenceFragmentId, String probeFragmentId, Double cutoff, Integer breakNumCliques, Boolean phar) throws ApiException {
         ApiResponse<AlignedPharmacophore> resp = alignPharmacophoreWithHttpInfo(referenceFragmentId, probeFragmentId, cutoff, breakNumCliques, phar);
         return resp.getData();
     }
@@ -157,7 +156,7 @@ public class PharmacophoresApi {
      * @return ApiResponse&lt;AlignedPharmacophore&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AlignedPharmacophore> alignPharmacophoreWithHttpInfo(String referenceFragmentId, String probeFragmentId, Double cutoff, BigDecimal breakNumCliques, Boolean phar) throws ApiException {
+    public ApiResponse<AlignedPharmacophore> alignPharmacophoreWithHttpInfo(String referenceFragmentId, String probeFragmentId, Double cutoff, Integer breakNumCliques, Boolean phar) throws ApiException {
         com.squareup.okhttp.Call call = alignPharmacophoreValidateBeforeCall(referenceFragmentId, probeFragmentId, cutoff, breakNumCliques, phar, null, null);
         Type localVarReturnType = new TypeToken<AlignedPharmacophore>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -175,7 +174,7 @@ public class PharmacophoresApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call alignPharmacophoreAsync(String referenceFragmentId, String probeFragmentId, Double cutoff, BigDecimal breakNumCliques, Boolean phar, final ApiCallback<AlignedPharmacophore> callback) throws ApiException {
+    public com.squareup.okhttp.Call alignPharmacophoreAsync(String referenceFragmentId, String probeFragmentId, Double cutoff, Integer breakNumCliques, Boolean phar, final ApiCallback<AlignedPharmacophore> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

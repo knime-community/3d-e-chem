@@ -35,6 +35,10 @@
                factory-class="nl.esciencecenter.e3dchem.kripodb.ws.pharmacophores.PharmacophoresFactory">
         </node>
         <node
+               category-path="/community/3d-e-chem/kripodb"
+               factory-class="nl.esciencecenter.e3dchem.kripodb.ws.pharmacophores.align.AlignFactory"
+         />
+        <node
                category-path="/community/3d-e-chem/kripodb/local"
                deprecated="false"
                factory-class="nl.esciencecenter.e3dchem.kripodb.fragmentsbysimilarity.FragmentBySimilarityFactory">
