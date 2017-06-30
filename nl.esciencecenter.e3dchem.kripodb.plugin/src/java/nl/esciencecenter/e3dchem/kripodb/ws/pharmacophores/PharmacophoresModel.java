@@ -6,11 +6,11 @@ import org.knime.core.data.DataTableSpec;
 import org.knime.core.data.StringValue;
 import org.knime.core.data.container.CellFactory;
 import org.knime.core.data.container.ColumnRearranger;
-import org.knime.core.data.def.StringCell;
 import org.knime.core.node.BufferedDataTable;
 import org.knime.core.node.ExecutionContext;
 import org.knime.core.node.InvalidSettingsException;
 
+import nl.esciencecenter.e3dchem.knime.pharmacophore.PharCell;
 import nl.esciencecenter.e3dchem.kripodb.ws.WsNodeModel;
 
 public class PharmacophoresModel extends WsNodeModel<PharmacophoresConfig> {
@@ -44,7 +44,7 @@ public class PharmacophoresModel extends WsNodeModel<PharmacophoresConfig> {
 		if (!inSpecs[0].getColumnSpec(idColumnIndex).getType().isCompatible(StringValue.class)) {
 			throw new InvalidSettingsException("Column '" + idColumn + "' does not contain String cells");
 		}
-		
+
 		DataColumnSpec newColumnSpec = createOutputColumnSpec();
 		// and the DataTableSpec for the appended part
 		DataTableSpec appendedSpec = new DataTableSpec(newColumnSpec);
@@ -59,23 +59,20 @@ public class PharmacophoresModel extends WsNodeModel<PharmacophoresConfig> {
 
 	@Override
 	protected BufferedDataTable[] execute(BufferedDataTable[] inData, ExecutionContext exec) throws Exception {
-		int colIndex = inData[0].getDataTableSpec()
-	            .findColumnIndex(getConfig().getIdColumn().getStringValue());
-		ColumnRearranger outputTable = new ColumnRearranger(
-                inData[0].getDataTableSpec());
-        // append the new column
-		CellFactory cellFactory = new PharmacophoreCellFactory(
-                createOutputColumnSpec(), getConfig().getPharmacophoresApi(), colIndex);
-        outputTable.append(cellFactory);
-        // and create the actual output table
-        BufferedDataTable bufferedOutput = exec.createColumnRearrangeTable(
-                inData[0], outputTable, exec);
-        // return it
-        return new BufferedDataTable[]{bufferedOutput};
+		int colIndex = inData[0].getDataTableSpec().findColumnIndex(getConfig().getIdColumn().getStringValue());
+		ColumnRearranger outputTable = new ColumnRearranger(inData[0].getDataTableSpec());
+		// append the new column
+		CellFactory cellFactory = new PharmacophoreCellFactory(createOutputColumnSpec(),
+				getConfig().getPharmacophoresApi(), colIndex);
+		outputTable.append(cellFactory);
+		// and create the actual output table
+		BufferedDataTable bufferedOutput = exec.createColumnRearrangeTable(inData[0], outputTable, exec);
+		// return it
+		return new BufferedDataTable[] { bufferedOutput };
 	}
 
 	private DataColumnSpec createOutputColumnSpec() {
-		DataColumnSpecCreator colSpecCreator = new DataColumnSpecCreator("Pharmacophore", StringCell.TYPE);
+		DataColumnSpecCreator colSpecCreator = new DataColumnSpecCreator("Pharmacophore", PharCell.TYPE);
 		return colSpecCreator.createSpec();
 	}
 }

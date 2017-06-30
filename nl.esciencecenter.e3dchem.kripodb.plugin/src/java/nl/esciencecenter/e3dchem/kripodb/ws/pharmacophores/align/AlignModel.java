@@ -9,7 +9,6 @@ import org.knime.core.data.DataTableSpecCreator;
 import org.knime.core.data.StringValue;
 import org.knime.core.data.def.DefaultRow;
 import org.knime.core.data.def.DoubleCell;
-import org.knime.core.data.def.StringCell;
 import org.knime.core.data.vector.doublevector.DoubleVectorCellFactory;
 import org.knime.core.node.BufferedDataContainer;
 import org.knime.core.node.BufferedDataTable;
@@ -17,6 +16,8 @@ import org.knime.core.node.ExecutionContext;
 import org.knime.core.node.InvalidSettingsException;
 import org.knime.core.node.defaultnodesettings.SettingsModelString;
 
+import nl.esciencecenter.e3dchem.knime.pharmacophore.PharCell;
+import nl.esciencecenter.e3dchem.knime.pharmacophore.PharValue;
 import nl.esciencecenter.e3dchem.kripodb.ws.WsNodeModel;
 import nl.esciencecenter.e3dchem.kripodb.ws.client.model.AlignedPharmacophore;
 
@@ -29,7 +30,7 @@ public class AlignModel extends WsNodeModel<AlignConfig> {
 	static final int REFERENCE_PORT = 1;
 
 	private static final DataTableSpec outputSpec = new DataTableSpec(
-			new DataColumnSpecCreator("Aligned pharmacophore", StringCell.TYPE).createSpec(),
+			new DataColumnSpecCreator("Aligned pharmacophore", PharCell.TYPE).createSpec(),
 			new DataColumnSpecCreator("Transformation matrix", DoubleVectorCellFactory.TYPE).createSpec(),
 			new DataColumnSpecCreator("RMSD", DoubleCell.TYPE).createSpec());
 
@@ -66,7 +67,7 @@ public class AlignModel extends WsNodeModel<AlignConfig> {
 			current = ((StringValue) queryRow.getCell(queryIndex)).getStringValue();
 			aligned = aligner.align(current);
 			double[] matrix = flattenMatrix(aligned.getTransformationMatrix());
-			container.addRowToTable(new DefaultRow(queryRow.getKey(), new StringCell(aligned.getPhar()),
+			container.addRowToTable(new DefaultRow(queryRow.getKey(), new PharCell(aligned.getPhar()),
 					DoubleVectorCellFactory.createCell(matrix), new DoubleCell(aligned.getRmsd())));
 
 			exec.setProgress((double) currentRow++ / size);
@@ -80,8 +81,7 @@ public class AlignModel extends WsNodeModel<AlignConfig> {
 	}
 
 	private double[] flattenMatrix(List<List<Double>> matrix) {
-		double[] array = matrix.stream().flatMap(c -> c.stream())
-				.mapToDouble(Double::doubleValue).toArray();
+		double[] array = matrix.stream().flatMap(c -> c.stream()).mapToDouble(Double::doubleValue).toArray();
 		return array;
 	}
 
@@ -91,7 +91,7 @@ public class AlignModel extends WsNodeModel<AlignConfig> {
 		BufferedDataTable referenceData = inData[REFERENCE_PORT];
 		int referenceIndex = referenceData.getSpec().findColumnIndex(referenceColumn.getStringValue());
 		for (DataRow referenceRow : referenceData) {
-			referencePharmacophore = ((StringValue) referenceRow.getCell(referenceIndex)).getStringValue();
+			referencePharmacophore = ((PharValue) referenceRow.getCell(referenceIndex)).getStringValue();
 		}
 		// TODO throw exception when not found
 		return referencePharmacophore;
