@@ -1,5 +1,7 @@
 package nl.esciencecenter.e3dchem.kripodb.ws.pharmacophores.align;
 
+import java.util.List;
+
 import org.knime.core.data.DataColumnSpecCreator;
 import org.knime.core.data.DataRow;
 import org.knime.core.data.DataTableSpec;
@@ -63,8 +65,7 @@ public class AlignModel extends WsNodeModel<AlignConfig> {
 		for (DataRow queryRow : queryData) {
 			current = ((StringValue) queryRow.getCell(queryIndex)).getStringValue();
 			aligned = aligner.align(current);
-			double[] matrix = aligned.getTransformationMatrix().stream().flatMap(c -> c.stream())
-					.mapToDouble(Double::doubleValue).toArray();
+			double[] matrix = flattenMatrix(aligned.getTransformationMatrix());
 			container.addRowToTable(new DefaultRow(queryRow.getKey(), new StringCell(aligned.getPhar()),
 					DoubleVectorCellFactory.createCell(matrix), new DoubleCell(aligned.getRmsd())));
 
@@ -76,6 +77,12 @@ public class AlignModel extends WsNodeModel<AlignConfig> {
 		container.close();
 		BufferedDataTable out = container.getTable();
 		return new BufferedDataTable[] { out };
+	}
+
+	private double[] flattenMatrix(List<List<Double>> matrix) {
+		double[] array = matrix.stream().flatMap(c -> c.stream())
+				.mapToDouble(Double::doubleValue).toArray();
+		return array;
 	}
 
 	private String getReferencePharmacophore(final BufferedDataTable[] inData) {
