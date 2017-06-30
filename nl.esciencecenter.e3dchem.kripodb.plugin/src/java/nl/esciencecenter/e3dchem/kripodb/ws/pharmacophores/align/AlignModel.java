@@ -29,8 +29,7 @@ public class AlignModel extends WsNodeModel<AlignConfig> {
 	private static final DataTableSpec outputSpec = new DataTableSpec(
 			new DataColumnSpecCreator("Aligned pharmacophore", StringCell.TYPE).createSpec(),
 			new DataColumnSpecCreator("Transformation matrix", DoubleVectorCellFactory.TYPE).createSpec(),
-			new DataColumnSpecCreator("RMSD", DoubleCell.TYPE).createSpec()
-	);
+			new DataColumnSpecCreator("RMSD", DoubleCell.TYPE).createSpec());
 
 	/**
 	 * Constructor for the node model.
@@ -45,16 +44,18 @@ public class AlignModel extends WsNodeModel<AlignConfig> {
 	@Override
 	protected BufferedDataTable[] execute(final BufferedDataTable[] inData, final ExecutionContext exec)
 			throws Exception {
+
 		SettingsModelString queryColumn = getConfig().getQueryColumn();
 
 		String referencePharmacophore = getReferencePharmacophore(inData);
-		Aligner aligner = new Aligner(referencePharmacophore, getConfig().getPharmacophoresApi());
-		
+		Aligner aligner = new Aligner(referencePharmacophore, getConfig().getPharmacophoresApi(),
+				getConfig().getCutoff().getDoubleValue(), getConfig().getBreakNumCliques().getIntValue());
+
 		BufferedDataTable queryData = inData[QUERY_PORT];
 		DataTableSpec outSpec = new DataTableSpecCreator(queryData.getSpec()).addColumns(outputSpec).createSpec();
 		BufferedDataContainer container = exec.createDataContainer(outSpec);
 		int queryIndex = queryData.getSpec().findColumnIndex(queryColumn.getStringValue());
-		
+
 		String current;
 		AlignedPharmacophore aligned;
 		long currentRow = 0;
@@ -62,16 +63,11 @@ public class AlignModel extends WsNodeModel<AlignConfig> {
 		for (DataRow queryRow : queryData) {
 			current = ((StringValue) queryRow.getCell(queryIndex)).getStringValue();
 			aligned = aligner.align(current);
-			double[] matrix = aligned.getTransformationMatrix().stream().flatMap(c -> c.stream()).mapToDouble(Double::doubleValue).toArray();
-			container.addRowToTable(
-					new DefaultRow(
-							queryRow.getKey(),
-							new StringCell(aligned.getPhar()),
-							DoubleVectorCellFactory.createCell(matrix),
-							new DoubleCell(aligned.getRmsd())
-					)
-			);
-			
+			double[] matrix = aligned.getTransformationMatrix().stream().flatMap(c -> c.stream())
+					.mapToDouble(Double::doubleValue).toArray();
+			container.addRowToTable(new DefaultRow(queryRow.getKey(), new StringCell(aligned.getPhar()),
+					DoubleVectorCellFactory.createCell(matrix), new DoubleCell(aligned.getRmsd())));
+
 			exec.setProgress((double) currentRow++ / size);
 			exec.checkCanceled();
 		}
@@ -82,8 +78,6 @@ public class AlignModel extends WsNodeModel<AlignConfig> {
 		return new BufferedDataTable[] { out };
 	}
 
-	
-	
 	private String getReferencePharmacophore(final BufferedDataTable[] inData) {
 		SettingsModelString referenceColumn = getConfig().getReferenceColumn();
 		String referencePharmacophore = null;
@@ -111,7 +105,6 @@ public class AlignModel extends WsNodeModel<AlignConfig> {
 		DataTableSpec outSpec = new DataTableSpecCreator(inSpecs[QUERY_PORT]).addColumns(outputSpec).createSpec();
 		return new DataTableSpec[] { outSpec };
 	}
-
 
 	@Override
 	public AlignConfig createConfig() {
