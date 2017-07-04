@@ -1,9 +1,9 @@
 package nl.esciencecenter.e3dchem.kripodb.ws.pharmacophores.align;
 
+import org.knime.core.data.StringValue;
 import org.knime.core.node.defaultnodesettings.DialogComponentColumnNameSelection;
 import org.knime.core.node.defaultnodesettings.DialogComponentNumber;
 
-import nl.esciencecenter.e3dchem.knime.pharmacophore.PharValue;
 import nl.esciencecenter.e3dchem.kripodb.ws.WsNodeDialog;
 
 public class AlignDialog extends WsNodeDialog {
@@ -13,11 +13,11 @@ public class AlignDialog extends WsNodeDialog {
 		super();
 
 		AlignConfig config = new AlignConfig();
-		addDialogComponent(new DialogComponentColumnNameSelection(config.getQueryColumn(),
-				"Query Pharmacophore column (table 1)", AlignModel.QUERY_PORT, PharValue.class));
+		addDialogComponent(new DialogComponentColumnNameSelection(config.getProbeIdColumn(),
+				"Probe pharmacophore identifier column (table 1)", AlignModel.PROBE_PORT, StringValue.class));
 
-		addDialogComponent(new DialogComponentColumnNameSelection(config.getReferenceColumn(),
-				"Reference Pharmacophore column (table 2)", AlignModel.REFERENCE_PORT, PharValue.class));
+		addDialogComponent(new DialogComponentColumnNameSelection(config.getReferenceIdColumn(),
+				"Reference pharmacophore identifier column (table 2)", AlignModel.REFERENCE_PORT, StringValue.class));
 
 		createNewTab("Advanced");
 

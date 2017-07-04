@@ -12,6 +12,7 @@ import org.knime.core.data.MissingCell;
 import org.knime.core.data.container.SingleCellFactory;
 import org.knime.core.data.def.StringCell;
 
+import nl.esciencecenter.e3dchem.knime.pharmacophore.PharCell;
 import nl.esciencecenter.e3dchem.kripodb.ws.client.ApiException;
 import nl.esciencecenter.e3dchem.kripodb.ws.client.PharmacophoresApi;
 
@@ -37,7 +38,7 @@ public class PharmacophoreCellFactory extends SingleCellFactory  {
 			File pharfile = api.getFragmentPhar(fragmentId);
 			Charset encoding = Charset.forName("UTF-8");
 			String phar = FileUtils.readFileToString(pharfile, encoding);
-			return new StringCell(phar);
+			return new PharCell(phar);
 		} catch (ApiException | IOException e) {
 	        return new MissingCell(e.getMessage());
 		}

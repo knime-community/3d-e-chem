@@ -45,11 +45,11 @@ public class AlignConfig extends WsNodeConfig {
 		referenceColumn.validateSettings(settings);
 	}
 
-	public SettingsModelString getQueryColumn() {
+	public SettingsModelString getProbeIdColumn() {
 		return queryColumn;
 	}
 
-	public SettingsModelString getReferenceColumn() {
+	public SettingsModelString getReferenceIdColumn() {
 		return referenceColumn;
 	}
 

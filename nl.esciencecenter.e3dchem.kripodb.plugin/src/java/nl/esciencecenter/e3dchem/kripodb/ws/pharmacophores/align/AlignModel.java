@@ -17,8 +17,8 @@ import org.knime.core.node.InvalidSettingsException;
 import org.knime.core.node.defaultnodesettings.SettingsModelString;
 
 import nl.esciencecenter.e3dchem.knime.pharmacophore.PharCell;
-import nl.esciencecenter.e3dchem.knime.pharmacophore.PharValue;
 import nl.esciencecenter.e3dchem.kripodb.ws.WsNodeModel;
+import nl.esciencecenter.e3dchem.kripodb.ws.client.ApiException;
 import nl.esciencecenter.e3dchem.kripodb.ws.client.model.AlignedPharmacophore;
 
 /**
@@ -26,7 +26,7 @@ import nl.esciencecenter.e3dchem.kripodb.ws.client.model.AlignedPharmacophore;
  *
  */
 public class AlignModel extends WsNodeModel<AlignConfig> {
-	static final int QUERY_PORT = 0;
+	static final int PROBE_PORT = 0;
 	static final int REFERENCE_PORT = 1;
 
 	private static final DataTableSpec outputSpec = new DataTableSpec(
@@ -48,13 +48,13 @@ public class AlignModel extends WsNodeModel<AlignConfig> {
 	protected BufferedDataTable[] execute(final BufferedDataTable[] inData, final ExecutionContext exec)
 			throws Exception {
 
-		SettingsModelString queryColumn = getConfig().getQueryColumn();
+		SettingsModelString queryColumn = getConfig().getProbeIdColumn();
 
 		String referencePharmacophore = getReferencePharmacophore(inData);
 		Aligner aligner = new Aligner(referencePharmacophore, getConfig().getPharmacophoresApi(),
 				getConfig().getCutoff().getDoubleValue(), getConfig().getBreakNumCliques().getIntValue());
 
-		BufferedDataTable queryData = inData[QUERY_PORT];
+		BufferedDataTable queryData = inData[PROBE_PORT];
 		DataTableSpec outSpec = new DataTableSpecCreator(queryData.getSpec()).addColumns(outputSpec).createSpec();
 		BufferedDataContainer container = exec.createDataContainer(outSpec);
 		int queryIndex = queryData.getSpec().findColumnIndex(queryColumn.getStringValue());
@@ -85,15 +85,17 @@ public class AlignModel extends WsNodeModel<AlignConfig> {
 		return array;
 	}
 
-	private String getReferencePharmacophore(final BufferedDataTable[] inData) {
-		SettingsModelString referenceColumn = getConfig().getReferenceColumn();
+	private String getReferencePharmacophore(final BufferedDataTable[] inData) throws ApiException {
+		SettingsModelString referenceColumn = getConfig().getReferenceIdColumn();
 		String referencePharmacophore = null;
 		BufferedDataTable referenceData = inData[REFERENCE_PORT];
 		int referenceIndex = referenceData.getSpec().findColumnIndex(referenceColumn.getStringValue());
 		for (DataRow referenceRow : referenceData) {
-			referencePharmacophore = ((PharValue) referenceRow.getCell(referenceIndex)).getStringValue();
+			referencePharmacophore = ((StringValue) referenceRow.getCell(referenceIndex)).getStringValue();
 		}
-		// TODO throw exception when not found
+		if (referencePharmacophore == null) {
+			throw new ApiException("No reference pharmacophore identifier found");
+		}
 		return referencePharmacophore;
 	}
 
@@ -109,7 +111,7 @@ public class AlignModel extends WsNodeModel<AlignConfig> {
 		// the spec of its output data table(s) (if you can, otherwise an array
 		// with null elements), or throw an exception with a useful user message
 
-		DataTableSpec outSpec = new DataTableSpecCreator(inSpecs[QUERY_PORT]).addColumns(outputSpec).createSpec();
+		DataTableSpec outSpec = new DataTableSpecCreator(inSpecs[PROBE_PORT]).addColumns(outputSpec).createSpec();
 		return new DataTableSpec[] { outSpec };
 	}
 
