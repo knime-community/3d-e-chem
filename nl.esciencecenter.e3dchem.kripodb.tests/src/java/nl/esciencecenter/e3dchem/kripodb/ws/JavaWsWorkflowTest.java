@@ -58,7 +58,7 @@ public class JavaWsWorkflowTest {
 		File workflowDir = new File("src/knime/kripo-java-fragment-information-test");
 		runner.runTestWorkflow(workflowDir);
 	}
-	
+
 	@Test
 	public void test_pharmacophores() throws IOException, InvalidSettingsException, CanceledExecutionException,
 			UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
