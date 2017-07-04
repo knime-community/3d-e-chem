@@ -23,6 +23,7 @@ public class FragmentBySimilarityDialog extends WsNodeDialog {
 	 * New pane for configuring FragmentBySimilarity node dialog. This is just a
 	 * suggestion to demonstrate possible default dialog components.
 	 */
+	@SuppressWarnings("unchecked")
 	protected FragmentBySimilarityDialog() {
 		super();
 		FragmentsBySimilarityConfig config = new FragmentsBySimilarityConfig();
