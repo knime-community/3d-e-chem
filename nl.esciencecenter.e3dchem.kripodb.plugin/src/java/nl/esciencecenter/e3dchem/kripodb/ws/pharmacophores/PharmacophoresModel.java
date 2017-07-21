@@ -63,7 +63,7 @@ public class PharmacophoresModel extends WsNodeModel<PharmacophoresConfig> {
 		ColumnRearranger outputTable = new ColumnRearranger(inData[0].getDataTableSpec());
 		// append the new column
 		CellFactory cellFactory = new PharmacophoreCellFactory(createOutputColumnSpec(),
-				getConfig().getPharmacophoresApi(), colIndex);
+				getConfig().getFragmentsApi(), colIndex);
 		outputTable.append(cellFactory);
 		// and create the actual output table
 		BufferedDataTable bufferedOutput = exec.createColumnRearrangeTable(inData[0], outputTable, exec);

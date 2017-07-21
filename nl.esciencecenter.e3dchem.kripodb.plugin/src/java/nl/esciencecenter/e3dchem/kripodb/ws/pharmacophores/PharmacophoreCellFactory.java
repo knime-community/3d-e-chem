@@ -14,13 +14,14 @@ import org.knime.core.data.def.StringCell;
 
 import nl.esciencecenter.e3dchem.knime.pharmacophore.PharCell;
 import nl.esciencecenter.e3dchem.kripodb.ws.client.ApiException;
-import nl.esciencecenter.e3dchem.kripodb.ws.client.PharmacophoresApi;
+import nl.esciencecenter.e3dchem.kripodb.ws.client.FragmentsApi;
 
-public class PharmacophoreCellFactory extends SingleCellFactory  {
-	private final PharmacophoresApi api;
+public class PharmacophoreCellFactory extends SingleCellFactory {
+	private final FragmentsApi api;
 	private final int colIndex;
 
-	public PharmacophoreCellFactory(final DataColumnSpec createOutputColumnSpec, final PharmacophoresApi pharmacophoresApi, final int colIndex) {
+	public PharmacophoreCellFactory(final DataColumnSpec createOutputColumnSpec, final FragmentsApi pharmacophoresApi,
+			final int colIndex) {
 		super(createOutputColumnSpec);
 		this.api = pharmacophoresApi;
 		this.colIndex = colIndex;
@@ -29,18 +30,18 @@ public class PharmacophoreCellFactory extends SingleCellFactory  {
 	@Override
 	public DataCell getCell(final DataRow row) {
 		DataCell currCell = row.getCell(colIndex);
-        // check the cell for missing value
-        if (currCell.isMissing()) {
-            return new MissingCell("Missing fragment identifier has missing pharmacophore");
-        }
-        String fragmentId = ((StringCell) currCell).getStringValue();
-        try {
+		// check the cell for missing value
+		if (currCell.isMissing()) {
+			return new MissingCell("Missing fragment identifier has missing pharmacophore");
+		}
+		String fragmentId = ((StringCell) currCell).getStringValue();
+		try {
 			File pharfile = api.getFragmentPhar(fragmentId);
 			Charset encoding = Charset.forName("UTF-8");
 			String phar = FileUtils.readFileToString(pharfile, encoding);
 			return new PharCell(phar);
 		} catch (ApiException | IOException e) {
-	        return new MissingCell(e.getMessage());
+			return new MissingCell(e.getMessage());
 		}
 	}
 
