@@ -10,7 +10,6 @@ import org.knime.core.node.defaultnodesettings.SettingsModelString;
 
 import nl.esciencecenter.e3dchem.kripodb.ws.client.ApiClient;
 import nl.esciencecenter.e3dchem.kripodb.ws.client.FragmentsApi;
-import nl.esciencecenter.e3dchem.kripodb.ws.client.PharmacophoresApi;
 
 public class WsNodeConfig {
 
@@ -24,7 +23,6 @@ public class WsNodeConfig {
 
 	private ApiClient apiClient;
 	private FragmentsApi fragmentsApi;
-	private PharmacophoresApi pharmacophoresApi;
 
 	public static SettingsModelString basePathSettings() {
 		return new SettingsModelString(CFGKEY_BASEPATH, DEFAULT_BASEPATH);
@@ -39,7 +37,6 @@ public class WsNodeConfig {
 		apiClient.setBasePath(m_basePath.getStringValue());
 		apiClient.addDefaultHeader("Accept", "application/json");
 		fragmentsApi = new FragmentsApi(apiClient);
-		pharmacophoresApi = new PharmacophoresApi(apiClient);
 		updateHttpClientTimeout();
 	}
 
@@ -80,7 +77,6 @@ public class WsNodeConfig {
 	public void setApiClient(ApiClient apiClient) {
 		this.apiClient = apiClient;
 		fragmentsApi.setApiClient(apiClient);
-		pharmacophoresApi.setApiClient(apiClient);
 	}
 
 	public String getBasePath() {
@@ -103,10 +99,6 @@ public class WsNodeConfig {
 
 	public FragmentsApi getFragmentsApi() {
 		return fragmentsApi;
-	}
-
-	public PharmacophoresApi getPharmacophoresApi() {
-		return pharmacophoresApi;
 	}
 
 	public SettingsModelString getBasePathSettings() {
