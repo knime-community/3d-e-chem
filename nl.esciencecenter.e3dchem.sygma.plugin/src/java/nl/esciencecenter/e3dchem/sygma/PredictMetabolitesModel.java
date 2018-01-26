@@ -6,10 +6,8 @@ import java.util.List;
 
 import org.knime.chem.types.SmilesCell;
 import org.knime.chem.types.SmilesCellFactory;
-import org.knime.chem.types.SmilesValue;
 import org.knime.core.data.DataCell;
 import org.knime.core.data.DataColumnSpec;
-import org.knime.core.data.DataColumnSpecCreator;
 import org.knime.core.data.DataRow;
 import org.knime.core.data.DataTableSpec;
 import org.knime.core.data.container.ColumnRearranger;
