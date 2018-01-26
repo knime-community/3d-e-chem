@@ -17,3 +17,4 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .
 Export-Package: nl.esciencecenter.e3dchem.sygma
+Import-Package: org.knime.python2.config
