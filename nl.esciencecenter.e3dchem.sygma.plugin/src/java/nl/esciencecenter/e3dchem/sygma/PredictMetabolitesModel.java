@@ -32,7 +32,6 @@ public class PredictMetabolitesModel extends PythonWrapperNodeModel<PredictMetab
 		// TODO one incoming port and one outgoing port is assumed
 		super(new PortType[] { BufferedDataTable.TYPE }, new PortType[] { BufferedDataTable.TYPE });
 		python_code_filename = "predict_metabolite.py";
-		required_python_packages = Arrays.asList("sygma");
 	}
 
 	@Override
@@ -56,22 +55,7 @@ public class PredictMetabolitesModel extends PythonWrapperNodeModel<PredictMetab
 	}
 
 	@Override
-	public void validPython() throws InvalidSettingsException {
-		try {
-			super.validPython();
-		} catch (InvalidSettingsException e) {
-			if (e.getMessage().contains("install")) {
-				throw new InvalidSettingsException(
-						"'sygma' Python package not found, please install or correct Python executable, see the description of the SyGMa Metabolites node for help",
-						e);
-			}
-			throw e;
-		}
-
-	}
-
-	@Override
-	protected BufferedDataTable[] execute(BufferedDataTable[] inData, ExecutionContext exec) throws Exception {
+	public BufferedDataTable[] execute(BufferedDataTable[] inData, ExecutionContext exec) throws Exception {
 		// When copying inData to output table using a Python pandas dataframe
 		// copy(),
 		// the smiles input column has changed to string type
@@ -86,10 +70,10 @@ public class PredictMetabolitesModel extends PythonWrapperNodeModel<PredictMetab
 				smileColNames.add(colSpec.getName());
 			}
 		}
-		
+
 		// Run actual Python code
 		BufferedDataTable[] pytables = super.execute(inData, exec);
-		
+
 		// Create a rearranger which will perform replace
 		DataTableSpec pyOutSpec = pytables[0].getSpec();
 		ColumnRearranger rearranger = new ColumnRearranger(pyOutSpec);
@@ -108,7 +92,7 @@ public class PredictMetabolitesModel extends PythonWrapperNodeModel<PredictMetab
 				}
 			}, smileColName);
 		}
-		
+
 		// Run string>smiles rearranger on Python output
 		BufferedDataTable outTable = exec.createColumnRearrangeTable(pytables[0], rearranger, exec);
 		return new BufferedDataTable[] { outTable };
