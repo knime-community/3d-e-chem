@@ -1,7 +1,5 @@
 package nl.esciencecenter.e3dchem.sygma;
 
-import java.awt.Component;
-
 import org.knime.core.data.DataTableSpec;
 import org.knime.core.node.InvalidSettingsException;
 import org.knime.core.node.NodeSettingsRO;
