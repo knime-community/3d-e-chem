@@ -48,6 +48,11 @@ public class PredictMetabolitesDialog extends DefaultNodeSettingsPane {
 	public void loadAdditionalSettingsFrom(NodeSettingsRO settings, PortObjectSpec[] specs)
 			throws NotConfigurableException {
 		super.loadAdditionalSettingsFrom(settings, specs);
+		try {
+			config.loadFrom(settings);
+		} catch (InvalidSettingsException e) {
+			throw new NotConfigurableException("Unable to load", e);
+		}
 		pythonOptions.loadSettingsFrom(config);
 	}
 
@@ -55,6 +60,11 @@ public class PredictMetabolitesDialog extends DefaultNodeSettingsPane {
 	public void loadAdditionalSettingsFrom(NodeSettingsRO settings, DataTableSpec[] specs)
 			throws NotConfigurableException {
 		super.loadAdditionalSettingsFrom(settings, specs);
+		try {
+			config.loadFrom(settings);
+		} catch (InvalidSettingsException e) {
+			throw new NotConfigurableException("Unable to load", e);
+		}
 		pythonOptions.loadSettingsFrom(config);
 	}
 
@@ -62,5 +72,6 @@ public class PredictMetabolitesDialog extends DefaultNodeSettingsPane {
 	public void saveAdditionalSettingsTo(NodeSettingsWO settings) throws InvalidSettingsException {
 		super.saveAdditionalSettingsTo(settings);
 		pythonOptions.saveSettingsTo(config);
+		config.saveTo(settings);
 	}
 }
