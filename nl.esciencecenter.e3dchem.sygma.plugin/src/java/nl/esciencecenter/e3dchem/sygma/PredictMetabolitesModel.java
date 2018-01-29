@@ -1,7 +1,6 @@
 package nl.esciencecenter.e3dchem.sygma;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.knime.chem.types.SmilesCell;
