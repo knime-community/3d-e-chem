@@ -24,7 +24,6 @@ import nl.esciencecenter.e3dchem.python.PythonOptionsPanel;
 public class PredictMetabolitesDialog extends DefaultNodeSettingsPane {
 
 	private PythonOptionsPanel<PredictMetabolitesConfig> pythonOptions;
-	private PredictMetabolitesConfig config;
 
 	/**
 	 * New pane for configuring PredictMetabolites node dialog. This is just a
@@ -33,7 +32,7 @@ public class PredictMetabolitesDialog extends DefaultNodeSettingsPane {
 	@SuppressWarnings("unchecked")
 	protected PredictMetabolitesDialog() {
 		super();
-		config = new PredictMetabolitesConfig();
+		PredictMetabolitesConfig config = new PredictMetabolitesConfig();
 
 		addDialogComponent(new DialogComponentColumnNameSelection(config.getParentsColumnName(),
 				"Parents molecule column", 0, RDKitMolValue.class));
@@ -48,6 +47,7 @@ public class PredictMetabolitesDialog extends DefaultNodeSettingsPane {
 	public void loadAdditionalSettingsFrom(NodeSettingsRO settings, PortObjectSpec[] specs)
 			throws NotConfigurableException {
 		super.loadAdditionalSettingsFrom(settings, specs);
+		PredictMetabolitesConfig config = new PredictMetabolitesConfig();
 		try {
 			config.loadFrom(settings);
 		} catch (InvalidSettingsException e) {
@@ -60,6 +60,7 @@ public class PredictMetabolitesDialog extends DefaultNodeSettingsPane {
 	public void loadAdditionalSettingsFrom(NodeSettingsRO settings, DataTableSpec[] specs)
 			throws NotConfigurableException {
 		super.loadAdditionalSettingsFrom(settings, specs);
+		PredictMetabolitesConfig config = new PredictMetabolitesConfig();
 		try {
 			config.loadFrom(settings);
 		} catch (InvalidSettingsException e) {
@@ -71,6 +72,7 @@ public class PredictMetabolitesDialog extends DefaultNodeSettingsPane {
 	@Override
 	public void saveAdditionalSettingsTo(NodeSettingsWO settings) throws InvalidSettingsException {
 		super.saveAdditionalSettingsTo(settings);
+		PredictMetabolitesConfig config = new PredictMetabolitesConfig();
 		pythonOptions.saveSettingsTo(config);
 		config.saveTo(settings);
 	}
