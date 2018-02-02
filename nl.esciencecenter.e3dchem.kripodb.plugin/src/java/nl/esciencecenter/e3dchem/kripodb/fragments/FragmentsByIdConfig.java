@@ -11,9 +11,9 @@ import org.knime.core.node.NodeSettingsWO;
 import org.knime.core.node.defaultnodesettings.SettingsModelString;
 import org.knime.core.node.workflow.FlowVariable;
 
-import nl.esciencecenter.e3dchem.python.PythonWrapperNodeConfig;
+import nl.esciencecenter.e3dchem.kripodb.KripoPythonConfig;
 
-public class FragmentsByIdConfig extends PythonWrapperNodeConfig {
+public class FragmentsByIdConfig extends KripoPythonConfig {
 	private static final String DEFAULT_IDTYPE = "fragment";
 	private static final String CFG_IDCOLNAME = "id_column";
 	public static final Set<String> LIST_IDENTIFIERTYPES = Stream.of(DEFAULT_IDTYPE, "pdb").collect(Collectors.toSet());

@@ -9,9 +9,9 @@ import org.knime.core.node.NodeSettingsWO;
 import org.knime.core.node.defaultnodesettings.SettingsModelString;
 import org.knime.core.node.workflow.FlowVariable;
 
-import nl.esciencecenter.e3dchem.python.PythonWrapperNodeConfig;
+import nl.esciencecenter.e3dchem.kripodb.KripoPythonConfig;
 
-public class PharmacophoresConfig extends PythonWrapperNodeConfig {
+public class PharmacophoresConfig extends KripoPythonConfig {
 	private static final String CFG_IDCOLNAME = "id_column";
 	private static final String CFG_PHARMACOPHORESDB = "pharmacophoresdb";
 

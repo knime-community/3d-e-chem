@@ -1,7 +1,6 @@
 package nl.esciencecenter.e3dchem.kripodb.fragmentsbysimilarity;
 
 import java.io.File;
-import java.util.Arrays;
 
 import org.knime.core.data.DataColumnSpec;
 import org.knime.core.data.DataColumnSpecCreator;
@@ -23,7 +22,6 @@ public class FragmentBySimilarityModel extends KripoNodeModel<FragmentsBySimilar
 	public FragmentBySimilarityModel() {
 		super(new PortType[] { BufferedDataTable.TYPE }, new PortType[] { BufferedDataTable.TYPE });
 		python_code_filename = "fragment_by_similarity.py";
-		required_python_packages = Arrays.asList("kripodb.canned");
 	}
 
 	@Override

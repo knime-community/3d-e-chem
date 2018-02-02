@@ -1,6 +1,11 @@
 package nl.esciencecenter.e3dchem.kripodb.fragmentsbysimilarity;
 
+import org.knime.core.data.DataTableSpec;
 import org.knime.core.data.StringValue;
+import org.knime.core.node.InvalidSettingsException;
+import org.knime.core.node.NodeSettingsRO;
+import org.knime.core.node.NodeSettingsWO;
+import org.knime.core.node.NotConfigurableException;
 import org.knime.core.node.defaultnodesettings.DefaultNodeSettingsPane;
 import org.knime.core.node.defaultnodesettings.DialogComponentColumnNameSelection;
 import org.knime.core.node.defaultnodesettings.DialogComponentFileChooser;
@@ -8,6 +13,9 @@ import org.knime.core.node.defaultnodesettings.DialogComponentNumber;
 import org.knime.core.node.defaultnodesettings.SettingsModelDoubleBounded;
 import org.knime.core.node.defaultnodesettings.SettingsModelIntegerBounded;
 import org.knime.core.node.defaultnodesettings.SettingsModelString;
+import org.knime.core.node.port.PortObjectSpec;
+
+import nl.esciencecenter.e3dchem.python.PythonOptionsPanel;
 
 /**
  * <code>NodeDialog</code> for the "FragmentBySimilarity" Node.
@@ -18,6 +26,8 @@ import org.knime.core.node.defaultnodesettings.SettingsModelString;
  * {@link org.knime.core.node.NodeDialogPane}.
  */
 public class FragmentBySimilarityDialog extends DefaultNodeSettingsPane {
+	private PythonOptionsPanel<FragmentsBySimilarityConfig> pythonOptions;
+
 	/**
 	 * New pane for configuring FragmentBySimilarity node dialog. This is just a
 	 * suggestion to demonstrate possible default dialog components.
@@ -42,5 +52,42 @@ public class FragmentBySimilarityDialog extends DefaultNodeSettingsPane {
 
 		SettingsModelIntegerBounded limit = config.getLimit();
 		addDialogComponent(new DialogComponentNumber(limit, "Limit", 1));
+
+		pythonOptions = new PythonOptionsPanel<FragmentsBySimilarityConfig>();
+		addTab("Python options", pythonOptions);
+	}
+
+	@Override
+	public void loadAdditionalSettingsFrom(NodeSettingsRO settings, PortObjectSpec[] specs)
+			throws NotConfigurableException {
+		super.loadAdditionalSettingsFrom(settings, specs);
+		FragmentsBySimilarityConfig config = new FragmentsBySimilarityConfig();
+		try {
+			config.loadFrom(settings);
+		} catch (InvalidSettingsException e) {
+			throw new NotConfigurableException("Unable to load", e);
+		}
+		pythonOptions.loadSettingsFrom(config);
+	}
+
+	@Override
+	public void loadAdditionalSettingsFrom(NodeSettingsRO settings, DataTableSpec[] specs)
+			throws NotConfigurableException {
+		super.loadAdditionalSettingsFrom(settings, specs);
+		FragmentsBySimilarityConfig config = new FragmentsBySimilarityConfig();
+		try {
+			config.loadFrom(settings);
+		} catch (InvalidSettingsException e) {
+			throw new NotConfigurableException("Unable to load", e);
+		}
+		pythonOptions.loadSettingsFrom(config);
+	}
+
+	@Override
+	public void saveAdditionalSettingsTo(NodeSettingsWO settings) throws InvalidSettingsException {
+		super.saveAdditionalSettingsTo(settings);
+		FragmentsBySimilarityConfig config = new FragmentsBySimilarityConfig();
+		pythonOptions.saveSettingsTo(config);
+		config.saveTo(settings);
 	}
 }

@@ -1,7 +1,6 @@
 package nl.esciencecenter.e3dchem.kripodb.fragments;
 
 import java.io.File;
-import java.util.Arrays;
 
 import org.knime.core.data.DataColumnSpec;
 import org.knime.core.data.DataTableSpec;
@@ -20,7 +19,6 @@ public class FragmentByIdModel extends KripoNodeModel<FragmentsByIdConfig> {
 	public FragmentByIdModel() {
 		super(new PortType[] { BufferedDataTable.TYPE }, new PortType[] { BufferedDataTable.TYPE });
 		python_code_filename = "fragment_by_id.py";
-		required_python_packages = Arrays.asList("kripodb.canned");
 	}
 
 	@Override

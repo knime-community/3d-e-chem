@@ -2,12 +2,20 @@ package nl.esciencecenter.e3dchem.kripodb.fragments;
 
 import java.util.Set;
 
+import org.knime.core.data.DataTableSpec;
 import org.knime.core.data.StringValue;
+import org.knime.core.node.InvalidSettingsException;
+import org.knime.core.node.NodeSettingsRO;
+import org.knime.core.node.NodeSettingsWO;
+import org.knime.core.node.NotConfigurableException;
 import org.knime.core.node.defaultnodesettings.DefaultNodeSettingsPane;
 import org.knime.core.node.defaultnodesettings.DialogComponentColumnNameSelection;
 import org.knime.core.node.defaultnodesettings.DialogComponentFileChooser;
 import org.knime.core.node.defaultnodesettings.DialogComponentStringSelection;
 import org.knime.core.node.defaultnodesettings.SettingsModelString;
+import org.knime.core.node.port.PortObjectSpec;
+
+import nl.esciencecenter.e3dchem.python.PythonOptionsPanel;
 
 /**
  * <code>NodeDialog</code> for the "FragmentBySimilarity" Node.
@@ -18,6 +26,8 @@ import org.knime.core.node.defaultnodesettings.SettingsModelString;
  * {@link org.knime.core.node.NodeDialogPane}.
  */
 public class FragmentByIdDialog extends DefaultNodeSettingsPane {
+	private PythonOptionsPanel<FragmentsByIdConfig> pythonOptions;
+
 	/**
 	 * New pane for configuring FragmentBySimilarity node dialog. This is just a
 	 * suggestion to demonstrate possible default dialog components.
@@ -39,6 +49,42 @@ public class FragmentByIdDialog extends DefaultNodeSettingsPane {
 		SettingsModelString idType = config.getIdType();
 		Set<String> idTypeChoices = FragmentsByIdConfig.LIST_IDENTIFIERTYPES;
 		addDialogComponent(new DialogComponentStringSelection(idType, "Type of identifier", idTypeChoices));
+
+		pythonOptions = new PythonOptionsPanel<FragmentsByIdConfig>();
+		addTab("Python options", pythonOptions);
 	}
 
+	@Override
+	public void loadAdditionalSettingsFrom(NodeSettingsRO settings, PortObjectSpec[] specs)
+			throws NotConfigurableException {
+		super.loadAdditionalSettingsFrom(settings, specs);
+		FragmentsByIdConfig config = new FragmentsByIdConfig();
+		try {
+			config.loadFrom(settings);
+		} catch (InvalidSettingsException e) {
+			throw new NotConfigurableException("Unable to load", e);
+		}
+		pythonOptions.loadSettingsFrom(config);
+	}
+
+	@Override
+	public void loadAdditionalSettingsFrom(NodeSettingsRO settings, DataTableSpec[] specs)
+			throws NotConfigurableException {
+		super.loadAdditionalSettingsFrom(settings, specs);
+		FragmentsByIdConfig config = new FragmentsByIdConfig();
+		try {
+			config.loadFrom(settings);
+		} catch (InvalidSettingsException e) {
+			throw new NotConfigurableException("Unable to load", e);
+		}
+		pythonOptions.loadSettingsFrom(config);
+	}
+
+	@Override
+	public void saveAdditionalSettingsTo(NodeSettingsWO settings) throws InvalidSettingsException {
+		super.saveAdditionalSettingsTo(settings);
+		FragmentsByIdConfig config = new FragmentsByIdConfig();
+		pythonOptions.saveSettingsTo(config);
+		config.saveTo(settings);
+	}
 }

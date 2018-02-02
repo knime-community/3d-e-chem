@@ -11,9 +11,9 @@ import org.knime.core.node.defaultnodesettings.SettingsModelIntegerBounded;
 import org.knime.core.node.defaultnodesettings.SettingsModelString;
 import org.knime.core.node.workflow.FlowVariable;
 
-import nl.esciencecenter.e3dchem.python.PythonWrapperNodeConfig;
+import nl.esciencecenter.e3dchem.kripodb.KripoPythonConfig;
 
-public class FragmentsBySimilarityConfig extends PythonWrapperNodeConfig {
+public class FragmentsBySimilarityConfig extends KripoPythonConfig {
     private static final String CFG_LIMIT = "limit";
     private static final int DEFAULT_LIMIT = 1000;
     private static final String CFG_FRAGIDCOLNAME = "fragment_id_column";
