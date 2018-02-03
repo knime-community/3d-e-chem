@@ -22,7 +22,7 @@ if __version_info__[0] >= '2' and __version_info__[1] >= '2':
         else:
             raise NotImplementedError('Type of identifier unknown')
     except IncompleteFragments as e:
-        flow_variables['warning_message'] = e.message
+        flow_variables['warning_message'] = str(message)
         logging.warning("Following identifier(s) could not be found: " + ",".join(e.absent_identifiers))
         output_table = e.fragments
 else:

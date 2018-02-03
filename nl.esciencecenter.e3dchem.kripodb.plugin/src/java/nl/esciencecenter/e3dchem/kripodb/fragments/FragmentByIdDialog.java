@@ -62,7 +62,7 @@ public class FragmentByIdDialog extends DefaultNodeSettingsPane {
 		try {
 			config.loadFrom(settings);
 		} catch (InvalidSettingsException e) {
-			throw new NotConfigurableException("Unable to load", e);
+			// fall back to config defaults
 		}
 		pythonOptions.loadSettingsFrom(config);
 	}
@@ -75,7 +75,7 @@ public class FragmentByIdDialog extends DefaultNodeSettingsPane {
 		try {
 			config.loadFrom(settings);
 		} catch (InvalidSettingsException e) {
-			throw new NotConfigurableException("Unable to load", e);
+			// fall back to config defaults
 		}
 		pythonOptions.loadSettingsFrom(config);
 	}

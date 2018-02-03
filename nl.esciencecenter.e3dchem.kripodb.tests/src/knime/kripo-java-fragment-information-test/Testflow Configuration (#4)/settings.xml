@@ -11,10 +11,12 @@
 <entry key="array-size" type="xint" value="0"/>
 </config>
 <config key="requiredLogWarnings">
-<entry key="array-size" type="xint" value="1"/>
-<entry key="0" type="xstring" value="Following identifier(s) could not be found: wrongid"/>
+<entry key="array-size" type="xint" value="0"/>
 </config>
 <config key="requiredLogInfos">
+<entry key="array-size" type="xint" value="0"/>
+</config>
+<config key="optionalLogMessages">
 <entry key="array-size" type="xint" value="0"/>
 </config>
 <config key="failingNodes">
@@ -45,12 +47,12 @@
 <entry key="node-name" type="xstring" value="Testflow Configuration"/>
 <entry key="node-bundle-name" type="xstring" value="Test-Node extension for KNIME Workbench"/>
 <entry key="node-bundle-symbolic-name" type="xstring" value="org.knime.testing"/>
-<entry key="node-bundle-vendor" type="xstring" value="KNIME GmbH, Konstanz, Germany"/>
-<entry key="node-bundle-version" type="xstring" value="3.3.1.v201612192115"/>
+<entry key="node-bundle-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
+<entry key="node-bundle-version" type="xstring" value="3.5.0.v201712051533"/>
 <entry key="node-feature-name" type="xstring" value="KNIME Testing Framework"/>
 <entry key="node-feature-symbolic-name" type="xstring" value="org.knime.features.testingapplication.feature.group"/>
-<entry key="node-feature-vendor" type="xstring" value="KNIME GmbH, Konstanz, Germany"/>
-<entry key="node-feature-version" type="xstring" value="3.3.1.v201612192115"/>
+<entry key="node-feature-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
+<entry key="node-feature-version" type="xstring" value="3.5.0.v201712051533"/>
 <config key="factory_settings"/>
 <entry key="name" type="xstring" value="Testflow Configuration"/>
 <entry key="hasContent" type="xboolean" value="false"/>
