@@ -50,10 +50,10 @@ public class PredictMetabolitesDialog extends DefaultNodeSettingsPane {
 		PredictMetabolitesConfig config = new PredictMetabolitesConfig();
 		try {
 			config.loadFrom(settings);
+			pythonOptions.loadSettingsFrom(config);
 		} catch (InvalidSettingsException e) {
-			throw new NotConfigurableException("Unable to load", e);
+			// skip Python options
 		}
-		pythonOptions.loadSettingsFrom(config);
 	}
 
 	@Override
@@ -63,10 +63,10 @@ public class PredictMetabolitesDialog extends DefaultNodeSettingsPane {
 		PredictMetabolitesConfig config = new PredictMetabolitesConfig();
 		try {
 			config.loadFrom(settings);
+			pythonOptions.loadSettingsFrom(config);
 		} catch (InvalidSettingsException e) {
-			throw new NotConfigurableException("Unable to load", e);
+			// skip Python options
 		}
-		pythonOptions.loadSettingsFrom(config);
 	}
 
 	@Override
