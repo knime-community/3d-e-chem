@@ -41,10 +41,10 @@ public class PharmacophoresDialog extends WsNodeDialog {
 		PharmacophoresConfig config = new PharmacophoresConfig();
 		try {
 			config.loadFrom(settings);
+			pythonOptions.loadSettingsFrom(config);
 		} catch (InvalidSettingsException e) {
-			throw new NotConfigurableException("Unable to load", e);
+			// fall back to config defaults
 		}
-		pythonOptions.loadSettingsFrom(config);
 	}
 
 	@Override
@@ -54,10 +54,10 @@ public class PharmacophoresDialog extends WsNodeDialog {
 		PharmacophoresConfig config = new PharmacophoresConfig();
 		try {
 			config.loadFrom(settings);
+			pythonOptions.loadSettingsFrom(config);
 		} catch (InvalidSettingsException e) {
-			throw new NotConfigurableException("Unable to load", e);
+			// fall back to config defaults
 		}
-		pythonOptions.loadSettingsFrom(config);
 	}
 
 	@Override

@@ -61,10 +61,10 @@ public class FragmentByIdDialog extends DefaultNodeSettingsPane {
 		FragmentsByIdConfig config = new FragmentsByIdConfig();
 		try {
 			config.loadFrom(settings);
+			pythonOptions.loadSettingsFrom(config);
 		} catch (InvalidSettingsException e) {
 			// fall back to config defaults
 		}
-		pythonOptions.loadSettingsFrom(config);
 	}
 
 	@Override
@@ -74,10 +74,10 @@ public class FragmentByIdDialog extends DefaultNodeSettingsPane {
 		FragmentsByIdConfig config = new FragmentsByIdConfig();
 		try {
 			config.loadFrom(settings);
+			pythonOptions.loadSettingsFrom(config);
 		} catch (InvalidSettingsException e) {
 			// fall back to config defaults
 		}
-		pythonOptions.loadSettingsFrom(config);
 	}
 
 	@Override
