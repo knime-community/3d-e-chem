@@ -10,4 +10,8 @@
 	</parent>
 	<artifactId>nl.esciencecenter.e3dchem.kripodb.plugin</artifactId>
 	<packaging>eclipse-plugin</packaging>
+	<properties>
+		<!-- exclude the generate client code from sonar cloud analysis-->
+		<sonar.exclusions>src/java/nl/esciencecenter/e3dchem/kripodb/ws/client/**/*</sonar.exclusions>
+	</properties>
 </project>
