@@ -22,7 +22,7 @@
 				Information includes the fragment molecule and it's associated protein
 				identifiers.
 			</p>
-			<h2>Resolving "'kripodb' Python package not found" error</h2>
+			<h2>Resolving "Library kripodb.canned is missing" error</h2>
 			<p>
 				This node requires the
 				<a href="https://github.com/3D-e-Chem/kripodb">kripodb</a>
@@ -41,7 +41,8 @@
 				that KNIME is using the same Python executable.
 				In the File menu > Preferences > KNIME > Python make sure the path to
 				the Python executable is the same Python which has the kripodb
-				package installed.
+				package installed. KNIME can use Python version 2 or 3, 
+				the node should have the Python version selected which has the Python package installed.
 			</p>
 		</intro>
 
