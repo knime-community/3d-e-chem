@@ -45,18 +45,20 @@
 				the node should have the Python version selected which has the Python package installed.
 			</p>
 		</intro>
-		<option name="Fragment identifiers">The column containing the Kripo fragment
-			identifiers
-		</option>
-		<option name="Similarity matrix (Selected File)">
-			Location of Kripo similarity matrix file.
-			<p>When combining this node with other Kripo nodes make sure the
-				files are from the same dataset.
-			</p>
-		</option>
-		<option name="Cutoff">Cutoff, scores below cutoff are discarded.
-		</option>
-		<option name="Limit">Maximum number of hits for each query.</option>
+		<tab name="Options">
+			<option name="Fragment identifiers">The column containing the Kripo fragment
+				identifiers
+			</option>
+			<option name="Similarity matrix (Selected File)">
+				Location of Kripo similarity matrix file.
+				<p>When combining this node with other Kripo nodes make sure the
+					files are from the same dataset.
+				</p>
+			</option>
+			<option name="Cutoff">Cutoff, scores below cutoff are discarded.
+			</option>
+			<option name="Limit">Maximum number of hits for each query.</option>
+		</tab>
 		<tab name="Python options">
 			<option name="Use python version">
 				Allows to choose the python version that

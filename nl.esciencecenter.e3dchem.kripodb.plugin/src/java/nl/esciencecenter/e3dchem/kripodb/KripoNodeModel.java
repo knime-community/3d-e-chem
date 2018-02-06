@@ -20,7 +20,7 @@ public abstract class KripoNodeModel<C extends PythonWrapperNodeConfig> extends 
 			return super.execute(inData, exec);
 		} catch (IOException e) {
 			if (e.getMessage().contains("kripodb")) {
-				throw new IOException(e.getMessage() + "See node description how to resolve.");
+				throw new IOException(e.getMessage() + " See node description how to resolve.");
 			} else {
 				throw e;
 			}

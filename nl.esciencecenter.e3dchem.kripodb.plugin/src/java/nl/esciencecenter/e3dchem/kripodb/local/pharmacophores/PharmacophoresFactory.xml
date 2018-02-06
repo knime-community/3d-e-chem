@@ -42,10 +42,12 @@
 			</p>
 		</intro>
 
-		<option name="Kripo Fragment Identifiers">The column containing the Kripo identifiers
-		</option>
-		<option name="Pharmacophores database (Selected File)">Location of Kripo pharmacophores database file (*.h5)
-		</option>
+		<tab name="Options">
+			<option name="Kripo Fragment Identifiers">The column containing the Kripo identifiers
+			</option>
+			<option name="Pharmacophores database (Selected File)">Location of Kripo pharmacophores database file (*.h5)
+			</option>
+		</tab>
 		<tab name="Python options">
 			<option name="Use python version">
 				Allows to choose the python version that

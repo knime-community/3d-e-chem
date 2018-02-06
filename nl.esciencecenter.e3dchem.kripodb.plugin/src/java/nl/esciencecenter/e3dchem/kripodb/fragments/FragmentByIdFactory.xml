@@ -46,46 +46,48 @@
 			</p>
 		</intro>
 
-		<option name="Identifiers">The column containing the Kripo identifiers
-		</option>
-		<option name="Fragments database (Selected File)">
-			Location of Kripo fragments database, can be the base url of kripodb
-			webservice or a local SQLite file.
-			<p>
-				Available datasets:
-				<ul>
-					<li>
-						Protein Data Bank, use web service at
-						<a href="http://3d-e-chem.vu-compmedchem.nl/kripodb">http://3d-e-chem.vu-compmedchem.nl/kripodb</a>
-						or download from
-						<a href="http://3d-e-chem.vu-compmedchem.nl/kripodb/fragments.sqlite">here</a>
-					</li>
-					<li>
-						Tiny example dataset, download from
-						<a href="https://github.com/3D-e-Chem/kripodb/blob/master/data">here</a>
-						, in 3D-e-Chem VM available at '/data/kripo/tiny/fragments.sqlite'
-					</li>
-					<li>
-						GPCR, All fragments based on GPCR proteins compared with all
-						proteins in PDB, download from
-						<a href="http://dx.doi.org/10.5281/zenodo.50835">here</a>
-						, in 3D-e-Chem VM available at
-						'/data/kripo/gpcr/kripo.gpcrandhits.sqlite'
-					</li>
-				</ul>
-			</p>
-			<p>When combining this node with other Kripo nodes make sure the
-				files are from the same dataset.
-			</p>
-			<p>
-				For example getting a
-				<b>KeyError: '&lt;fragment id&gt;' not found</b>
-				error most likely means the '/data/kripo/pdb/fragments.sqlite' file
-				is out of sync and must be re-downloaded from
-				<a href="http://3d-e-chem.vu-compmedchem.nl/kripodb/fragments.sqlite">here</a>
-			</p>
-		</option>
-		<option name="Type of identifier">Can be fragment or PDB code.</option>
+		<tab name="Options">
+			<option name="Identifiers">The column containing the Kripo identifiers
+			</option>
+			<option name="Fragments database (Selected File)">
+				Location of Kripo fragments database, can be the base url of kripodb
+				webservice or a local SQLite file.
+				<p>
+					Available datasets:
+					<ul>
+						<li>
+							Protein Data Bank, use web service at
+							<a href="http://3d-e-chem.vu-compmedchem.nl/kripodb">http://3d-e-chem.vu-compmedchem.nl/kripodb</a>
+							or download from
+							<a href="http://3d-e-chem.vu-compmedchem.nl/kripodb/fragments.sqlite">here</a>
+						</li>
+						<li>
+							Tiny example dataset, download from
+							<a href="https://github.com/3D-e-Chem/kripodb/blob/master/data">here</a>
+							, in 3D-e-Chem VM available at '/data/kripo/tiny/fragments.sqlite'
+						</li>
+						<li>
+							GPCR, All fragments based on GPCR proteins compared with all
+							proteins in PDB, download from
+							<a href="http://dx.doi.org/10.5281/zenodo.50835">here</a>
+							, in 3D-e-Chem VM available at
+							'/data/kripo/gpcr/kripo.gpcrandhits.sqlite'
+						</li>
+					</ul>
+				</p>
+				<p>When combining this node with other Kripo nodes make sure the
+					files are from the same dataset.
+				</p>
+				<p>
+					For example getting a
+					<b>KeyError: '&lt;fragment id&gt;' not found</b>
+					error most likely means the '/data/kripo/pdb/fragments.sqlite' file
+					is out of sync and must be re-downloaded from
+					<a href="http://3d-e-chem.vu-compmedchem.nl/kripodb/fragments.sqlite">here</a>
+				</p>
+			</option>
+			<option name="Type of identifier">Can be fragment or PDB code.</option>
+		</tab>
 		<tab name="Python options">
 			<option name="Use python version">
 				Allows to choose the python version that
