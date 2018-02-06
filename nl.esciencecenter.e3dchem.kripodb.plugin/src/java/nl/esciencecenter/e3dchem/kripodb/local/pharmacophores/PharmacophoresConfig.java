@@ -20,6 +20,7 @@ public class PharmacophoresConfig extends KripoPythonConfig {
 
 	@Override
 	public void loadFrom(NodeSettingsRO settings) throws InvalidSettingsException {
+		super.loadFrom(settings);
 		idColumn.loadSettingsFrom(settings);
 		pharmacophoresDB.loadSettingsFrom(settings);
 		String pharmacophoresDB_fn = pharmacophoresDB.getStringValue();
@@ -35,6 +36,7 @@ public class PharmacophoresConfig extends KripoPythonConfig {
 
 	@Override
 	public void saveTo(NodeSettingsWO settings) {
+		super.saveTo(settings);
 		idColumn.saveSettingsTo(settings);
 		pharmacophoresDB.saveSettingsTo(settings);
 	}

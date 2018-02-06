@@ -27,6 +27,7 @@ public class FragmentsByIdConfig extends KripoPythonConfig {
 
 	@Override
 	public void saveTo(final NodeSettingsWO settings) {
+		super.saveTo(settings);
 		m_idColumn.saveSettingsTo(settings);
 		m_fragmentsDB.saveSettingsTo(settings);
 		m_idType.saveSettingsTo(settings);
@@ -34,6 +35,7 @@ public class FragmentsByIdConfig extends KripoPythonConfig {
 
 	@Override
 	public void loadFrom(final NodeSettingsRO settings) throws InvalidSettingsException {
+		super.loadFrom(settings);
 		m_idColumn.loadSettingsFrom(settings);
 		m_fragmentsDB.loadSettingsFrom(settings);
 		if (m_fragmentsDB.getStringValue() == null || m_fragmentsDB.getStringValue().isEmpty()) {
