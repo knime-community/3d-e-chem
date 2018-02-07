@@ -24,6 +24,7 @@ import nl.esciencecenter.e3dchem.python.PythonOptionsPanel;
 public class PredictMetabolitesDialog extends DefaultNodeSettingsPane {
 
 	private PythonOptionsPanel<PredictMetabolitesConfig> pythonOptions;
+	private PredictMetabolitesConfig config;
 
 	/**
 	 * New pane for configuring PredictMetabolites node dialog. This is just a
@@ -32,13 +33,14 @@ public class PredictMetabolitesDialog extends DefaultNodeSettingsPane {
 	@SuppressWarnings("unchecked")
 	protected PredictMetabolitesDialog() {
 		super();
-		PredictMetabolitesConfig config = new PredictMetabolitesConfig();
+		config = new PredictMetabolitesConfig();
 
 		addDialogComponent(new DialogComponentColumnNameSelection(config.getParentsColumnName(),
 				"Parents molecule column", 0, RDKitMolValue.class));
 
 		addDialogComponent(new DialogComponentNumber(config.getPhase1cycles(), "Phase 1 cycles:", 1, 5));
 		addDialogComponent(new DialogComponentNumber(config.getPhase2cycles(), "Phase 2 cycles:", 1, 5));
+
 		pythonOptions = new PythonOptionsPanel<PredictMetabolitesConfig>();
 		addTab("Python options", pythonOptions);
 	}
@@ -47,33 +49,22 @@ public class PredictMetabolitesDialog extends DefaultNodeSettingsPane {
 	public void loadAdditionalSettingsFrom(NodeSettingsRO settings, PortObjectSpec[] specs)
 			throws NotConfigurableException {
 		super.loadAdditionalSettingsFrom(settings, specs);
-		PredictMetabolitesConfig config = new PredictMetabolitesConfig();
-		try {
-			config.loadFrom(settings);
-			pythonOptions.loadSettingsFrom(config);
-		} catch (InvalidSettingsException e) {
-			// skip Python options
-		}
+		config.loadFromInDialog(settings);
+		pythonOptions.loadSettingsFrom(config);
 	}
 
 	@Override
 	public void loadAdditionalSettingsFrom(NodeSettingsRO settings, DataTableSpec[] specs)
 			throws NotConfigurableException {
 		super.loadAdditionalSettingsFrom(settings, specs);
-		PredictMetabolitesConfig config = new PredictMetabolitesConfig();
-		try {
-			config.loadFrom(settings);
-			pythonOptions.loadSettingsFrom(config);
-		} catch (InvalidSettingsException e) {
-			// skip Python options
-		}
+		config.loadFromInDialog(settings);
+		pythonOptions.loadSettingsFrom(config);
 	}
 
 	@Override
 	public void saveAdditionalSettingsTo(NodeSettingsWO settings) throws InvalidSettingsException {
 		super.saveAdditionalSettingsTo(settings);
-		PredictMetabolitesConfig config = new PredictMetabolitesConfig();
 		pythonOptions.saveSettingsTo(config);
-		config.saveTo(settings);
+		config.saveToInDialog(settings);
 	}
 }
