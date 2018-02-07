@@ -62,12 +62,8 @@ public class FragmentBySimilarityDialog extends DefaultNodeSettingsPane {
 			throws NotConfigurableException {
 		super.loadAdditionalSettingsFrom(settings, specs);
 		FragmentsBySimilarityConfig config = new FragmentsBySimilarityConfig();
-		try {
-			config.loadFrom(settings);
-			pythonOptions.loadSettingsFrom(config);
-		} catch (InvalidSettingsException e) {
-			// fall back to config defaults
-		}
+		config.loadFromInDialog(settings);
+		pythonOptions.loadSettingsFrom(config);
 	}
 
 	@Override
@@ -75,12 +71,8 @@ public class FragmentBySimilarityDialog extends DefaultNodeSettingsPane {
 			throws NotConfigurableException {
 		super.loadAdditionalSettingsFrom(settings, specs);
 		FragmentsBySimilarityConfig config = new FragmentsBySimilarityConfig();
-		try {
-			config.loadFrom(settings);
-			pythonOptions.loadSettingsFrom(config);
-		} catch (InvalidSettingsException e) {
-			// fall back to config defaults
-		}
+		config.loadFromInDialog(settings);
+		pythonOptions.loadSettingsFrom(config);
 	}
 
 	@Override
@@ -88,6 +80,6 @@ public class FragmentBySimilarityDialog extends DefaultNodeSettingsPane {
 		super.saveAdditionalSettingsTo(settings);
 		FragmentsBySimilarityConfig config = new FragmentsBySimilarityConfig();
 		pythonOptions.saveSettingsTo(config);
-		config.saveTo(settings);
+		config.saveToInDialog(settings);
 	}
 }

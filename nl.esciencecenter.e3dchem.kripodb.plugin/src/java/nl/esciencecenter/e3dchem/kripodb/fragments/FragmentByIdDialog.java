@@ -59,12 +59,8 @@ public class FragmentByIdDialog extends DefaultNodeSettingsPane {
 			throws NotConfigurableException {
 		super.loadAdditionalSettingsFrom(settings, specs);
 		FragmentsByIdConfig config = new FragmentsByIdConfig();
-		try {
-			config.loadFrom(settings);
-			pythonOptions.loadSettingsFrom(config);
-		} catch (InvalidSettingsException e) {
-			// fall back to config defaults
-		}
+		config.loadFromInDialog(settings);
+		pythonOptions.loadSettingsFrom(config);
 	}
 
 	@Override
@@ -72,12 +68,8 @@ public class FragmentByIdDialog extends DefaultNodeSettingsPane {
 			throws NotConfigurableException {
 		super.loadAdditionalSettingsFrom(settings, specs);
 		FragmentsByIdConfig config = new FragmentsByIdConfig();
-		try {
-			config.loadFrom(settings);
-			pythonOptions.loadSettingsFrom(config);
-		} catch (InvalidSettingsException e) {
-			// fall back to config defaults
-		}
+		config.loadFromInDialog(settings);
+		pythonOptions.loadSettingsFrom(config);
 	}
 
 	@Override
@@ -85,6 +77,6 @@ public class FragmentByIdDialog extends DefaultNodeSettingsPane {
 		super.saveAdditionalSettingsTo(settings);
 		FragmentsByIdConfig config = new FragmentsByIdConfig();
 		pythonOptions.saveSettingsTo(config);
-		config.saveTo(settings);
+		config.saveToInDialog(settings);
 	}
 }
