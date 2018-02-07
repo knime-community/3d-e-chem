@@ -1,5 +1,6 @@
 package nl.esciencecenter.e3dchem.sygma;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,7 +72,16 @@ public class PredictMetabolitesModel extends PythonWrapperNodeModel<PredictMetab
 		}
 
 		// Run actual Python code
-		BufferedDataTable[] pytables = super.execute(inData, exec);
+		BufferedDataTable[] pytables;
+		try {
+			pytables = super.execute(inData, exec);
+		} catch (IOException e) {
+			if (e.getMessage().contains("sygma")) {
+				throw new IOException(e.getMessage() + " See node description how to resolve.");
+			} else {
+				throw e;
+			}
+		}
 
 		// Create a rearranger which will perform replace
 		DataTableSpec pyOutSpec = pytables[0].getSpec();
