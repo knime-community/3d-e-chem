@@ -18,6 +18,7 @@
 			<p>
 				Retrieve Kripo pharmacophores.
 			</p>
+			<p>The public <a href="http://3d-e-chem.vu-compmedchem.nl/kripodb">web service</a> most recent data update was <a href="http://3d-e-chem.vu-compmedchem.nl/kripodb/version.txt">on</a>.</p>
 		</intro>
 
 		<option name="Kripo Fragment Identifiers">The column containing the Kripo identifiers

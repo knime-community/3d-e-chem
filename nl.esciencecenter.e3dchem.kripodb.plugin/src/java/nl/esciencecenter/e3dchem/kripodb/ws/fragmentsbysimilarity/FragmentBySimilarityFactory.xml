@@ -25,6 +25,7 @@
 			<p>When combining this node with other Kripo nodes make sure the
 				files are from the same dataset.
 			</p>
+			<p>The public <a href="http://3d-e-chem.vu-compmedchem.nl/kripodb">web service</a> most recent data update was <a href="http://3d-e-chem.vu-compmedchem.nl/kripodb/version.txt">on</a>.</p>
 		</intro>
 		<option name="Fragment identifiers">The column containing the Kripo fragment
 			identifiers
