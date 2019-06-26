@@ -40,6 +40,7 @@ public class ModifiedTanimotoDistanceTest {
 		measure = new ModifiedTanimotoDistance(config, spec);
 
 		TestrunConfiguration runConfiguration = new TestrunConfiguration();
+		runConfiguration.setLoadSaveLoad(false);
 	    runner = new TestFlowRunner(collector, runConfiguration);
 	}
 
