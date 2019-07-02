@@ -6,6 +6,14 @@
 <entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
 </config>
 <config key="model">
+<entry key="pythonVersionOption" type="xstring" value="python3"/>
+<entry key="python2Command" type="xstring" value=""/>
+<entry key="python3Command" type="xstring" value=""/>
+<entry key="chunkSize" type="xint" value="500000"/>
+<entry key="convertMissingToPython" type="xboolean" value="false"/>
+<entry key="convertMissingFromPython" type="xboolean" value="false"/>
+<entry key="sentinelOption" type="xstring" value="MIN_VAL"/>
+<entry key="sentinelValue" type="xint" value="0"/>
 <config key="id_column_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_string"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
@@ -43,11 +51,11 @@
 <entry key="node-bundle-name" type="xstring" value="3D-e-Chem KNIME KripoDB nodes"/>
 <entry key="node-bundle-symbolic-name" type="xstring" value="nl.esciencecenter.e3dchem.kripodb.plugin"/>
 <entry key="node-bundle-vendor" type="xstring" value="Netherlands eScience Center"/>
-<entry key="node-bundle-version" type="xstring" value="2.3.0.v201802030841"/>
+<entry key="node-bundle-version" type="xstring" value="2.4.1.v201906271232"/>
 <entry key="node-feature-name" type="xstring" value="KripoDB nodes for KNIME"/>
 <entry key="node-feature-symbolic-name" type="xstring" value="nl.esciencecenter.e3dchem.kripodb.feature.feature.group"/>
 <entry key="node-feature-vendor" type="xstring" value="Netherlands eScience Center"/>
-<entry key="node-feature-version" type="xstring" value="2.3.0.v201802030841"/>
+<entry key="node-feature-version" type="xstring" value="2.4.1.v201906271232"/>
 <config key="factory_settings"/>
 <entry key="name" type="xstring" value="Fragment information (local files)"/>
 <entry key="hasContent" type="xboolean" value="true"/>
@@ -63,6 +71,6 @@
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="d9f3d014-146b-4653-af36-cccb22945c78"/>
+<entry key="file_store_id" type="xstring" value="96badc07-6e79-4dfc-90ad-2431458ee7fc"/>
 </config>
 </config>

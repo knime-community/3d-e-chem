@@ -57,11 +57,11 @@
 <entry key="node-bundle-name" type="xstring" value="3D-e-Chem KNIME KripoDB nodes"/>
 <entry key="node-bundle-symbolic-name" type="xstring" value="nl.esciencecenter.e3dchem.kripodb.plugin"/>
 <entry key="node-bundle-vendor" type="xstring" value="Netherlands eScience Center"/>
-<entry key="node-bundle-version" type="xstring" value="2.2.0.v201703071219"/>
+<entry key="node-bundle-version" type="xstring" value="2.4.1.v201906271232"/>
 <entry key="node-feature-name" type="xstring" value="KripoDB nodes for KNIME"/>
 <entry key="node-feature-symbolic-name" type="xstring" value="nl.esciencecenter.e3dchem.kripodb.feature.feature.group"/>
 <entry key="node-feature-vendor" type="xstring" value="Netherlands eScience Center"/>
-<entry key="node-feature-version" type="xstring" value="2.2.0.v201703071219"/>
+<entry key="node-feature-version" type="xstring" value="2.4.1.v201906271232"/>
 <config key="factory_settings"/>
 <entry key="name" type="xstring" value="Fragment information"/>
 <entry key="hasContent" type="xboolean" value="true"/>
@@ -77,6 +77,6 @@
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="4de55982-af24-4920-9e06-153d604f5048"/>
+<entry key="file_store_id" type="xstring" value="dd027b7d-5029-4807-9eee-15d961684a76"/>
 </config>
 </config>

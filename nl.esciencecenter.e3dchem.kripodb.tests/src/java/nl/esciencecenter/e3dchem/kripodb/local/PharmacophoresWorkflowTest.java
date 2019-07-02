@@ -18,6 +18,7 @@ import org.knime.core.node.InvalidSettingsException;
 import org.knime.core.node.workflow.UnsupportedWorkflowVersionException;
 import org.knime.core.util.LockFailedException;
 import org.knime.testing.core.TestrunConfiguration;
+import org.osgi.service.prefs.BackingStoreException;
 
 import nl.esciencecenter.e3dchem.knime.testing.TestFlowRunner;
 import nl.esciencecenter.e3dchem.python.PythonWrapperTestUtils;
@@ -45,8 +46,8 @@ public class PharmacophoresWorkflowTest {
 	}
 
 	@BeforeClass
-	public static void setUpDatafiles() throws MalformedURLException, IOException {
-		PythonWrapperTestUtils.materializeKNIMEPythonUtils();
+	public static void setUpDatafiles() throws MalformedURLException, IOException, BackingStoreException {
+		PythonWrapperTestUtils.init();
 		FileUtils.copyURLToFile(new URL("https://github.com/3D-e-Chem/kripodb/raw/master/data/pharmacophores.h5"),
 				pharmacophoresdb);
 	}
