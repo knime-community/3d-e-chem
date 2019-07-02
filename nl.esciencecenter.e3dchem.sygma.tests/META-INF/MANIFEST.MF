@@ -12,7 +12,7 @@ Require-Bundle: org.junit,
  org.knime.chem.base;bundle-version="[4.0.0,5.0.0)",
  org.knime.python2.serde.flatbuffers;bundle-version="[4.0.0,5.0.0)",
  nl.esciencecenter.e3dchem.knime.testing.plugin;bundle-version="[1.0.0,2.0.0)",
- nl.esciencecenter.e3dchem.python.plugin;bundle-version="[2.0.0,3.0.0)",
+ nl.esciencecenter.e3dchem.python.plugin;bundle-version="[2.0.3,3.0.0)",
  nl.esciencecenter.e3dchem.sygma.plugin
 Bundle-Vendor: Netherlands eScience Center
 Bundle-ClassPath: .
