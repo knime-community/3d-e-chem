@@ -2,10 +2,8 @@ package nl.esciencecenter.e3dchem.kripodb.ws;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ErrorCollector;
@@ -18,7 +16,6 @@ import org.knime.testing.core.TestrunConfiguration;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 
 import nl.esciencecenter.e3dchem.knime.testing.TestFlowRunner;
-import nl.esciencecenter.e3dchem.python.PythonWrapperTestUtils;
 
 /**
  * KNIME test workflows which call a web service which is mocked using WireMock.
@@ -38,11 +35,6 @@ public class JavaWsWorkflowTest {
 		runConfiguration.setTestDialogs(true);
 		runConfiguration.setLoadSaveLoad(false);
 		runner = new TestFlowRunner(collector, runConfiguration);
-	}
-
-	@BeforeClass
-	public static void setUpDatafiles() throws MalformedURLException, IOException {
-		PythonWrapperTestUtils.materializeKNIMEPythonUtils();
 	}
 
 	@Test
