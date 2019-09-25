@@ -22,7 +22,7 @@
 				Information includes the fragment molecule and it's associated protein
 				identifiers.
 			</p>
-			<h2>Resolving "Library kripodb.canned is missing" error</h2>
+			<h3>Resolving "Library kripodb.canned is missing" error</h3>
 			<p>
 				This node requires the
 				<a href="https://github.com/3D-e-Chem/kripodb">kripodb</a>
@@ -156,6 +156,4 @@
 		<outPort index="0" name="Fragment information">Table with Kripo fragment information.
 		</outPort>
 	</ports>
-	<views>
-	</views>
 </knimeNode>

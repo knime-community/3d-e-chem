@@ -18,7 +18,7 @@
 			<p>
 				Retrieve Kripo pharmacophores from local Kripo pharmacophores database file.
 			</p>
-			<h2>Resolving "Library kripodb.canned is missing" error</h2>
+			<h3>Resolving "Library kripodb.canned is missing" error</h3>
 			<p>
 				This node requires the
 				<a href="https://github.com/3D-e-Chem/kripodb">kripodb</a>
@@ -116,6 +116,4 @@
 		<outPort index="0" name="Fragment pharmacophore">Table with Kripo fragment pharmacophore.
 		</outPort>
 	</ports>
-	<views>
-	</views>
 </knimeNode>

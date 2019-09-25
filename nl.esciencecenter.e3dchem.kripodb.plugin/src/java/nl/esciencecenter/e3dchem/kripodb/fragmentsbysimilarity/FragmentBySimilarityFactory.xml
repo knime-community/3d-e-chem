@@ -22,7 +22,7 @@
 				subpocket associated with the query fragment based on the fingerprint
 				similarity matrix.
 			</p>
-			<h2>Resolving "Library kripodb.canned is missing" error</h2>
+			<h3>Resolving "Library kripodb.canned is missing" error</h3>
 			<p>
 				This node requires the
 				<a href="https://github.com/3D-e-Chem/kripodb">kripodb</a>
@@ -128,6 +128,4 @@
 			and scores vs the input table.
 		</outPort>
 	</ports>
-	<views>
-	</views>
 </knimeNode>

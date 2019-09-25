@@ -27,12 +27,14 @@
 			</p>
 			<p>The public <a href="http://3d-e-chem.vu-compmedchem.nl/kripodb">web service</a> most recent data update was <a href="http://3d-e-chem.vu-compmedchem.nl/kripodb/version.txt">on</a>.</p>
 		</intro>
-		<option name="Fragment identifiers">The column containing the Kripo fragment
-			identifiers
-		</option>
-		<option name="Cutoff">Cutoff, scores below cutoff are discarded.
-		</option>
-		<option name="Limit">Maximum number of hits for each query.</option>
+		<tab name="Options">
+			<option name="Fragment identifiers">The column containing the Kripo fragment
+				identifiers
+			</option>
+			<option name="Cutoff">Cutoff, scores below cutoff are discarded.
+			</option>
+			<option name="Limit">Maximum number of hits for each query.</option>
+		</tab>
 		<tab name="Advanced Options">
 			<option name="Base path">Url to use as base path for Kripo webservice
 			</option>
@@ -48,6 +50,4 @@
 			and scores vs the input table.
 		</outPort>
 	</ports>
-	<views>
-	</views>
 </knimeNode>
