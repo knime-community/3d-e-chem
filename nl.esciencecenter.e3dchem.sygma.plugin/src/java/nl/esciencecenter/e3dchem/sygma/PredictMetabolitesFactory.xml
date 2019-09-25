@@ -5,9 +5,7 @@
 	<name>SyGMa Metabolites</name>
 
 	<shortDescription>
-		Predict metabolites from parent molecules using Sygma (
-		<a href="https://github.com/3D-e-Chem/sygma">https://github.com/3D-e-Chem/sygma</a>
-		).
+		Predict metabolites from parent molecules using Sygma (https://github.com/3D-e-Chem/sygma).
 	</shortDescription>
 
 	<fullDescription>
@@ -16,7 +14,7 @@
 			<a href="https://github.com/3D-e-Chem/sygma">https://github.com/3D-e-Chem/sygma</a>
 			).
 
-			<h2>Resolving "'sygma' Python package not found" error</h2>
+			<h3>Resolving "'sygma' Python package not found" error</h3>
 			<p>
 				This node requires the '
 				<a href="https://pypi.python.org/pypi/SyGMa/">sygma</a>
@@ -39,12 +37,14 @@
 			</p>
 		</intro>
 
-		<option name="Parents molecule column">Column containing molecules which will be
-			metabolized.</option>
-		<option name="Phase 1 cycles">Number of times phase 1 rules should be applied
-		</option>
-		<option name="Phase 2 cycles">Number of times phase 2 rules should be applied
-		</option>
+		<tab name="Options">
+			<option name="Parents molecule column">Column containing molecules which will be
+				metabolized.</option>
+			<option name="Phase 1 cycles">Number of times phase 1 rules should be applied
+			</option>
+			<option name="Phase 2 cycles">Number of times phase 2 rules should be applied
+			</option>
+		</tab>
 		<tab name="Python options">
 			<option name="Use python version">
 				Allows to choose the python version that
@@ -113,6 +113,4 @@
 		<outPort index="0" name="Predictions">Predicted metabolites</outPort>
 		<!-- possibly more output ports here -->
 	</ports>
-	<views>
-	</views>
 </knimeNode>
