@@ -14,7 +14,9 @@ import nl.esciencecenter.e3dchem.kripodb.KripoNodeModel;
 /**
  * This is the model implementation of FragmentBySimilarity.
  *
+ * @deprecated
  */
+@Deprecated
 public class FragmentByIdModel extends KripoNodeModel<FragmentsByIdConfig> {
 	public FragmentByIdModel() {
 		super(new PortType[] { BufferedDataTable.TYPE }, new PortType[] { BufferedDataTable.TYPE });

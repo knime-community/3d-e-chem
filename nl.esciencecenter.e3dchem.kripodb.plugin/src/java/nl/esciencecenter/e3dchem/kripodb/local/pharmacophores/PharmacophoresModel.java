@@ -11,6 +11,7 @@ import org.knime.core.node.port.PortType;
 
 import nl.esciencecenter.e3dchem.kripodb.KripoNodeModel;
 
+@Deprecated
 public class PharmacophoresModel extends KripoNodeModel<PharmacophoresConfig> {
 
 	public PharmacophoresModel() {

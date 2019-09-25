@@ -13,6 +13,7 @@ import org.knime.core.node.workflow.FlowVariable;
 
 import nl.esciencecenter.e3dchem.kripodb.KripoPythonConfig;
 
+@Deprecated
 public class FragmentsByIdConfig extends KripoPythonConfig {
 	private static final String DEFAULT_IDTYPE = "fragment";
 	private static final String CFG_IDCOLNAME = "id_column";

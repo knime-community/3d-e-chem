@@ -14,6 +14,7 @@ import org.knime.core.node.port.PortObjectSpec;
 import nl.esciencecenter.e3dchem.kripodb.ws.WsNodeDialog;
 import nl.esciencecenter.e3dchem.python.PythonOptionsPanel;
 
+@Deprecated
 public class PharmacophoresDialog extends WsNodeDialog {
 	private PythonOptionsPanel<PharmacophoresConfig> pythonOptions;
 

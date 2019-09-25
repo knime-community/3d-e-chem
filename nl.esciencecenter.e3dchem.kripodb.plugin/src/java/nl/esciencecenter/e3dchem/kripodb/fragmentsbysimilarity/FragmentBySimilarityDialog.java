@@ -24,7 +24,10 @@ import nl.esciencecenter.e3dchem.python.PythonOptionsPanel;
  * creation of a simple dialog with standard components. If you need a more
  * complex dialog please derive directly from
  * {@link org.knime.core.node.NodeDialogPane}.
+ * 
+ * @deprecated
  */
+@Deprecated
 public class FragmentBySimilarityDialog extends DefaultNodeSettingsPane {
 	private PythonOptionsPanel<FragmentsBySimilarityConfig> pythonOptions;
 

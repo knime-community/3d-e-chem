@@ -11,6 +11,7 @@ import org.knime.core.node.workflow.FlowVariable;
 
 import nl.esciencecenter.e3dchem.kripodb.KripoPythonConfig;
 
+@Deprecated
 public class PharmacophoresConfig extends KripoPythonConfig {
 	private static final String CFG_IDCOLNAME = "id_column";
 	private static final String CFG_PHARMACOPHORESDB = "pharmacophoresdb";

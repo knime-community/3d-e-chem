@@ -19,10 +19,13 @@
 				Retrieve Kripo pharmacophores.
 			</p>
 			<p>The public <a href="http://3d-e-chem.vu-compmedchem.nl/kripodb">web service</a> most recent data update was <a href="http://3d-e-chem.vu-compmedchem.nl/kripodb/version.txt">on</a>.</p>
+			<p>Instead of using the public kripo webservice it is also possible to <a href="https://github.com/3D-e-Chem/kripodb#web-service">run a local web service</a>.</p>
 		</intro>
 
-		<option name="Kripo Fragment Identifiers">The column containing the Kripo identifiers
-		</option>
+		<tab name="Options">
+			<option name="Kripo Fragment Identifiers">The column containing the Kripo identifiers
+			</option>
+		</tab>
 		<tab name="Advanced Options">
 			<option name="Base path">Url to use as base path for Kripo webservice
 			</option>
@@ -37,6 +40,4 @@
 		<outPort index="0" name="Fragment pharmacophore">Table with Kripo fragment pharmacophore.
 		</outPort>
 	</ports>
-	<views>
-	</views>
 </knimeNode>

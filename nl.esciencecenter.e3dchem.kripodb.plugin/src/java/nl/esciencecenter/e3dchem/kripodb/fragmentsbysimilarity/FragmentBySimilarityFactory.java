@@ -7,7 +7,9 @@ import org.knime.core.node.NodeView;
 /**
  * <code>NodeFactory</code> for the "FragmentBySimilarity" Node.
  *
+ * @deprecated
  */
+@Deprecated
 public class FragmentBySimilarityFactory extends NodeFactory<FragmentBySimilarityModel> {
 
 	/**

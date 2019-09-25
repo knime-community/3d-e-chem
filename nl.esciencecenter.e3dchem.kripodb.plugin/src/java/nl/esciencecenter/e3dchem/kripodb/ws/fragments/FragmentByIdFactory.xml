@@ -26,11 +26,14 @@
 				files are from the same dataset.
 			</p>
 			<p>The public <a href="http://3d-e-chem.vu-compmedchem.nl/kripodb">web service</a> most recent data update was <a href="http://3d-e-chem.vu-compmedchem.nl/kripodb/version.txt">on</a>.</p>
+			<p>Instead of using the public kripo webservice it is also possible to <a href="https://github.com/3D-e-Chem/kripodb#web-service">run a local web service</a>.</p>
 		</intro>
-
-		<option name="Identifiers">The column containing the Kripo identifiers
-		</option>
-		<option name="Type of identifier">Can be fragment or PDB code.</option>
+		
+		<tab name="Options">
+			<option name="Identifiers">The column containing the Kripo identifiers
+			</option>
+			<option name="Type of identifier">Can be fragment or PDB code.</option>
+		</tab>
 		<tab name="Advanced Options">
 			<option name="Base path">Url to use as base path for Kripo webservice
 			</option>
@@ -48,6 +51,4 @@
 		<outPort index="0" name="Fragment information">Table with Kripo fragment information.
 		</outPort>
 	</ports>
-	<views>
-	</views>
 </knimeNode>
