@@ -58,18 +58,6 @@ public class FragmentsByIdWorkflowTest {
 	}
 
 	@Test
-	public void test_default() throws IOException, InvalidSettingsException, CanceledExecutionException,
-			UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
-		runTestWorkflow("src/knime/kripo-fragment-information-test-default");
-	}
-
-	@Test
-	public void test_pdb() throws IOException, InvalidSettingsException, CanceledExecutionException,
-			UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
-		runTestWorkflow("src/knime/kripo-fragment-information-test-pdb");
-	}
-
-	@Test
 	public void test_invalidsettings() throws IOException, InvalidSettingsException, CanceledExecutionException,
 			UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
 		runTestWorkflow("src/knime/kripo-fragment-information-test-invalidsettings");
