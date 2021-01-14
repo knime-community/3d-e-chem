@@ -45,13 +45,13 @@ public class PredictMetabolitesWorkflowTest {
     public void test_simple() throws IOException, InvalidSettingsException, CanceledExecutionException,
             UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
         File workflowDir = new File("src/knime/SyGMa-test");
-        runner.runTestWorkflow(workflowDir);
+        runner.runTestWorkflow(workflowDir.getAbsoluteFile());
     }
 
     @Test
     public void test_duplicate() throws IOException, InvalidSettingsException, CanceledExecutionException,
             UnsupportedWorkflowVersionException, LockFailedException, InterruptedException {
         File workflowDir = new File("src/knime/SyGMa-duplicate-test");
-        runner.runTestWorkflow(workflowDir);
+        runner.runTestWorkflow(workflowDir.getAbsoluteFile());
     }
 }
