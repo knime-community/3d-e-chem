@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -29,7 +29,7 @@
 					</execution>
 				</executions>
 			</plugin>
-			<!-- the report goal of jacoco-maven-plugin plugin shows coverage of tests. 
+			<!-- the report goal of jacoco-maven-plugin plugin shows coverage of tests.
 				To get coverage of ../plugin/src/ use the jacoco ant reporter. See https://intellectualcramps.wordpress.com/2012/03/22/jacoco-tycho-and-coverage-reports/ -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -57,12 +57,9 @@
 						<configuration>
 							<target>
 								<property name="source-location" location="../" />
-								<taskdef name="jacoco-report" classname="org.jacoco.ant.ReportTask"
-									classpathref="maven.plugin.classpath" />
-								<taskdef classpathref="maven.runtime.classpath"
-									resource="net/sf/antcontrib/antcontrib.properties" />
-								<available file="${project.basedir}/target/jacoco.exec"
-									property="jacoco.exec.file.exists" />
+								<taskdef name="jacoco-report" classname="org.jacoco.ant.ReportTask" classpathref="maven.plugin.classpath" />
+								<taskdef classpathref="maven.runtime.classpath" resource="net/sf/antcontrib/antcontrib.properties" />
+								<available file="${project.basedir}/target/jacoco.exec" property="jacoco.exec.file.exists" />
 								<echo message="${project.basedir}/target/jacoco.exec" />
 								<if>
 									<equals arg1="${jacoco.exec.file.exists}" arg2="true" />
@@ -108,6 +105,22 @@
 				<version>${tycho.version}</version>
 				<configuration>
 					<argLine>${tycho.testArgLine} ${tycho.test.jvmArgs}</argLine>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<dependency-resolution>
+						<extraRequirements>
+							<requirement>
+								<type>eclipse-feature</type>
+								<id>org.knime.features.core</id>
+								<versionRange>0.0.0</versionRange>
+							</requirement>
+						</extraRequirements>
+					</dependency-resolution>
 				</configuration>
 			</plugin>
 		</plugins>
