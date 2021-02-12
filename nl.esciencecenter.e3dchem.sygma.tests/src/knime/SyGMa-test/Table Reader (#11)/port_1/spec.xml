@@ -28,6 +28,7 @@
 </config>
 </config>
 <config key="column_properties"/>
+<config key="meta_data"/>
 </config>
 <config key="column_spec_1">
 <entry key="column_name" type="xstring" value="column2"/>
@@ -55,6 +56,7 @@
 </config>
 </config>
 <config key="column_properties"/>
+<config key="meta_data"/>
 </config>
 <config key="column_spec_2">
 <entry key="column_name" type="xstring" value="column2 (RDKit Mol)"/>
@@ -66,6 +68,7 @@
 </config>
 <config key="column_domain"/>
 <config key="column_properties"/>
+<config key="meta_data"/>
 </config>
 <config key="column_spec_3">
 <entry key="column_name" type="xstring" value="SyGMa_metabolite"/>
@@ -77,6 +80,7 @@
 </config>
 <config key="column_domain"/>
 <config key="column_properties"/>
+<config key="meta_data"/>
 </config>
 <config key="column_spec_4">
 <entry key="column_name" type="xstring" value="SyGMa_pathway"/>
@@ -212,6 +216,7 @@
 </config>
 </config>
 <config key="column_properties"/>
+<config key="meta_data"/>
 </config>
 <config key="column_spec_5">
 <entry key="column_name" type="xstring" value="SyGMa_score"/>
@@ -236,5 +241,6 @@
 </config>
 </config>
 <config key="column_properties"/>
+<config key="meta_data"/>
 </config>
 </config>

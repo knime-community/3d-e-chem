@@ -28,6 +28,7 @@
 </config>
 </config>
 <config key="column_properties"/>
+<config key="meta_data"/>
 </config>
 <config key="column_spec_1">
 <entry key="column_name" type="xstring" value="smiles"/>
@@ -35,20 +36,11 @@
 <entry key="array-size" type="xint" value="0"/>
 </config>
 <config key="column_type">
-<entry key="cell_class" type="xstring" value="org.knime.core.data.def.StringCell"/>
+<entry key="cell_class" type="xstring" value="org.knime.chem.types.SmilesCell"/>
 </config>
-<config key="column_domain">
-<config key="possible_values">
-<entry key="array-size" type="xint" value="1"/>
-<config key="0">
-<entry key="datacell" type="xstring" value="org.knime.core.data.def.StringCell"/>
-<config key="org.knime.core.data.def.StringCell">
-<entry key="StringCell" type="xstring" value="c1ccccc1O"/>
-</config>
-</config>
-</config>
-</config>
+<config key="column_domain"/>
 <config key="column_properties"/>
+<config key="meta_data"/>
 </config>
 <config key="column_spec_2">
 <entry key="column_name" type="xstring" value="RDKit Mol"/>
@@ -60,19 +52,9 @@
 </config>
 <config key="column_domain"/>
 <config key="column_properties"/>
+<config key="meta_data"/>
 </config>
 <config key="column_spec_3">
-<entry key="column_name" type="xstring" value="SyGMa_metabolite"/>
-<config key="element_names">
-<entry key="array-size" type="xint" value="0"/>
-</config>
-<config key="column_type">
-<entry key="cell_class" type="xstring" value="org.rdkit.knime.types.RDKitMolCell2"/>
-</config>
-<config key="column_domain"/>
-<config key="column_properties"/>
-</config>
-<config key="column_spec_4">
 <entry key="column_name" type="xstring" value="SyGMa_pathway"/>
 <config key="element_names">
 <entry key="array-size" type="xint" value="0"/>
@@ -158,6 +140,19 @@
 </config>
 </config>
 <config key="column_properties"/>
+<config key="meta_data"/>
+</config>
+<config key="column_spec_4">
+<entry key="column_name" type="xstring" value="SyGMa_metabolite"/>
+<config key="element_names">
+<entry key="array-size" type="xint" value="0"/>
+</config>
+<config key="column_type">
+<entry key="cell_class" type="xstring" value="org.rdkit.knime.types.RDKitMolCell2"/>
+</config>
+<config key="column_domain"/>
+<config key="column_properties"/>
+<config key="meta_data"/>
 </config>
 <config key="column_spec_5">
 <entry key="column_name" type="xstring" value="SyGMa_score"/>
@@ -182,5 +177,6 @@
 </config>
 </config>
 <config key="column_properties"/>
+<config key="meta_data"/>
 </config>
 </config>

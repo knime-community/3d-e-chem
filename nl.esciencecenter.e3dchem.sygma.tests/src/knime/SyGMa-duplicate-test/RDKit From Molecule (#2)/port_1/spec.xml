@@ -28,6 +28,7 @@
 </config>
 </config>
 <config key="column_properties"/>
+<config key="meta_data"/>
 </config>
 <config key="column_spec_1">
 <entry key="column_name" type="xstring" value="smiles"/>
@@ -39,6 +40,7 @@
 </config>
 <config key="column_domain"/>
 <config key="column_properties"/>
+<config key="meta_data"/>
 </config>
 <config key="column_spec_2">
 <entry key="column_name" type="xstring" value="RDKit Mol"/>
@@ -60,5 +62,6 @@
 </config>
 <config key="column_domain"/>
 <config key="column_properties"/>
+<config key="meta_data"/>
 </config>
 </config>

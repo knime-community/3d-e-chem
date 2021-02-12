@@ -16,6 +16,9 @@
 <config key="requiredLogInfos">
 <entry key="array-size" type="xint" value="0"/>
 </config>
+<config key="optionalLogMessages">
+<entry key="array-size" type="xint" value="0"/>
+</config>
 <config key="failingNodes">
 <entry key="array-size" type="xint" value="0"/>
 </config>
@@ -31,6 +34,8 @@
 <entry key="array-size" type="xint" value="0"/>
 </config>
 <entry key="streamingTest" type="xboolean" value="false"/>
+<entry key="testNodesInComponents" type="xboolean" value="true"/>
+<entry key="requiredLoadVersion" type="xstring" value="&lt;future&gt;"/>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
 <entry key="state" type="xstring" value="EXECUTED"/>
@@ -51,6 +56,6 @@
 <config key="ports"/>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="780d86c7-31e4-430f-a481-541f6fbdc86b"/>
+<entry key="file_store_id" type="xstring" isnull="true" value=""/>
 </config>
 </config>
