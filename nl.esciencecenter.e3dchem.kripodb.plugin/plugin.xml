@@ -9,13 +9,6 @@
           locked="false"
           name="KripoDB"
           path="/community/3d-e-chem"/>
-    <category
-          description="Category containing Kripo nodes for using local files"
-          icon="nl/esciencecenter/e3dchem/kripodb/kripo.png"
-          level-id="local"
-          locked="false"
-          name="For local files"
-          path="/community/3d-e-chem/kripodb"/>
     </extension>
 
     <extension point="org.knime.workbench.repository.nodes">
@@ -33,21 +26,6 @@
                category-path="/community/3d-e-chem/kripodb"
                deprecated="false"
                factory-class="nl.esciencecenter.e3dchem.kripodb.ws.pharmacophores.PharmacophoresFactory">
-        </node>
-        <node
-               category-path="/community/3d-e-chem/kripodb/local"
-               deprecated="true"
-               factory-class="nl.esciencecenter.e3dchem.kripodb.fragmentsbysimilarity.FragmentBySimilarityFactory">
-        </node>
-        <node
-               category-path="/community/3d-e-chem/kripodb/local"
-               deprecated="true"
-               factory-class="nl.esciencecenter.e3dchem.kripodb.fragments.FragmentByIdFactory">
-        </node>
-        <node
-               category-path="/community/3d-e-chem/kripodb/local"
-               deprecated="true"
-               factory-class="nl.esciencecenter.e3dchem.kripodb.local.pharmacophores.PharmacophoresFactory">
         </node>
     </extension>
 </plugin>
