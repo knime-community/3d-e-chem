@@ -52,7 +52,7 @@ public class PredictMetabolitesDialog extends DefaultNodeSettingsPane {
 		try {
 			config.loadFromInDialog(settings);
 		} catch (InvalidSettingsException e) {
-			e.printStackTrace();
+			// swallow error
 		}
 		pythonOptions.loadSettingsFrom(config);
 	}
@@ -64,7 +64,7 @@ public class PredictMetabolitesDialog extends DefaultNodeSettingsPane {
 		try {
 			config.loadFromInDialog(settings);
 		} catch (InvalidSettingsException e) {
-			e.printStackTrace();
+			// swallow error
 		}
 		pythonOptions.loadSettingsFrom(config);
 	}
