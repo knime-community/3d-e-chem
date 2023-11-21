@@ -3,9 +3,9 @@ Bundle-ManifestVersion: 2
 Bundle-Name: ModifiedTanimoto
 Bundle-SymbolicName: nl.esciencecenter.e3dchem.modifiedtanimoto;singleton:=true
 Bundle-Version: 1.0.6.qualifier
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Require-Bundle: org.knime.distmatrix;bundle-version="[4.0.0,5.0.0)",
- org.knime.core;bundle-version="[4.0.0,5.0.0)",
- org.knime.base;bundle-version="[4.0.0,5.0.0)"
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Require-Bundle: org.knime.distmatrix;bundle-version="[4.0.0,6.0.0)",
+ org.knime.core;bundle-version="[4.0.0,6.0.0)",
+ org.knime.base;bundle-version="[4.0.0,6.0.0)"
 Export-Package: nl.esciencecenter.e3dchem.modifiedtanimoto
 Bundle-Vendor: Netherlands eScience Center
