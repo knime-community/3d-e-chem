@@ -1,7 +1,10 @@
 package nl.esciencecenter.e3dchem.sygma;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.knime.chem.types.SmilesCell;
@@ -52,6 +55,29 @@ public class PredictMetabolitesModel extends PythonWrapperNodeModel<PredictMetab
 		// with null elements), or throw an exception with a useful user message
 
 		return super.configure(inSpecs);
+	}
+
+	public List<String> generateForSingleParent(String parent) {
+		PredictMetabolitesConfig config = getConfig();
+		// TODO add path to sygma cli to config
+		String cliPath = "sygma";
+
+		ProcessBuilder processBuilder = new ProcessBuilder(cliPath,
+			cliPath,
+			"--phase1_cycles", Integer.toString(config.getPhase1cycles().getIntValue()),
+			"--phase2_cycles", Integer.toString(config.getPhase2cycles().getIntValue()),
+			parent
+		);
+		Process process = processBuilder.start();
+		BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+		StringBuilder output = new StringBuilder();
+		int read;
+		char[] buffer = new char[4096];
+		while ((read = reader.read(buffer)) != -1) {
+			output.append(buffer, 0, read);
+		}
+		List<String> records = Arrays.asList(output.toString().split("\\$\\$\\$\\$"));
+		return records;
 	}
 
 	@Override
