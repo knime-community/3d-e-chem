@@ -8,7 +8,6 @@ Require-Bundle: org.junit,
  org.knime.core;bundle-version="[4.3.0,6.0.0)",
  org.knime.base;bundle-version="[4.3.0,6.0.0)",
  org.knime.testing;bundle-version="[4.3.0,6.0.0)",
- org.rdkit.knime.nodes,
  org.knime.chem.base;bundle-version="[4.3.0,6.0.0)",
  nl.esciencecenter.e3dchem.knime.testing.plugin;bundle-version="[1.0.0,2.0.0)",
  nl.esciencecenter.e3dchem.sygma.plugin
