@@ -1,6 +1,7 @@
 package nl.esciencecenter.e3dchem.sygma;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -19,48 +20,36 @@ import org.knime.core.data.def.StringCell;
 import org.knime.core.node.BufferedDataTable;
 import org.knime.core.node.ExecutionContext;
 import org.knime.core.node.InvalidSettingsException;
+import org.knime.core.node.NodeModel;
 import org.knime.core.node.port.PortType;
-
-import nl.esciencecenter.e3dchem.python.PythonWrapperNodeModel;
 
 /**
  * This is the model implementation of PredictMetabolites.
  *
  */
-public class PredictMetabolitesModel extends PythonWrapperNodeModel<PredictMetabolitesConfig> {
-	/**
-	 * Constructor for the node model.
-	 */
-	protected PredictMetabolitesModel() {
-		// TODO one incoming port and one outgoing port is assumed
-		super(new PortType[] { BufferedDataTable.TYPE }, new PortType[] { BufferedDataTable.TYPE });
-		python_code_filename = "predict_metabolite.py";
+public class PredictMetabolitesModel extends NodeModel {
+	private PredictMetabolitesConfig config = new PredictMetabolitesConfig();
+
+	public PredictMetabolitesModel() {
+		super(1, 1);
 	}
 
-	@Override
-	protected PredictMetabolitesConfig createConfig() {
-		return new PredictMetabolitesConfig();
-	}
+	private DataTableSpec createOutputSpec() {
+        return new DataTableSpec(new DataColumnSpecCreator("metabolite", StringCell.TYPE).createSpec());
+    }
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	protected DataTableSpec[] configure(DataTableSpec[] inSpecs) throws InvalidSettingsException {
-
-		// TODO: check if user settings are available, fit to the incoming
-		// table structure, and the incoming types are feasible for the node
-		// to execute. If the node can execute in its current state return
-		// the spec of its output data table(s) (if you can, otherwise an array
-		// with null elements), or throw an exception with a useful user message
-
-		return super.configure(inSpecs);
+        DataTableSpec appendedSpec = createOutputSpec();
+        DataTableSpec outputSpec = new DataTableSpec(inSpecs[0], appendedSpec);
+        return new DataTableSpec[] { outputSpec };
 	}
 
-	public List<String> generateForSingleParent(String parent) {
-		PredictMetabolitesConfig config = getConfig();
-		// TODO add path to sygma cli to config
-		String cliPath = "sygma";
+	public List<String> processParent(String parent) {
+		String cliPath = config.getSygmaPath().getStringValue();
 
 		ProcessBuilder processBuilder = new ProcessBuilder(cliPath,
 			cliPath,
@@ -82,54 +71,60 @@ public class PredictMetabolitesModel extends PythonWrapperNodeModel<PredictMetab
 
 	@Override
 	public BufferedDataTable[] execute(BufferedDataTable[] inData, ExecutionContext exec) throws Exception {
-		// When copying inData to output table using a Python pandas dataframe
-		// copy(),
-		// the smiles input column has changed to string type
-		// Fix by finding column in smile type in inData input and applying cast
-		// on output table
-
-		// Find columns of smile type in input
-		List<String> smileColNames = new ArrayList<>();
-		DataTableSpec colSspec = inData[0].getSpec();
-		for (DataColumnSpec colSpec : colSspec) {
-			if (colSpec.getType().equals(SmilesCell.TYPE)) {
-				smileColNames.add(colSpec.getName());
+		BufferedDataTable inTable = inData[0];
+		DataTableSpec inSpec = inTable.getSpec();
+        int parentIndex = inSpec.findColumnIndex(config.getParentsColumnName());
+		BufferedDataContainer container = exec.createDataContainer(createOutputSpec());
+		long rowCount = inTable.size();
+		long currentRow = 0;
+		for (DataRow inRow : inTable) {
+			StringCell parentCell = ((StringCell) inRow.getCell(parentIndex));
+			if (parentCell.isMissing()) {
+				continue;
 			}
-		}
-
-		// Run actual Python code
-		BufferedDataTable[] pytables;
-		try {
-			pytables = super.execute(inData, exec);
-		} catch (IOException e) {
-			if (e.getMessage().contains("sygma")) {
-				throw new IOException(e.getMessage() + " See node description how to resolve.");
-			} else {
-				throw e;
+			String parent = parentCell.getStringValue();
+			List<String> records = processParent(parent);
+			for (String record : records) {
+				// TODO from mol2 block parse id, pathway and score
+				container.addRowToTable(new DefaultRow(parent, record));
 			}
+			exec.checkCanceled();
+			exec.setProgress(currentRow / (double) rowCount, "Processing row " + currentRow);
+			currentRow++;
 		}
-
-		// Create a rearranger which will perform replace
-		DataTableSpec pyOutSpec = pytables[0].getSpec();
-		ColumnRearranger rearranger = new ColumnRearranger(pyOutSpec);
-		for (String smileColName : smileColNames) {
-			int index = pyOutSpec.findColumnIndex(smileColName);
-			rearranger.replace(new SingleCellFactory(colSspec.getColumnSpec(smileColName)) {
-
-				@Override
-				public DataCell getCell(DataRow row) {
-					DataCell cell = row.getCell(index);
-					if (cell.getType().isCompatible(SmilesCell.class)) {
-						return cell;
-					} else {
-						return SmilesCellFactory.create(((StringCell) cell).getStringValue());
-					}
-				}
-			}, smileColName);
-		}
-
-		// Run string>smiles rearranger on Python output
-		BufferedDataTable outTable = exec.createColumnRearrangeTable(pytables[0], rearranger, exec);
-		return new BufferedDataTable[] { outTable };
+		container.close();
+		BufferedDataTable outTable = container.getTable();
+		BufferedDataTable out = exec.createJoinedTable(inTable, outTable, exec.createSubProgress(0.1));
+		return new BufferedDataTable[] { out };
 	}
+
+	@Override
+    protected void loadInternals(File nodeInternDir, ExecutionMonitor exec) throws IOException, CanceledExecutionException {
+        // No internals to load
+    }
+
+    @Override
+    protected void saveInternals(File nodeInternDir, ExecutionMonitor exec) throws IOException, CanceledExecutionException {
+        // No internals to save
+    }
+
+    @Override
+    protected void saveSettingsTo(NodeSettingsWO settings) {
+        config.saveSettingsTo(settings);
+    }
+
+    @Override
+    protected void validateSettings(NodeSettingsRO settings) throws InvalidSettingsException {
+        config.validateSettings(settings);
+    }
+
+    @Override
+    protected void loadValidatedSettingsFrom(NodeSettingsRO settings) throws InvalidSettingsException {
+        config.loadValidatedSettingsFrom(settings);
+    }
+
+    @Override
+    protected void reset() {
+        // No internals to reset
+    }
 }

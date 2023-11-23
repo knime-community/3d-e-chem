@@ -17,7 +17,6 @@ import org.knime.testing.core.TestrunConfiguration;
 import org.osgi.service.prefs.BackingStoreException;
 
 import nl.esciencecenter.e3dchem.knime.testing.TestFlowRunner;
-import nl.esciencecenter.e3dchem.python.PythonWrapperTestUtils;
 
 public class PredictMetabolitesWorkflowTest {
     @Rule
@@ -34,11 +33,6 @@ public class PredictMetabolitesWorkflowTest {
         // Python RDKit is printing warnings with timestamps, ignore those
         runConfiguration.setCheckLogMessages(false);
         runner = new TestFlowRunner(collector, runConfiguration);
-    }
-
-    @BeforeClass
-    public static void setUpPythonUtils() throws MalformedURLException, IOException, BackingStoreException {
-        PythonWrapperTestUtils.init();
     }
 
     @Test
