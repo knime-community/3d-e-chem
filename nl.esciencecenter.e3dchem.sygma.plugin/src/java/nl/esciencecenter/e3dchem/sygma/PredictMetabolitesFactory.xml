@@ -28,16 +28,9 @@
 				<i>sygma --version</i>
 				on the command line, it should print a version number if installed.
 			</p>
-			<p>
-				If the sygma Python package was already installed then make sure that
-				KNIME is using the same Python executable.
-				In the File menu > Preferences > KNIME > Python make sure the path to
-				the Python executable is the same Python which has the sygma package
-				installed.
-			</p>
 		</intro>
 
-		<option name="Parents molecule column">Column containing molecules which will be
+		<option name="Parents molecule column">Column containing smile string which will be
 			metabolized.</option>
 		<option name="Phase 1 cycles">Number of times phase 1 rules should be applied
 		</option>

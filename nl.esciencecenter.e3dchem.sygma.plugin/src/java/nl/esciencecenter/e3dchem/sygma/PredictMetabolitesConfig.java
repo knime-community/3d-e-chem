@@ -1,13 +1,10 @@
 package nl.esciencecenter.e3dchem.sygma;
 
-import java.util.Set;
-
 import org.knime.core.node.InvalidSettingsException;
 import org.knime.core.node.NodeSettingsRO;
 import org.knime.core.node.NodeSettingsWO;
 import org.knime.core.node.defaultnodesettings.SettingsModelIntegerBounded;
 import org.knime.core.node.defaultnodesettings.SettingsModelString;
-import org.knime.core.node.workflow.FlowVariable;
 
 public class PredictMetabolitesConfig {
 	private SettingsModelString sygmaPath = new SettingsModelString("sygmaPath", "sygma");
@@ -17,14 +14,14 @@ public class PredictMetabolitesConfig {
 	private SettingsModelIntegerBounded phase2cycles = new SettingsModelIntegerBounded("phase2_cycles",
 			1, 0, 100);
 
-	public void saveSettingsTo(final NodeSettingsWO settings) {
+	public void saveSettingsTo(NodeSettingsWO settings) {
 		phase1cycles.saveSettingsTo(settings);
 		phase2cycles.saveSettingsTo(settings);
 		parentsColumnName.saveSettingsTo(settings);
 		sygmaPath.saveSettingsTo(settings);
 	}
 
-	public void loadValidatedSettingsFrom(final NodeSettingsRO settings) throws InvalidSettingsException {
+	public void loadValidatedSettingsFrom(NodeSettingsRO settings) throws InvalidSettingsException {
 		phase1cycles.loadSettingsFrom(settings);
 		phase2cycles.loadSettingsFrom(settings);
 		parentsColumnName.loadSettingsFrom(settings);
