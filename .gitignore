@@ -1,0 +1,10 @@
+*/bin/
+target/
+*/build/
+*/.polyglot.build.properties
+**/.flattened-pom.xml
+**/CHANGELOG.md
+**/.polyglot.META-INF
+**/.polyglot.feature.xml
+org.knime.base.tests/files/test_snapshots/**/*.snap.debug
+*.snap.debug
