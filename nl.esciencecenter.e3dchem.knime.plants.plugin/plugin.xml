@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+      <extension
+         point="org.knime.workbench.repository.categories">
+      <category
+            description="Category containing PLANTS nodes"
+            icon="nl/esciencecenter/e3dchem/knime/plants/default.png"
+            level-id="plants"
+            name="PLANTS"
+            path="/community/3d-e-chem"/>
+   </extension>
+
+    <extension point="org.knime.workbench.repository.nodes">
+        <node
+              category-path="/community/3d-e-chem/plants"
+              deprecated="false"
+              factory-class="nl.esciencecenter.e3dchem.knime.plants.configure.ConfigureFactory"/>
+        <node
+              category-path="/community/3d-e-chem/plants"
+              deprecated="false"
+              factory-class="nl.esciencecenter.e3dchem.knime.plants.run.RunNodeFactory">
+        </node>
+    </extension>
+
+    <extension
+          point="org.knime.workbench.repository.metanode">
+        <PersistedMetaNode
+             category-path="/community/3d-e-chem/plants"
+             description=""
+             expert-flag="false"
+             icon="nl/esciencecenter/e3dchem/knime/plants/default.png"
+             id="PLANTS-bindingsite"
+             name="PLANTS bindingsite"
+             workflowDir="src/main/knime/PLANTS-bindingsite">
+        </PersistedMetaNode>
+
+        <PersistedMetaNode
+             category-path="/community/3d-e-chem/plants"
+             description=""
+             expert-flag="false"
+             icon="nl/esciencecenter/e3dchem/knime/plants/default.png"
+             id="PLANTS-configuration-reader"
+             name="PLANTS configuration reader"
+             workflowDir="src/main/knime/PLANTS-configuration-reader">
+        </PersistedMetaNode>
+
+        <PersistedMetaNode
+             category-path="/community/3d-e-chem/plants"
+             description=""
+             expert-flag="false"
+             icon="nl/esciencecenter/e3dchem/knime/plants/default.png"
+             id="PLANTS-screen"
+             name="PLANTS virtual screening"
+             workflowDir="src/main/knime/PLANTS-screen">
+        </PersistedMetaNode>
+        
+        <PersistedMetaNode
+              category-path="/community/3d-e-chem/plants"
+              expert-flag="false"
+              icon="nl/esciencecenter/e3dchem/knime/plants/default.png"
+              id="PLANTS-screen-results-reader"
+              name="PLANTS virtual screening results reader"
+              workflowDir="src/main/knime/PLANTS-screen-results-reader/">
+        </PersistedMetaNode>
+
+        <PersistedMetaNode
+              category-path="/community/3d-e-chem/plants"
+              expert-flag="false"
+              icon="nl/esciencecenter/e3dchem/knime/plants/default.png"
+              id="PLANTS-session-builder"
+              name="PLANTS session builder"
+              workflowDir="src/main/knime/PLANTS-session-builder/">
+        </PersistedMetaNode>
+    </extension>
+    <extension
+          point="org.eclipse.ui.preferencePages">
+       <page
+             category="org.knime.workbench.ui.preferences"
+             class="nl.esciencecenter.e3dchem.knime.plants.PlantsPreferencePage"
+             id="nl.esciencecenter.e3dchem.knime.plants.page"
+             name="PLANTS">
+       </page>
+    </extension>
+    <extension
+          point="org.eclipse.core.runtime.preferences">
+       <initializer
+             class="nl.esciencecenter.e3dchem.knime.plants.PreferenceInitializer">
+       </initializer>
+    </extension>
+</plugin>

@@ -1,0 +1,45 @@
+# search algorithm
+search_speed {{search_speed}}
+aco_ants {{aco_ants}}
+flip_amide_bonds {{flip_amide_bonds}}
+flip_planar_n {{flip_planar_n}}
+force_flipped_bonds_planarity {{force_flipped_bonds_planarity}}
+force_planar_bond_rotation {{force_planar_bond_rotation}}
+rescore_mode {{rescore_mode}}
+flip_ring_corners {{flip_ring_corners}}
+
+# scoring functions
+# Intermolecular (protein-ligand interaction scoring)
+scoring_function {{scoring_function}}
+outside_binding_site_penalty {{outside_binding_site_penalty}}
+enable_sulphur_acceptors {{enable_sulphur_acceptors}}
+# Intramolecular ligand scoring
+ligand_intra_score {{ligand_intra_score}}
+chemplp_clash_include_14 {{chemplp_clash_include_14}}
+chemplp_clash_include_HH {{chemplp_clash_include_HH}}
+
+# input
+protein_file {{protein_file}}
+ligand_file {{ligand_file}}
+
+# output
+output_dir {{output_dir}}
+
+# write single mol2 files (e.g. for RMSD calculation)
+write_multi_mol2 {{#write_multi_mol2}}1{{/write_multi_mol2}}{{^write_multi_mol2}}0{{/write_multi_mol2}}
+
+# binding site definition
+bindingsite_center {{bindingsite_center_x}} {{bindingsite_center_y}} {{bindingsite_center_z}}
+bindingsite_radius {{bindingsite_radius}}
+
+# cluster algorithm
+cluster_structures {{cluster_structures}}
+cluster_rmsd {{cluster_rmsd}}
+
+# write 
+write_ranking_links {{write_ranking_links}}
+write_protein_bindingsite {{write_protein_bindingsite}}
+write_protein_conformations {{write_protein_conformations}}
+write_protein_splitted {{write_protein_splitted}}
+write_merged_protein {{write_merged_protein}}
+####

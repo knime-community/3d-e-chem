@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<knimeNode icon="./default.png" type="Other" xmlns="http://knime.org/node/v2.8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://knime.org/node/v2.10 http://knime.org/node/v2.10.xsd">
+    <name>PLANTS runner</name>
+    
+    <shortDescription>
+        Runs PLANTS executable
+    </shortDescription>
+    
+    <fullDescription>
+        <intro>Node to execute a <a href="http://www.mnf.uni-tuebingen.de/fachbereiche/pharmazie-und-biochemie/pharmazie/pharmazeutische-chemie/pd-dr-t-exner/research/plants.html">PLANTS</a> run.
+        
+        <p>The standard output and standard error on the PLANTS run will be written to <i>stdout.txt</i> and <i>stderr.txt</i> files in the working directory.</p>
+
+        <p>Source code for PLANTS node is available on <a href="https://github.com/3D-e-Chem/knime-plants/">GitHub</a>.</p>
+        </intro>
+        
+         <option name="Mode">Column with mode of PLANTS run</option>
+         <option name="Arguments">Column with arguments for PLANTS run</option>
+         <option name="Working directory">Column with directory in which PLANTS executable is run</option>
+    </fullDescription>
+    
+    <ports>
+    	<inPort index="0" name="Input table">Input table with mode, arguments and working directory columns</inPort>
+        <outPort index="0" name="Output table">Output table with PLANTS executable exit code column</outPort>
+    </ports>    
+</knimeNode>
