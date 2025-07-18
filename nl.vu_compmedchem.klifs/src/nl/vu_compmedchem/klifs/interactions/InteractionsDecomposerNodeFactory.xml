@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<knimeNode icon="./default.png" type="Manipulator" xmlns="http://knime.org/node/v2.8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://knime.org/node/v2.10 http://knime.org/node/v2.10.xsd">
+    <name>Interaction Fingerprint Decomposer</name>
+    
+    <shortDescription>
+        KNIME node for decomposing an interaction fingerprint into a more human readable overview of interactions (including types) per structure.
+    </shortDescription>
+    
+    <fullDescription>
+        <intro>KNIME node for decomposing an interaction fingerprint into a more human readable overview of interactions (including types) per structure. This node combines the output of the Interaction Types Retriever node and the Interaction Fingerprint Retriever node and decomposes the IFP into a detailed list of kinase-ligand interactions. This node can optionally add the sequence number (according to the structure) and the KLIFS position (e.g. GK.45 for the gatekeeper on position 45) for each pocket residue to the table. It also allows the user to only output interactions that are present (these are encoded as a “1” in the fingerprint) or to output all possible interactions for each residue and indicate whether or not that interaction is observed for a structure. The output of this node allows for example to analyze interaction patterns, to perform association rule learning/pattern recognition, to identify interaction hotspots, and to obtain a detailed overview of kinase-ligand interactions. </intro>
+        
+        <option name="Column with structure IDs">Select the column with structure IDs</option>
+        <option name="Column with IFPs">Select the column with IFPs</option>
+        <option name="Only output interactions">Only output the interactions that are present</option>
+        <option name="Match X-ray and KLIFS">Add X-ray residue numbering and KLIFS position classification. Turn this off if you want a quick decomposition.</option>
+
+        <tab name="Advanced Options">
+	        <option name="Base path">Url to use as base path for KLIFS webservice</option>
+		<option name="Timeout">Timeout in seconds to wait for KLIFS webservice response</option>
+        </tab>
+    </fullDescription>
+    
+    <ports>
+        <inPort index="0" name="IFP input">Table with IFPs and structure IDs</inPort>
+        <inPort index="1" name="Interaction Types">Output of the Get Interaction Types node</inPort>
+        <outPort index="0" name="Out-Port name">Decomposed IFP</outPort>
+    </ports>    
+</knimeNode>

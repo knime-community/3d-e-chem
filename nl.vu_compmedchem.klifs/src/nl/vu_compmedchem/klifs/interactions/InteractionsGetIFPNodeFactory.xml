@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<knimeNode icon="./default.png" type="Source" xmlns="http://knime.org/node/v2.8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://knime.org/node/v2.10 http://knime.org/node/v2.10.xsd">
+    <name>Interaction Fingerprint Retriever</name>
+    
+    <shortDescription>
+        KNIME node to retrieve the interaction fingerprint of specific kinase-ligand complexes from KLIFS.
+    </shortDescription>
+    
+    <fullDescription>
+        <intro>KNIME node to retrieve the interaction fingerprint of specific kinase-ligand complexes from KLIFS. This node allows a user to retrieve the interaction fingerprint (IFP) from KLIFS for chemoinformatics analysis. The fingerprint has been corrected for gaps/missing residues within the KLIFS pocket thereby enabling all-against-all comparisons. This functionality allows users, for example, to perform their own interaction pattern similarity analysis, to search for specific interaction patterns, to utilize the interaction patterns in predictive models, and to compare in-house calculated interaction patterns (e.g. from docking studies) to all interaction patterns within KLIFS.</intro>
+        
+        <option name="Structure ID column">Select the input column with the structure IDs</option>
+
+        <tab name="Advanced Options">
+	        <option name="Base path">Url to use as base path for KLIFS webservice</option>
+		<option name="Timeout">Timeout in seconds to wait for KLIFS webservice response</option>
+        </tab>
+    </fullDescription>
+    
+    <ports>
+        <inPort index="0" name="Structure IDs">Data stream with Structure IDs</inPort>
+        <outPort index="0" name="IFPs">Protein-ligand interaction fingerprints for each protein-ligand complex</outPort>
+    </ports>    
+</knimeNode>
