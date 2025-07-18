@@ -1,0 +1,57 @@
+[
+  {
+    "hit_frag_id": "3j7u_NDP_frag23",
+    "query_frag_id": "3j7u_NDP_frag24",
+    "score": 0.8991
+  },
+  {
+    "hit_frag_id": "3j7u_NDP_frag32",
+    "query_frag_id": "3j7u_NDP_frag24",
+    "score": 0.7377
+  },
+  {
+    "hit_frag_id": "3j7u_NDP_frag31",
+    "query_frag_id": "3j7u_NDP_frag24",
+    "score": 0.703
+  },
+  {
+    "hit_frag_id": "3j7u_NDP_frag19",
+    "query_frag_id": "3j7u_NDP_frag24",
+    "score": 0.6882
+  },
+  {
+    "hit_frag_id": "3j7u_NDP_frag10",
+    "query_frag_id": "3j7u_NDP_frag24",
+    "score": 0.6698
+  },
+  {
+    "hit_frag_id": "3j7u_NDP_frag20",
+    "query_frag_id": "3j7u_NDP_frag24",
+    "score": 0.651
+  },
+  {
+    "hit_frag_id": "3j7u_NDP_frag13",
+    "query_frag_id": "3j7u_NDP_frag24",
+    "score": 0.6128
+  },
+  {
+    "hit_frag_id": "3j7u_NDP_frag27",
+    "query_frag_id": "3j7u_NDP_frag24",
+    "score": 0.5881
+  },
+  {
+    "hit_frag_id": "3j7u_NDP_frag1",
+    "query_frag_id": "3j7u_NDP_frag24",
+    "score": 0.5686
+  },
+  {
+    "hit_frag_id": "3j7u_NDP_frag30",
+    "query_frag_id": "3j7u_NDP_frag24",
+    "score": 0.5524
+  },
+  {
+    "hit_frag_id": "3j7u_NDP_frag4",
+    "query_frag_id": "3j7u_NDP_frag24",
+    "score": 0.5518
+  }
+]

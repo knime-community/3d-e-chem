@@ -1,0 +1,17 @@
+{
+  "id" : "9a8615b0-adff-3dfd-8558-edfc4b9fc698",
+  "request" : {
+    "url" : "/kripo/fragments?fragment_ids=wrongid%2C3j7u_NDP_frag24",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 404,
+    "bodyFileName" : "body-kripo-fragments-hm18w.json",
+    "headers" : {
+      "Content-Type" : "application/problem+json",
+      "Server" : "Werkzeug/0.11.5 Python/2.7.12",
+      "Date" : "Tue, 07 Mar 2017 12:32:46 GMT"
+    }
+  },
+  "uuid" : "9a8615b0-adff-3dfd-8558-edfc4b9fc698"
+}

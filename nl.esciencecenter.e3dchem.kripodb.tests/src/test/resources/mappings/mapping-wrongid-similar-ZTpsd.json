@@ -1,0 +1,17 @@
+{
+  "id" : "5c0652c5-9109-352a-b53e-45068f565c3e",
+  "request" : {
+    "url" : "/kripo/fragments/wrongid/similar?cutoff=0.85&limit=1000",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 404,
+    "bodyFileName" : "body-wrongid-similar-ZTpsd.json",
+    "headers" : {
+      "Content-Type" : "application/problem+json",
+      "Server" : "Werkzeug/0.11.15 Python/2.7.12",
+      "Date" : "Thu, 23 Feb 2017 13:10:33 GMT"
+    }
+  },
+  "uuid" : "5c0652c5-9109-352a-b53e-45068f565c3e"
+}

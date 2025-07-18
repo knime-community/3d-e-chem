@@ -1,0 +1,17 @@
+{
+  "id" : "464a3cf9-a99b-35d8-b6fd-2572cb9adeee",
+  "request" : {
+    "url" : "/kripo/fragments/wrongid.phar",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 404,
+    "bodyFileName" : "body-fragments-wrongid.phar-rOxFg.json",
+    "headers" : {
+      "Content-Type" : "application/problem+json",
+      "Server" : "Werkzeug/0.12.2 Python/3.5.3",
+      "Date" : "Tue, 16 May 2017 14:32:19 GMT"
+    }
+  },
+  "uuid" : "464a3cf9-a99b-35d8-b6fd-2572cb9adeee"
+}

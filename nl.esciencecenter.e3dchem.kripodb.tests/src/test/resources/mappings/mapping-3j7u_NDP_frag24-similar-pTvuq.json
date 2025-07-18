@@ -1,0 +1,17 @@
+{
+  "id" : "c4491f00-32d9-3131-abd6-6ef4daa91208",
+  "request" : {
+    "url" : "/kripo/fragments/3j7u_NDP_frag24/similar?cutoff=0.55&limit=1000",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "bodyFileName" : "body-3j7u_NDP_frag24-similar-pTvuq.json",
+    "headers" : {
+      "Content-Type" : "application/json",
+      "Server" : "Werkzeug/0.11.5 Python/2.7.12",
+      "Date" : "Fri, 20 Jan 2017 14:34:04 GMT"
+    }
+  },
+  "uuid" : "c4491f00-32d9-3131-abd6-6ef4daa91208"
+}
