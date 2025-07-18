@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.knime.distmatrix.distanceMeasures">
+      <DistanceMeasure
+            factoryClass="nl.esciencecenter.e3dchem.modifiedtanimoto.ModifiedTanimotoDistanceFactory"
+            id="nl.esciencecenter.e3dchem.modifiedtanimoto.ModifiedTanimotoDistanceFactory">
+      </DistanceMeasure>
+   </extension>
+
+</plugin>

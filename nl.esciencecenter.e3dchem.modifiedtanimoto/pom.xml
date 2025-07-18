@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>nl.esciencecenter.e3dchem</groupId>
+    <artifactId>nl.esciencecenter.e3dchem</artifactId>
+    <version>1.0.7-SNAPSHOT</version>
+  </parent>
+  <artifactId>nl.esciencecenter.e3dchem.modifiedtanimoto</artifactId>
+  <packaging>eclipse-plugin</packaging>
+	<properties>
+    <sonar.coverage.jacoco.xmlReportPaths>../nl.esciencecenter.e3dchem.modifiedtanimoto.tests/target/jacoco/report/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+		<sonar.junit.reportsPath>../nl.esciencecenter.e3dchem.modifiedtanimoto.tests/target/surefire-reports</sonar.junit.reportsPath>
+	</properties>
+</project>

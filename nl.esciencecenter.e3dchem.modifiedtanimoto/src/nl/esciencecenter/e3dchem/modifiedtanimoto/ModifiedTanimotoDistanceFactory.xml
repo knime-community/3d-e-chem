@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<distance name="Modified Tanimoto Similarity Index" xmlns="http://knime.org/distance/v1.0">
+    <shortDescription href="http://www.jstor.org/stable/1271255"
+        intro="Modified Tanimoto Similarity Index is a measure of similarity between two vectors." />
+    <fullDescription>
+        <p> 
+            Fligner and Verducci proposed a modiﬁcation to the Tanimoto coeﬃcient that aims to remove the size bias inherent in the coeﬃcient.
+            
+            Fligner, M.A.; Verducci, J.S.; Blower, P.E.; A Modification of the Jaccard-Tanimoto Similarity Index for Diverse Selection of Chemical Compounds Using Binary Strings, Technometrics, 2002, 44(2), 110-119
+        </p>
+    </fullDescription>
+</distance>
