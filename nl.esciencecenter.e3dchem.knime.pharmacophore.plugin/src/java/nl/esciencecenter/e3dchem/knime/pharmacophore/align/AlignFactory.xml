@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<knimeNode icon="./default.png" type="Predictor"
+	xmlns="http://knime.org/node/v2.8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://knime.org/node/v2.10 http://knime.org/node/v2.10.xsd">
+	<name>Align pharmacophores</name>
+
+	<shortDescription>
+		Align query pharmacophores to reference
+		pharmacophore.
+	</shortDescription>
+
+	<fullDescription>
+		<intro>
+			<p>Align the query pharmacophores to the reference pharmacophore.
+				This node computes the aligned query pharmacophore, the
+				transformation matrix and Root-mean-square deviation (RMSD).
+			</p>
+			<p>
+				Algorithm:
+				<ol>
+					<li>Find pairs probe and reference points that are same type and are not too far apart.</li>
+					<li>
+						Find biggest clique of pairs, using
+						<a href="https://en.wikipedia.org/wiki/Bron%E2%80%93Kerbosch_algorithm">BronKerbosch
+							clique detection algorithm
+						</a>.
+					</li>
+					<li>
+						Calculate optimal translation and rotation using
+						<a href="https://en.wikipedia.org/wiki/Kabsch_algorithm">Kabsch algorithm
+						</a>
+						for all the found cliques.
+					</li>
+					<li>
+						Calculate RMSD and aligned pharmacophore based on points in each clique.
+					</li>
+				</ol>
+			</p>
+		</intro>
+
+		<tab name="Options">
+			<option name="Query Pharmacophore column (table 1)">The input column of table 1 with Query
+				Pharmacophores to be aligned.
+			</option>
+			<option name="Reference Pharmacophore">The reference
+				Pharmacophore to base the alignment on.
+			</option>
+		</tab>
+		<tab name="Advanced Options">
+			<option name="Cutoff">Tolerance threshold for considering two
+				distances
+				to be equivalent
+			</option>
+			<option name="Break num cliques">Break when set number of cliques is found
+			</option>
+			<option name="Cliques to align">Number of cliques of each query pharmacophore to
+				align. Increasing this number will produce alignments of smaller cliques and cliques with less types.</option>
+		</tab>
+	</fullDescription>
+
+	<ports>
+		<inPort index="0" name="Query pharmacophores">The table with pharmacophores to be
+			aligned.
+		</inPort>
+		<outPort index="0" name="Aligned pharmacophores">Aligned pharmacophores with
+			transformation matrix, RMSD, clique index and size of clique.
+		</outPort>
+	</ports>
+</knimeNode>
