@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+      <extension
+         point="org.knime.workbench.repository.categories">
+      <category
+            description="Category containing Silicos-it nodes"
+            icon="nl/esciencecenter/e3dchem/knime/silicosit/default.png"
+            level-id="silicos-it"
+            name="Silicos-it"
+            path="/community/3d-e-chem"/>
+    <category
+            description="Category containing Silicos-it internal nodes"
+            icon="nl/esciencecenter/e3dchem/knime/silicosit/default.png"
+            level-id="internal"
+            name="Internal"
+            path="/community/3d-e-chem/silicos-it"/>
+   </extension>
+
+    <extension
+          point="org.knime.workbench.repository.metanode">
+       <PersistedMetaNode
+             category-path="/community/3d-e-chem/silicos-it"
+             description="Align molecules based on pharmacophore"
+             expert-flag="false"
+             icon="nl/esciencecenter/e3dchem/knime/silicosit/align-it.png"
+             id="align-it"
+             name="align-it"
+             workflowDir="src/main/knime/align-it/">
+       </PersistedMetaNode>
+       <PersistedMetaNode
+             category-path="/community/3d-e-chem/silicos-it"
+             description="Generate pharmacophores"
+             expert-flag="false"
+             icon="nl/esciencecenter/e3dchem/knime/silicosit/align-it.png"
+             id="align-it-phar"
+             name="align-it: Pharmacophore generator"
+             workflowDir="src/main/knime/align-it-phar/">
+       </PersistedMetaNode>
+       <PersistedMetaNode
+             category-path="/community/3d-e-chem/silicos-it"
+             description="Filter molecules based on properties"
+             expert-flag="false"
+             icon="nl/esciencecenter/e3dchem/knime/silicosit/filter-it.png"
+             id="filter-it"
+             name="filter-it"
+             workflowDir="src/main/knime/filter-it/">
+       </PersistedMetaNode>
+       <PersistedMetaNode
+             category-path="/community/3d-e-chem/silicos-it"
+             description="Calculate molecule properties"
+             expert-flag="false"
+             icon="nl/esciencecenter/e3dchem/knime/silicosit/filter-it.png"
+             id="filter-it-props"
+             name="filter-it: Property calculator"
+             workflowDir="src/main/knime/filter-it-props/">
+       </PersistedMetaNode>
+       <PersistedMetaNode
+             category-path="/community/3d-e-chem/silicos-it"
+             description="Calulate quantitative estimation of drug-likeness"
+             expert-flag="false"
+             icon="nl/esciencecenter/e3dchem/knime/silicosit/biscu-it.png"
+             id="qed"
+             name="Qed Calculator"
+             workflowDir="src/main/knime/qed/">
+       </PersistedMetaNode>
+       <PersistedMetaNode
+             category-path="/community/3d-e-chem/silicos-it"
+             description="Align molecules based on shape"
+             expert-flag="false"
+             icon="nl/esciencecenter/e3dchem/knime/silicosit/shape-it.png"
+             id="shape-it"
+             name="shape-it"
+             workflowDir="src/main/knime/shape-it/">
+       </PersistedMetaNode>
+       <PersistedMetaNode
+             category-path="/community/3d-e-chem/silicos-it"
+             description="Extract molecular scaffolds"
+             expert-flag="false"
+             icon="nl/esciencecenter/e3dchem/knime/silicosit/strip-it.png"
+             id="strip-it"
+             name="strip-it"
+             workflowDir="src/main/knime/strip-it/">
+       </PersistedMetaNode>
+    </extension>
+    <extension
+          point="org.eclipse.ui.preferencePages">
+       <page
+             category="org.knime.workbench.ui.preferences"
+             class="nl.esciencecenter.e3dchem.knime.silicosit.preferences.PreferencePage"
+             id="nl.esciencecenter.e3dchem.knime.silicosit.preferences.PreferencePage"
+             name="Silicos-it">
+       </page>
+    </extension>
+    <extension
+          point="org.eclipse.core.runtime.preferences">
+       <initializer
+             class="nl.esciencecenter.e3dchem.knime.silicosit.preferences.PreferenceInitializer">
+       </initializer>
+    </extension>
+    <extension
+          point="org.knime.workbench.repository.nodes">
+       <node
+             deprecated="false"
+             category-path="/community/3d-e-chem/silicos-it/internal"
+             factory-class="nl.esciencecenter.e3dchem.knime.silicosit.execute.ExecuteFactory">
+       </node>
+    </extension>
+
+</plugin>
