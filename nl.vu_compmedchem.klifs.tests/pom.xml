@@ -4,9 +4,9 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>nl.vu_compmedchem.klifs</groupId>
-		<artifactId>nl.vu_compmedchem</artifactId>
-		<version>1.1.3-SNAPSHOT</version>
+		<groupId>nl.esciencecenter</groupId>
+		<artifactId>e3dchem</artifactId>
+		<version>${revision}${changelist}</version>
 	</parent>
 
 	<artifactId>nl.vu_compmedchem.klifs.tests</artifactId>
@@ -70,6 +70,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 		<!-- kill test JVM if tests take more than 5 minutes (300 seconds) to finish -->
 		<surefire.timeout>300</surefire.timeout>
 		<custom.UIThread>true</custom.UIThread>
+		<revision>1.1.3</revision>
 	</properties>
 	<profiles>
 		<profile>

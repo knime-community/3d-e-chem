@@ -4,9 +4,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>nl.esciencecenter.e3dchem.knime.plants</groupId>
-		<artifactId>nl.esciencecenter.e3dchem.knime.plants</artifactId>
-		<version>0.3.6-SNAPSHOT</version>
+		<groupId>nl.esciencecenter</groupId>
+		<artifactId>e3dchem</artifactId>
+		<version>${revision}${changelist}</version>
 	</parent>
 
 	<artifactId>nl.esciencecenter.e3dchem.knime.plants.tests</artifactId>
@@ -166,6 +166,7 @@
 		<!-- kill test JVM if tests take more than 1 minute (60 seconds) to finish -->
 		<surefire.timeout>60</surefire.timeout>
 		<sonar.skip>true</sonar.skip>
+		<revision>0.3.6</revision>
 	</properties>
 	<profiles>
 		<profile>

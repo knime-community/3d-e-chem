@@ -3,9 +3,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>nl.esciencecenter.e3dchem.knime.testing</groupId>
-		<artifactId>nl.esciencecenter.e3dchem.knime.testing</artifactId>
-		<version>1.0.5-SNAPSHOT</version>
+		<groupId>nl.esciencecenter</groupId>
+		<artifactId>e3dchem</artifactId>
+		<version>${revision}${changelist}</version>
 	</parent>
 
 	<artifactId>nl.esciencecenter.e3dchem.knime.testing.tests</artifactId>
@@ -158,6 +158,7 @@
 		<!-- kill test JVM if tests take more than 1 minute (60 seconds) to finish -->
 		<surefire.timeout>60</surefire.timeout>
 		<custom.UIThread>true</custom.UIThread>
+		<revision>1.0.5</revision>
 	</properties>
 	<profiles>
 		<profile>

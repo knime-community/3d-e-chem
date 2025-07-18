@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature id="nl.esciencecenter.e3dchem.collection.feature" version="0.0.0">
+        <category name="org.knime.community.build.config/category.xml.cheminf" />
+   </feature>
+
+    <category-def name="org.knime.community.build.config/category.xml.cheminf" label="KNIME Community Contributions - Cheminformatics">
+        <description>
+            This category contains KNIME extension for cheminformatic applications contributed by the community.
+        </description>
+    </category-def>
+</site>

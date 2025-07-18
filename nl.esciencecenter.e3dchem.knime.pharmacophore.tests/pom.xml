@@ -4,9 +4,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>nl.esciencecenter.e3dchem.knime.pharmacophore</groupId>
-		<artifactId>nl.esciencecenter.e3dchem.knime.pharmacophore</artifactId>
-		<version>1.0.5-SNAPSHOT</version>
+		<groupId>nl.esciencecenter</groupId>
+		<artifactId>e3dchem</artifactId>
+		<version>${revision}${changelist}</version>
 	</parent>
 
 	<artifactId>nl.esciencecenter.e3dchem.knime.pharmacophore.tests</artifactId>
@@ -161,6 +161,7 @@
 		<surefire.timeout>60</surefire.timeout>
 		<custom.UIThread>true</custom.UIThread>
 		<sonar.skip>true</sonar.skip>
+		<revision>1.0.5</revision>
 	</properties>
 	<profiles>
 		<profile>

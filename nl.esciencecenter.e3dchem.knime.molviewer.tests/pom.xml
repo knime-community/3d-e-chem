@@ -3,9 +3,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>nl.esciencecenter.e3dchem.knime.molviewer</groupId>
-		<artifactId>nl.esciencecenter.e3dchem.knime.molviewer</artifactId>
-		<version>2.0.3-SNAPSHOT</version>
+		<groupId>nl.esciencecenter</groupId>
+		<artifactId>e3dchem</artifactId>
+		<version>${revision}${changelist}</version>
 	</parent>
 
 	<artifactId>nl.esciencecenter.e3dchem.knime.molviewer.tests</artifactId>
@@ -163,5 +163,6 @@
 		<!-- kill test JVM if tests take more than 1 minute (60 seconds) to finish -->
 		<surefire.timeout>60</surefire.timeout>
 		<sonar.skip>true</sonar.skip>
+		<revision>2.0.3</revision>
 	</properties>
 </project>

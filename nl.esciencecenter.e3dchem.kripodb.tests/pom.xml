@@ -3,9 +3,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>nl.esciencecenter.e3dchem.kripodb</groupId>
-		<artifactId>nl.esciencecenter.e3dchem.kripodb</artifactId>
-		<version>3.0.1-SNAPSHOT</version>
+		<groupId>nl.esciencecenter</groupId>
+		<artifactId>e3dchem</artifactId>
+		<version>${revision}${changelist}</version>
 	</parent>
 
 	<artifactId>nl.esciencecenter.e3dchem.kripodb.tests</artifactId>
@@ -162,5 +162,6 @@
 	<properties>
 		<!-- kill test JVM if tests take more than 1 minute (60 seconds) to finish -->
 		<surefire.timeout>65</surefire.timeout>
+		<revision>3.0.1</revision>
 	</properties>
 </project>

@@ -4,9 +4,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>nl.esciencecenter.e3dchem.sygma</groupId>
-		<artifactId>nl.esciencecenter.e3dchem.sygma</artifactId>
-		<version>3.0.0-SNAPSHOT</version>
+		<groupId>nl.esciencecenter</groupId>
+		<artifactId>e3dchem</artifactId>
+		<version>${revision}${changelist}</version>
 	</parent>
 
 	<artifactId>nl.esciencecenter.e3dchem.sygma.tests</artifactId>
@@ -141,5 +141,6 @@
 		<!-- kill test JVM if tests take more than 1 minute (60 seconds) to finish -->
 		<surefire.timeout>60</surefire.timeout>
 		<sonar.skip>true</sonar.skip>
+		<revision>3.0.0</revision>
 	</properties>
 </project>
