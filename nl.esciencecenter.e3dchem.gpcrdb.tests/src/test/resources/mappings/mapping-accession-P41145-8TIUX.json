@@ -1,0 +1,23 @@
+{
+  "id" : "69d71797-19c2-361c-a1de-f186e73b45c6",
+  "request" : {
+    "url" : "/services/protein/accession/P41145/",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "bodyFileName" : "body-accession-P41145-8TIUX.json",
+    "headers" : {
+      "Date" : "Wed, 01 Mar 2017 12:03:34 GMT",
+      "Server" : "Apache/2.4.7 (Ubuntu)",
+      "Allow" : "GET, HEAD, OPTIONS",
+      "Vary" : "Accept,Cookie",
+      "X-Frame-Options" : "SAMEORIGIN",
+      "Keep-Alive" : "timeout=5, max=99",
+      "Connection" : "Keep-Alive",
+      "Transfer-Encoding" : "chunked",
+      "Content-Type" : "application/json"
+    }
+  },
+  "uuid" : "69d71797-19c2-361c-a1de-f186e73b45c6"
+}

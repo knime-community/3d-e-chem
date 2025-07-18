@@ -1,0 +1,23 @@
+{
+  "id" : "a150641c-4a6a-341c-a302-2c91e58aef40",
+  "request" : {
+    "url" : "/services/residues/foo_bar/",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "bodyFileName" : "body-residues-foo_bar-n6viW.json",
+    "headers" : {
+      "Date" : "Wed, 01 Mar 2017 12:11:47 GMT",
+      "Server" : "Apache/2.4.7 (Ubuntu)",
+      "Allow" : "GET, HEAD, OPTIONS",
+      "Vary" : "Accept,Cookie",
+      "X-Frame-Options" : "SAMEORIGIN",
+      "Keep-Alive" : "timeout=5, max=100",
+      "Connection" : "Keep-Alive",
+      "Transfer-Encoding" : "chunked",
+      "Content-Type" : "application/json"
+    }
+  },
+  "uuid" : "a150641c-4a6a-341c-a302-2c91e58aef40"
+}

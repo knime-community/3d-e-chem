@@ -1,0 +1,23 @@
+{
+  "id" : "253b15be-d3ae-31ac-a16b-bc39273796d4",
+  "request" : {
+    "url" : "/services/structure/protein/oprk_human/?single",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "bodyFileName" : "body-protein-oprk_human-7GPRr.json",
+    "headers" : {
+      "Date" : "Wed, 01 Mar 2017 12:10:34 GMT",
+      "Server" : "Apache/2.4.7 (Ubuntu)",
+      "Allow" : "GET, HEAD, OPTIONS",
+      "Vary" : "Accept,Cookie",
+      "X-Frame-Options" : "SAMEORIGIN",
+      "Keep-Alive" : "timeout=5, max=98",
+      "Connection" : "Keep-Alive",
+      "Transfer-Encoding" : "chunked",
+      "Content-Type" : "application/json"
+    }
+  },
+  "uuid" : "253b15be-d3ae-31ac-a16b-bc39273796d4"
+}

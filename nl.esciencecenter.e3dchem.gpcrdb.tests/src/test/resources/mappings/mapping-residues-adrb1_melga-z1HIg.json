@@ -1,0 +1,24 @@
+{
+  "id" : "d4182293-1b01-3440-8d85-3f07f8cef995",
+  "request" : {
+    "url" : "/services/residues/adrb1_melga/",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "bodyFileName" : "body-residues-adrb1_melga-z1HIg.json",
+    "fixedDelayMilliseconds": 15000,
+    "headers" : {
+      "Date" : "Wed, 01 Mar 2017 12:04:06 GMT",
+      "Server" : "Apache/2.4.7 (Ubuntu)",
+      "Allow" : "GET, HEAD, OPTIONS",
+      "Vary" : "Accept,Cookie",
+      "X-Frame-Options" : "SAMEORIGIN",
+      "Keep-Alive" : "timeout=5, max=98",
+      "Connection" : "Keep-Alive",
+      "Transfer-Encoding" : "chunked",
+      "Content-Type" : "application/json"
+    }
+  },
+  "uuid" : "d4182293-1b01-3440-8d85-3f07f8cef995"
+}

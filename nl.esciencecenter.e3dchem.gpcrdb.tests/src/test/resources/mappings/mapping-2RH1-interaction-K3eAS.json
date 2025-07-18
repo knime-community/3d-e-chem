@@ -1,0 +1,23 @@
+{
+  "id" : "6be00d2a-841c-3a25-8482-f11bcd4283f7",
+  "request" : {
+    "url" : "/services/structure/2RH1/interaction/",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "bodyFileName" : "body-2RH1-interaction-K3eAS.json",
+    "headers" : {
+      "Date" : "Wed, 01 Mar 2017 12:04:27 GMT",
+      "Server" : "Apache/2.4.7 (Ubuntu)",
+      "Allow" : "GET, HEAD, OPTIONS",
+      "Vary" : "Accept,Cookie",
+      "X-Frame-Options" : "SAMEORIGIN",
+      "Keep-Alive" : "timeout=5, max=100",
+      "Connection" : "Keep-Alive",
+      "Transfer-Encoding" : "chunked",
+      "Content-Type" : "application/json"
+    }
+  },
+  "uuid" : "6be00d2a-841c-3a25-8482-f11bcd4283f7"
+}

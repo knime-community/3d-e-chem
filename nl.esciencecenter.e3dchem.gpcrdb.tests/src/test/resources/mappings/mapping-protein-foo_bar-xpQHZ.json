@@ -1,0 +1,23 @@
+{
+  "id" : "2808ef5a-75fa-3fa8-8f7f-56d25f16f8b1",
+  "request" : {
+    "url" : "/services/protein/foo_bar/",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 404,
+    "bodyFileName" : "body-protein-foo_bar-xpQHZ.json",
+    "headers" : {
+      "Date" : "Wed, 01 Mar 2017 12:30:35 GMT",
+      "Server" : "Apache/2.4.7 (Ubuntu)",
+      "Allow" : "GET, HEAD, OPTIONS",
+      "Vary" : "Accept,Cookie",
+      "X-Frame-Options" : "SAMEORIGIN",
+      "Keep-Alive" : "timeout=5, max=100",
+      "Connection" : "Keep-Alive",
+      "Transfer-Encoding" : "chunked",
+      "Content-Type" : "application/json"
+    }
+  },
+  "uuid" : "2808ef5a-75fa-3fa8-8f7f-56d25f16f8b1"
+}

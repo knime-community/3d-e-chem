@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+
+  <extension point="org.knime.workbench.repository.categories">
+    <category
+          description="Category containing GPCRDB nodes"
+          icon="icons/gpcrdb.png"
+          level-id="gpcrdb"
+          locked="false"
+          name="GPCRDB"
+          path="/community/3d-e-chem"/>
+  </extension>
+  
+  <extension point="org.knime.workbench.repository.nodes">
+    <node 
+          category-path="/community/3d-e-chem/gpcrdb" 
+          deprecated="false"
+          factory-class="nl.esciencecenter.e3dchem.gpcrdb.structures.StructuresOfProteinNodeFactory">
+    </node>
+    <node 
+          category-path="/community/3d-e-chem/gpcrdb" 
+          deprecated="false"
+          factory-class="nl.esciencecenter.e3dchem.gpcrdb.structures.StructuresNodeFactory">
+    </node>
+    <node
+          category-path="/community/3d-e-chem/gpcrdb"
+          deprecated="false"
+          factory-class="nl.esciencecenter.e3dchem.gpcrdb.proteins.ProteinInfoNodeFactory">
+    </node>
+    <node
+          category-path="/community/3d-e-chem/gpcrdb"
+          deprecated="false"
+          factory-class="nl.esciencecenter.e3dchem.gpcrdb.residues.ResiduesNodeFactory">
+    </node>
+    <node
+          category-path="/community/3d-e-chem/gpcrdb"
+          deprecated="false"
+          factory-class="nl.esciencecenter.e3dchem.gpcrdb.proteinfamilies.ProteinFamiliesNodeFactory">
+    </node>
+    <node
+          category-path="/community/3d-e-chem/gpcrdb"
+          deprecated="false"
+          factory-class="nl.esciencecenter.e3dchem.gpcrdb.mutants.MutantsNodeFactory">
+    </node>
+    <node
+          category-path="/community/3d-e-chem/gpcrdb"
+          deprecated="false"
+          factory-class="nl.esciencecenter.e3dchem.gpcrdb.structures.InteractionsNodeFactory">
+    </node>
+    <node
+          category-path="/community/3d-e-chem/gpcrdb"
+          deprecated="false"
+          factory-class="nl.esciencecenter.e3dchem.gpcrdb.proteins.ProteinSimilarityNodeFactory">
+    </node>
+  </extension>
+</plugin>
