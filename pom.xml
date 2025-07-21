@@ -51,6 +51,11 @@
 			<layout>p2</layout>
 			<url>https://update.knime.com/analytics-platform/${knime.version}</url>
 		</repository>
+		<repository>
+			<id>p2-knime-trusted-community</id>
+			<layout>p2</layout>
+			<url>https://update.knime.com/community-contributions/trusted/${knime.version}</url>
+		</repository>
 	</repositories>
 
 
