@@ -28,7 +28,6 @@
 		<module>nl.esciencecenter.e3dchem.knime.plants.bin.linux</module>
 		<module>nl.esciencecenter.e3dchem.knime.plants.bin.macosx</module>
 		<module>nl.esciencecenter.e3dchem.knime.plants.bin.windows</module>
-		<module>nl.esciencecenter.e3dchem.knime.plants.bin.windows32</module>
 		<module>nl.esciencecenter.e3dchem.knime.plants.plugin</module>
 		<module>nl.esciencecenter.e3dchem.knime.silicosit.bin.linux</module>
 		<module>nl.esciencecenter.e3dchem.knime.silicosit.bin.macosx</module>

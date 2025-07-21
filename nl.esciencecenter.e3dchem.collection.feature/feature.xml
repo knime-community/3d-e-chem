@@ -721,8 +721,6 @@ Public License instead of this License.  But first, please read
 
   <plugin id="nl.esciencecenter.e3dchem.knime.plants.bin.windows" os="win32" arch="x86_64" download-size="0" install-size="0" version="0.0.0" fragment="true"/>
 
-  <plugin id="nl.esciencecenter.e3dchem.knime.plants.bin.windows32" os="win32" arch="x86" download-size="0" install-size="0" version="0.0.0" fragment="true"/>
-
   <plugin id="nl.esciencecenter.e3dchem.knime.silicosit.bin.linux" os="linux" arch="x86_64" download-size="0" install-size="0" version="0.0.0" fragment="true"/>
 
   <plugin id="nl.esciencecenter.e3dchem.knime.silicosit.bin.macosx" os="macosx" arch="x86_64" download-size="0" install-size="0" version="0.0.0" fragment="true"/>
