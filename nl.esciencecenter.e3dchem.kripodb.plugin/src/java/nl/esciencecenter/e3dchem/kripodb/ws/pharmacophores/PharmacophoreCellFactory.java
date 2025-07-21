@@ -3,8 +3,8 @@ package nl.esciencecenter.e3dchem.kripodb.ws.pharmacophores;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.nio.file.Files;
 
-import org.apache.commons.io.FileUtils;
 import org.knime.core.data.DataCell;
 import org.knime.core.data.DataColumnSpec;
 import org.knime.core.data.DataRow;
@@ -38,7 +38,7 @@ public class PharmacophoreCellFactory extends SingleCellFactory {
 		try {
 			File pharfile = api.getFragmentPhar(fragmentId);
 			Charset encoding = Charset.forName("UTF-8");
-			String phar = FileUtils.readFileToString(pharfile, encoding);
+			String phar = Files.readString(pharfile.toPath(), encoding);
 			return new PharCell(phar);
 		} catch (ApiException | IOException e) {
 			return new MissingCell(e.getMessage());

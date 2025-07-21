@@ -2,8 +2,8 @@ package nl.vu_compmedchem.klifs.structures;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 
-import org.apache.commons.io.FileUtils;
 import org.knime.chem.types.Mol2Cell;
 import org.knime.chem.types.Mol2CellFactory;
 import org.knime.bio.types.PdbCell;
@@ -139,9 +139,9 @@ public class StructuresGetMOL2NodeModel extends KlifsNodeModel {
             		throw new Exception();
             }
 						if (formatType.equals("PDB")){
-            	cells[1] = PdbCellFactory.create(FileUtils.readFileToString(structure));
+            	cells[1] = PdbCellFactory.create(Files.readString(structure.toPath()));
 						} else {
-							cells[1] = Mol2CellFactory.create(FileUtils.readFileToString(structure));
+							cells[1] = Mol2CellFactory.create(Files.readString(structure.toPath()));
 						}
             DataRow row = new DefaultRow(key, cells);
             container.addRowToTable(row);
