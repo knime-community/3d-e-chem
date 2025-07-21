@@ -693,6 +693,10 @@ Public License instead of this License.  But first, please read
 &lt;http://www.gnu.org/philosophy/why-not-lgpl.html&gt;.
   </license>
 
+  <requires>
+    <import feature="org.rdkit.knime.feature" version="5.2.0" match="greaterOrEqual"/>
+  </requires>
+
   <plugin id="nl.esciencecenter.e3dchem.knime.pharmacophore.plugin" download-size="0" install-size="0" version="0.0.0" unpack="false"/>
 
   <plugin id="nl.esciencecenter.e3dchem.gpcrdb" download-size="0" install-size="0" version="0.0.0" unpack="false"/>
