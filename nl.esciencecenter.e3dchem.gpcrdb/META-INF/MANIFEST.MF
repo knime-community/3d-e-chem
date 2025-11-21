@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: GPCRDB Nodes
 Bundle-SymbolicName: nl.esciencecenter.e3dchem.gpcrdb;singleton:=true
 Bundle-Version: 1.4.3.qualifier
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Require-Bundle: org.knime.core;bundle-version="[4.0.0,6.0.0)",
  org.knime.base;bundle-version="[4.0.0,6.0.0)",
  org.knime.json;bundle-version="[4.0.0,6.0.0)",
