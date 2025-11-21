@@ -116,15 +116,17 @@ public class WorkflowDialogsTest extends WorkflowTest {
                                 executor.execute(new Runnable() {
                                     @Override
                                     public void run() {
-                                        final JFrame testFrame = new JFrame("Dialog for " + node.getName());
                                         try {
-                                            NodeDialogPane dlg = node.getDialogPaneWithSettings();
-                                            testFrame.getContentPane().add(dlg.getPanel());
-                                            testFrame.pack();
-                                            testFrame.setVisible(true);
-                                            NodeSettings settings = new NodeSettings("bla");
-                                            dlg.finishEditingAndSaveSettingsTo(settings);
-                                            dlg.callOnClose();
+                                            if (node.hasDialog()) {
+                                                final JFrame testFrame = new JFrame("Dialog for " + node.getName());
+                                                NodeDialogPane dlg = node.getDialogPaneWithSettings();
+                                                testFrame.getContentPane().add(dlg.getPanel());
+                                                testFrame.pack();
+                                                testFrame.setVisible(true);
+                                                NodeSettings settings = new NodeSettings("bla");
+                                                dlg.finishEditingAndSaveSettingsTo(settings);
+                                                dlg.callOnClose();
+                                            }
                                         } catch (Exception ex) {
                                             exRef.set(ex);
                                         } finally {
@@ -151,13 +153,15 @@ public class WorkflowDialogsTest extends WorkflowTest {
                             public void run() {
                                 final JFrame testFrame = new JFrame("Dialog for " + node.getName());
                                 try {
-                                    NodeDialogPane dlg = node.getDialogPaneWithSettings();
-                                    testFrame.getContentPane().add(dlg.getPanel());
-                                    testFrame.pack();
-                                    testFrame.setVisible(true);
-                                    NodeSettings settings = new NodeSettings("bla");
-                                    dlg.finishEditingAndSaveSettingsTo(settings);
-                                    dlg.callOnClose();
+                                    if (node.hasDialog()) {
+                                        NodeDialogPane dlg = node.getDialogPaneWithSettings();
+                                        testFrame.getContentPane().add(dlg.getPanel());
+                                        testFrame.pack();
+                                        testFrame.setVisible(true);
+                                        NodeSettings settings = new NodeSettings("bla");
+                                        dlg.finishEditingAndSaveSettingsTo(settings);
+                                        dlg.callOnClose();
+                                    }
                                 } catch (Exception ex) {
                                     exRef.set(ex);
                                 } finally {
