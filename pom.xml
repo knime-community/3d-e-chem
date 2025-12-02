@@ -12,8 +12,8 @@
 	<properties>
 		<revision>1.7.0</revision>
 		<changelist>-SNAPSHOT</changelist>
-		<tycho.version>4.0.7</tycho.version>
 		<knime.version>nightly</knime.version>
+		<tycho.version>4.0.13</tycho.version>
 		<tycho.extras.version>${tycho.version}</tycho.extras.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -101,7 +101,7 @@
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-buildtimestamp-jgit</artifactId>
-					<version>${tycho.extras.version}</version>
+					<version>${tycho.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.eclipse.tycho.extras</groupId>
@@ -153,7 +153,7 @@
 					<dependency>
 						<groupId>org.eclipse.tycho</groupId>
 						<artifactId>tycho-buildtimestamp-jgit</artifactId>
-						<version>${tycho.extras.version}</version>
+						<version>${tycho.version}</version>
 					</dependency>
 				</dependencies>
 				<configuration>
