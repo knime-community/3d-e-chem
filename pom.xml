@@ -12,8 +12,8 @@
 	<properties>
 		<revision>1.7.0</revision>
 		<changelist>-SNAPSHOT</changelist>
-		<knime.version>latest</knime.version>
 		<tycho.version>4.0.7</tycho.version>
+		<knime.version>nightly</knime.version>
 		<tycho.extras.version>${tycho.version}</tycho.extras.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
