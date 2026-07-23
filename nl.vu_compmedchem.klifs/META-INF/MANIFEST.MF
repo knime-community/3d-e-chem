@@ -31,7 +31,7 @@ Bundle-Activator: nl.vu_compmedchem.klifs.information.KinaseIDNodePlugin
 Bundle-Vendor: 3D-e-Chem
 Require-Bundle: org.knime.core;bundle-version="[4.0.0,6.0.0)",
  org.knime.base;bundle-version="[4.0.0,6.0.0)",
- org.knime.chem.types;bundle-version="[4.0.0,6.0.0)",
+ org.knime.chem.types;bundle-version="[4.0.0,7.0.0)",
  org.knime.bio.types;bundle-version="[4.0.0,6.0.0)",
  nl.esciencecenter.e3dchem.plugin;bundle-version="[1.0.0,2.0.0)"
 Bundle-ActivationPolicy: lazy
