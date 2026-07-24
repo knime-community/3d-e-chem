@@ -719,8 +719,6 @@ Public License instead of this License.  But first, please read
 
   <plugin id="nl.esciencecenter.e3dchem.plugin" download-size="0" install-size="0" version="0.0.0" unpack="false"/>
 
-  <plugin id="nl.esciencecenter.e3dchem.knime.testing.plugin" download-size="0" install-size="0" version="0.0.0" unpack="false"/>
-
   <plugin id="nl.esciencecenter.e3dchem.knime.plants.bin.linux" os="linux" arch="x86_64" download-size="0" install-size="0" version="0.0.0" fragment="true"/>
 
   <plugin id="nl.esciencecenter.e3dchem.knime.plants.bin.macosx" os="macosx" arch="x86_64" download-size="0" install-size="0" version="0.0.0" fragment="true"/>
