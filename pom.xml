@@ -13,6 +13,7 @@
 		<revision>1.7.0</revision>
 		<changelist>-SNAPSHOT</changelist>
 		<knime.version>nightly</knime.version>
+		<knime.bare.version>nightly</knime.bare.version>
 		<tycho.version>4.0.13</tycho.version>
 		<tycho.extras.version>${tycho.version}</tycho.extras.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -53,7 +54,7 @@
 		<repository>
 			<id>p2-knime-trusted-community</id>
 			<layout>p2</layout>
-			<url>https://update.knime.com/community-contributions/trusted/${knime.version}</url>
+			<url>https://update.knime.com/community-contributions/trusted/${knime.bare.version}</url>
 		</repository>
 	</repositories>
 
